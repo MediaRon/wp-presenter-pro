@@ -2,10 +2,10 @@
 /**
  * Plugin abstract.
  *
- * @package   User_Profile_Picture_Enhanced
+ * @package   WP_Presenter_Pro
  */
 
-namespace User_Profile_Picture_Enhanced;
+namespace WP_Presenter_Pro;
 
 /**
  * Class Plugin_Abstract

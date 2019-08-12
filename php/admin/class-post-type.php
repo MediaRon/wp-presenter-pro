@@ -16,34 +16,12 @@ class Post_Type {
 	 * Initialize the Admin component.
 	 */
 	public function init() {
+		return;
 		// Setup Post Type Template.
-		$author_profile_type           = get_post_type_object( 'mt_pp' );
-		$author_profile_type->template = array(
+		$wp_presentation_pro           = get_post_type_object( 'slides' );
+		$wp_presentation_pro->template = array(
 			array(
-				'mpp/user-profile-picture-enhanced-avatar',
-			),
-			array(
-				'mpp/user-profile-picture-enhanced-biography',
-			),
-			array(
-				'core/heading',
-				array(
-					'level'   => '3',
-					'content' => __( 'Social Networks', 'user-profile-picture-enhanced' ),
-				),
-			),
-			array(
-				'mpp/user-profile-picture-enhanced-social-networks',
-			),
-			array(
-				'core/heading',
-				array(
-					'level'   => '3',
-					'content' => __( 'Recent Posts', 'user-profile-picture-enhanced' ),
-				),
-			),
-			array(
-				'mpp/user-profile-picture-enhanced-recent-posts',
+				'wppp/slide',
 			),
 		);
 	}
@@ -52,78 +30,32 @@ class Post_Type {
 	 * Register any hooks that this component needs.
 	 */
 	public function register_hooks() {
-		global $mt_pp;
-		$options = $mt_pp->get_options();
-		if ( 'off' === $options['show_profile_post_type'] ) {
-			return;
-		}
-		add_action( 'init', array( $this, 'init' ) );
-		add_filter( 'mpp_post_type_args', array( $this, 'post_type_args' ) );
-		add_filter( 'manage_mt_pp_posts_columns', array( $this, 'post_type_columns' ) );
-		add_action( 'manage_mt_pp_posts_custom_column', array( $this, 'post_type_column_output' ), 10, 2 );
+		add_action( 'init', array( $this, 'post_type_args' ) );
 	}
 
 	/**
-	 * Modify UPP's Post Type Column Output
+	 * Initialize Post Type for slides.
 	 *
-	 * @param string $column  Column name.
-	 * @param int    $post_id Post ID.
-	 *
-	 * @return void
+	 * @return void.
 	 */
-	public function post_type_column_output( $column, $post_id ) {
-		$post = get_post( $post_id );
-		switch ( $column ) {
-			case 'profile_picture':
-				echo get_avatar( $post->post_author );
-				break;
-			case 'profile_title':
-				$user = get_user_by( 'id', $post->post_author );
-				echo esc_html( $user->data->display_name );
-				break;
-		}
-	}
-
-	/**
-	 * Modify UPP's Post Type Appearance
-	 *
-	 * @param array $columns Column arguments.
-	 *
-	 * @return array New Column arguments
-	 */
-	public function post_type_columns( $columns ) {
-		unset( $columns['title'] );
-		unset( $columns['date'] );
-		$columns['profile_title']   = __( 'User', 'user-profile-picture-enhanced' );
-		$columns['profile_picture'] = __( 'Avatar', 'user-profile-picture-enhanced' );
-		return $columns;
-	}
-
-	/**
-	 * Modify UPP's Post Type Args
-	 *
-	 * @param array $args Post Type arguments.
-	 *
-	 * @return array New Post Type arguments
-	 */
-	public function post_type_args( $args ) {
-		$labels = array(
-			'name'                  => _x( 'Profile Pictures', 'Post Type General Name', 'user-profile-picture-enhanced' ),
-			'singular_name'         => _x( 'Profile Picture', 'Post Type Singular Name', 'user-profile-picture-enhanced' ),
-			'menu_name'             => __( 'Profile Pictures', 'user-profile-picture-enhanced' ),
-			'name_admin_bar'        => __( 'Profile Picture', 'user-profile-picture-enhanced' ),
-			'archives'              => __( 'Profile Picture Archives', 'user-profile-picture-enhanced' ),
-			'attributes'            => __( 'Profile Picture Attributes', 'user-profile-picture-enhanced' ),
+	public function post_type_args() {
+		$labels  = array(
+			'name'                  => _x( 'Slides', 'Post Type General Name', 'user-profile-picture-enhanced' ),
+			'singular_name'         => _x( 'Slide', 'Post Type Singular Name', 'user-profile-picture-enhanced' ),
+			'menu_name'             => __( 'Slides', 'user-profile-picture-enhanced' ),
+			'name_admin_bar'        => __( 'Slide', 'user-profile-picture-enhanced' ),
+			'archives'              => __( 'Slide Archives', 'user-profile-picture-enhanced' ),
+			'attributes'            => __( 'Slide Attributes', 'user-profile-picture-enhanced' ),
 			'parent_item_colon'     => __( 'Parent Item:', 'user-profile-picture-enhanced' ),
-			'all_items'             => __( 'All Profile Pictures', 'user-profile-picture-enhanced' ),
-			'add_new_item'          => __( 'Add New Profile Picture', 'user-profile-picture-enhanced' ),
-			'add_new'               => __( 'Add New Profile Picture', 'user-profile-picture-enhanced' ),
-			'new_item'              => __( 'New Profile Picture', 'user-profile-picture-enhanced' ),
-			'edit_item'             => __( 'Edit Profile Picture', 'user-profile-picture-enhanced' ),
-			'update_item'           => __( 'Update Profile Picture', 'user-profile-picture-enhanced' ),
-			'view_item'             => __( 'View Profile Picture', 'user-profile-picture-enhanced' ),
-			'view_items'            => __( 'View Profile Pictures', 'user-profile-picture-enhanced' ),
-			'search_items'          => __( 'Search Profile Pictures', 'user-profile-picture-enhanced' ),
+			'all_items'             => __( 'All Slides', 'user-profile-picture-enhanced' ),
+			'add_new_item'          => __( 'Add New Slide', 'user-profile-picture-enhanced' ),
+			'add_new'               => __( 'Add New Slide', 'user-profile-picture-enhanced' ),
+			'new_item'              => __( 'New Slide', 'user-profile-picture-enhanced' ),
+			'edit_item'             => __( 'Edit Slide', 'user-profile-picture-enhanced' ),
+			'update_item'           => __( 'Update Slide', 'user-profile-picture-enhanced' ),
+			'view_item'             => __( 'View Slide', 'user-profile-picture-enhanced' ),
+			'view_items'            => __( 'View Slides', 'user-profile-picture-enhanced' ),
+			'search_items'          => __( 'Search Slides', 'user-profile-picture-enhanced' ),
 			'not_found'             => __( 'Not found', 'user-profile-picture-enhanced' ),
 			'not_found_in_trash'    => __( 'Not found in Trash', 'user-profile-picture-enhanced' ),
 			'featured_image'        => __( 'Featured Image', 'user-profile-picture-enhanced' ),
@@ -131,56 +63,44 @@ class Post_Type {
 			'remove_featured_image' => __( 'Remove featured image', 'user-profile-picture-enhanced' ),
 			'use_featured_image'    => __( 'Use as featured image', 'user-profile-picture-enhanced' ),
 			'insert_into_item'      => __( 'Insert into item', 'user-profile-picture-enhanced' ),
-			'uploaded_to_this_item' => __( 'Uploaded to this Profile Picture', 'user-profile-picture-enhanced' ),
-			'items_list'            => __( 'Profile Picture List', 'user-profile-picture-enhanced' ),
-			'items_list_navigation' => __( 'Profile Picture list navigation', 'user-profile-picture-enhanced' ),
-			'filter_items_list'     => __( 'Filter Profile Picture list', 'user-profile-picture-enhanced' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this Slide', 'user-profile-picture-enhanced' ),
+			'items_list'            => __( 'Slide List', 'user-profile-picture-enhanced' ),
+			'items_list_navigation' => __( 'Slide list navigation', 'user-profile-picture-enhanced' ),
+			'filter_items_list'     => __( 'Filter Slide list', 'user-profile-picture-enhanced' ),
 		);
-		global $mt_pp;
-		$options = $mt_pp->get_options();
-		if ( 'on' === $options['allow_public_profiles'] ) {
-			$rewrite = array(
-				'slug'       => 'users',
-				'with_front' => true,
-				'pages'      => true,
-				'feeds'      => false,
-			);
-		} else {
-			$rewrite = false;
-		}
+		$rewrite = array(
+			'slug'       => 'slides',
+			'with_front' => true,
+			'pages'      => true,
+			'feeds'      => false,
+		);
 
 		$args = array(
-			'label'               => __( 'Profile Picture', 'user-profile-picture-enhanced' ),
-			'description'         => __( 'User Profile Picture', 'user-profile-picture-enhanced' ),
+			'label'               => __( 'Slide', 'user-profile-picture-enhanced' ),
+			'description'         => __( 'Slide', 'user-profile-picture-enhanced' ),
 			'labels'              => $labels,
 			'hierarchical'        => false,
-			'public'              => false,
+			'public'              => true,
 			'show_ui'             => true,
 			'show_in_menu'        => true,
 			'menu_position'       => 100,
-			'menu_icon'           => 'dashicons-groups',
+			'menu_icon'           => 'dashicons-slides',
 			'show_in_admin_bar'   => true,
 			'show_in_nav_menus'   => false,
 			'can_export'          => true,
 			'supports'            => array(
-				'editor',
-				'thumbnail',
 				'title',
-				'excerpt',
+				'editor',
 			),
-			'has_archive'         => 'on' === $options['allow_public_profiles'] ? true : false,
+			'has_archive'         => false,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => 'on' === $options['allow_public_profiles'] ? true : false,
+			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
-			'query_var'           => 'uppe_user',
+			'query_var'           => 'wppp',
 			'capability_type'     => 'page',
-			'capabilities'        => array(
-				'create_posts' => 'do_not_allow',
-			),
-			'map_meta_cap'        => true,
 			'show_in_rest'        => true,
-			'show_in_menu'        => 'mpp',
+			'show_in_menu'        => true,
 		);
-		return $args;
+		register_post_type( 'wppp', $args );
 	}
 }
