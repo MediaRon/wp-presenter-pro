@@ -55,7 +55,7 @@ class Enqueue {
 		wp_enqueue_style(
 			'wp-presenter-pro-editor', // Handle.
 			WP_PRESENTER_PRO_URL . 'dist/blocks.editor.build.css',
-			array( 'wp-edit-blocks' ),
+			array(),
 			WP_PRESENTER_PRO_VERSION,
 			'all'
 		);

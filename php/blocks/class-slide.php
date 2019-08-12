@@ -36,11 +36,27 @@ class Slide {
 			'wppp/slide',
 			array(
 				'attributes'      => array(
-					'backgroundColor' => array(
+					'backgroundType'         => array(
+						'type'    => 'string',
+						'default' => 'background',
+					),
+					'backgroundVideo'        => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundImg'          => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundImageOptions' => array(
+						'type'    => 'string',
+						'default' => 'cover',
+					),
+					'backgroundColor'        => array(
 						'type'    => 'string',
 						'default' => '#f3a75b',
 					),
-					'innerBlocks'  => array(
+					'innerBlocks'            => array(
 						'type'    => 'array',
 						'default' => array(),
 						'items'   => [
