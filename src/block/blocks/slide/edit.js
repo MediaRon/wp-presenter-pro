@@ -4,6 +4,7 @@ import classnames from 'classnames';
 const { Component, Fragment } = wp.element;
 const { withSelect } = wp.data;
 const { __, _x } = wp.i18n;
+const { compose } =  wp.compose;
 
 
 const {
@@ -28,7 +29,8 @@ const {
 } = wp.editor;
 
 const {
-	RichText
+	RichText,
+	InnerBlocks
 } = wp.blockEditor;
 
 
@@ -46,31 +48,14 @@ class WP_Presenter_Pro_Slide extends Component {
 		return (
 			<Fragment>
 				<Fragment>
-					<InspectorControls>
-						<PanelBody title={ __( 'Slide Settings', 'wp-presenter-pro' ) }>
-							<PanelColorSettings
-								title={ __( 'Background Color', 'wp-presenter-pro' ) }
-								initialOpen={ true }
-								colorSettings={ [ {
-									value: backgroundColor,
-									onChange: ( value ) => {
-										setAttributes( { backgroundColor: value});
-									},
-									label: __( 'Background Color', 'wp-presenter-pro' ),
-								} ] }
-							>
-							</PanelColorSettings>
-						</PanelBody>
-					</InspectorControls>
+					<div className="wp-presenter-pro-slide" style={{backgroundColor: backgroundColor}}>
+						<div className="wp-block-group__inner-container">
+							<InnerBlocks />
+						</div>
+					</div>
 				</Fragment>
 			</Fragment>
 		);
 	}
 }
-export default withSelect(select => {
-	const { getCurrentPost } = select("core/editor");
-
-	return {
-		post: getCurrentPost(),
-	};
-})(WP_Presenter_Pro_Slide);
+export default WP_Presenter_Pro_Slide;

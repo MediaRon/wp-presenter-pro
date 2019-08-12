@@ -22,6 +22,12 @@ registerBlockType( 'wppp/slide', {
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
 	],
+	className: 'wppp',
+	supports: {
+		align: [ 'wide', 'full' ],
+		anchor: true,
+		html: false,
+	},
 	edit: edit,
 	save() {return null }
 } );

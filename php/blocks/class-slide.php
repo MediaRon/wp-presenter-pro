@@ -40,6 +40,13 @@ class Slide {
 						'type'    => 'string',
 						'default' => '#f3a75b',
 					),
+					'innerBlocks'  => array(
+						'type'    => 'array',
+						'default' => array(),
+						'items'   => [
+							'type' => 'object',
+						],
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
