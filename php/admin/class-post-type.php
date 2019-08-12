@@ -16,14 +16,7 @@ class Post_Type {
 	 * Initialize the Admin component.
 	 */
 	public function init() {
-		return;
-		// Setup Post Type Template.
-		$wp_presentation_pro           = get_post_type_object( 'wppp' );
-		$wp_presentation_pro->template = array(
-			array(
-				'wppp/slide',
-			),
-		);
+
 	}
 
 	/**
@@ -31,6 +24,30 @@ class Post_Type {
 	 */
 	public function register_hooks() {
 		add_action( 'init', array( $this, 'post_type_args' ) );
+		add_filter( 'block_categories', array( $this, 'add_block_category' ), 10, 2 );
+	}
+
+	/**
+	 * Adds a block category for WP Presenter Pro.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array  $categories Array of available categories.
+	 * @param object $post       Post to attach it to.
+	 *
+	 * @return array New Categories
+	 */
+	public function add_block_category( $categories, $post ) {
+		return array_merge(
+			$categories,
+			array(
+				array(
+					'slug'  => 'wp-presenter-pro',
+					'title' => __( 'WP Presenter Pro', 'metronet-profile-picture' ),
+					'icon'  => 'slides',
+				),
+			)
+		);
 	}
 
 	/**
@@ -102,5 +119,11 @@ class Post_Type {
 			'show_in_menu'        => true,
 		);
 		register_post_type( 'wppp', $args );
+		$wp_presentation_pro           = get_post_type_object( 'wppp' );
+		$wp_presentation_pro->template = array(
+			array(
+				'wppp/slide',
+			),
+		);
 	}
 }
