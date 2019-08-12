@@ -18,7 +18,7 @@ class Post_Type {
 	public function init() {
 		return;
 		// Setup Post Type Template.
-		$wp_presentation_pro           = get_post_type_object( 'slides' );
+		$wp_presentation_pro           = get_post_type_object( 'wppp' );
 		$wp_presentation_pro->template = array(
 			array(
 				'wppp/slide',
