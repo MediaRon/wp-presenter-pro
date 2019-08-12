@@ -48,7 +48,6 @@ class WP_Presenter_Pro_Slide extends Component {
 
 		// Get Theme Settings.
 		const backgroundSelectOptions = [
-			{ value: 'none', label: __( 'None', 'wp-presenter-pro' ) },
 			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
 			{ value: 'image', label: __( 'Background Image', 'wp-presenter-pro' ) },
 			{ value: 'video', label: __( 'Video', 'wp-presenter-pro' ) },
@@ -145,7 +144,6 @@ class WP_Presenter_Pro_Slide extends Component {
 								onSelect={ ( imageObject ) => {
 									this.props.setAttributes( { backgroundVideo: imageObject.url } );
 								} }
-								type="video"
 								value={ backgroundVideo }
 								render={ ( { open } ) => (
 									<Fragment>
@@ -166,20 +164,21 @@ class WP_Presenter_Pro_Slide extends Component {
 									</Fragment>
 								) }
 								/>
-								<SelectControl
-									label={ __( 'Select a Background Type', 'wp-presenter-pro' ) }
-									value={backgroundImageOptions}
-									options={ backgroundImageOptions }
-									onChange={ ( value ) => {
-										setAttributes( {backgroundImageOptions: value} );
-									} }
-								/>
 							</Fragment>
 						}
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
 					<div className="wp-presenter-pro-slide" style={slideStyles}>
+						{'video' === backgroundType && '' !== backgroundVideo &&
+							<Fragment>
+								<section class="wp-preseter-pro-video">
+									<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+										<source src={backgroundVideo} type="video/mp4" />
+									</video>
+								</section>
+							</Fragment>
+						}
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
 								allowedBlocks={allowedBlocks}
