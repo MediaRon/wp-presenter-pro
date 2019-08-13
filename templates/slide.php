@@ -51,7 +51,20 @@ endif;
 			foreach ( $blocks as $index => $block_info ) {
 				?>
 				<section data-background="<?php echo esc_html( $block_info['attrs']['backgroundColor'] ); ?>">
-					Hi there!
+					<?php
+					foreach ( $block_info['innerBlocks'] as $block_slug => $inner_data ) {
+						$attributes = $inner_data['attrs'];
+						switch ( $block_slug ) {
+							case 'wppp/slide-title':
+								?>
+								<div class="wp-presenter-pro-slide-title <?php echo esc_html( $attributes['transitions'] ); ?> fragment">
+								<?php echo wp_kses_post( $attributes['title'] ); ?>
+								</div>
+								<?php
+								break;
+						}
+					}
+					?>
 				</section>
 				<?php
 			}
