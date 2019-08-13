@@ -100,7 +100,7 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 				<Fragment>
 					<div className="wp-presenter-pro-slide-title" style={slideStyles}>
 					<RichText
-						placeholder={__('Enter a title here...', 'wp-presenter-pro')}
+						placeholder={__('Enter a slide title here...', 'wp-presenter-pro')}
 						value={ title }
 						onChange={ ( content ) => setAttributes( { title: content } ) }
 					/>
