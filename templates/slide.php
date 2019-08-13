@@ -57,7 +57,7 @@ endif;
 						switch ( $block_slug ) {
 							case 'wppp/slide-title':
 								?>
-								<div class="wp-presenter-pro-slide-title <?php echo esc_html( $attributes['transitions'] ); ?> fragment">
+								<div class="wp-presenter-pro-slide-title fade-in-then-semi-out fragment">
 								<?php echo wp_kses_post( $attributes['title'] ); ?>
 								</div>
 								<?php
