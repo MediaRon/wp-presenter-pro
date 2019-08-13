@@ -83,10 +83,5 @@ class Slide_Title {
 		if ( is_admin() ) {
 			return;
 		}
-
-		ob_start();
-		// Check for co-authors plus multi-authors.
-		echo 'test';
-		return ob_get_clean();
 	}
 }
