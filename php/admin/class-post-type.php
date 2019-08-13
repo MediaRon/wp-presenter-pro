@@ -25,6 +25,25 @@ class Post_Type {
 	public function register_hooks() {
 		add_action( 'init', array( $this, 'post_type_args' ) );
 		add_filter( 'block_categories', array( $this, 'add_block_category' ), 10, 2 );
+		add_filter( 'template_include', array( $this, 'slide_single_override' ), 99 );
+	}
+
+	/**
+	 * Overrides a slide's single.php file.
+	 *
+	 * @param string $template The template file to override.
+	 *
+	 * @return string updated template file.
+	 */
+	public function slide_single_override( $template ) {
+		if ( 'wppp' !== get_post_type() ) {
+			return $template;
+		}
+		$slide = WP_PRESENTER_PRO_DIR . '/templates/slide.php';
+		if ( file_exists( $slide ) ) {
+			return $slide;
+		}
+		return $template;
 	}
 
 	/**

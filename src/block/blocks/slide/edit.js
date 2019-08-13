@@ -43,8 +43,18 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition } = this.props.attributes;
 		const allowedBlocks = [ 'core/image', 'wppp/slide-title' ];
+
+		// Get Theme Settings.
+		const transitions = [
+			{ value: 'none', label: __( 'None', 'wp-presenter-pro' ) },
+			{ value: 'fade', label: __( 'Fade', 'wp-presenter-pro' ) },
+			{ value: 'slide', label: __( 'Slide', 'wp-presenter-pro' ) },
+			{ value: 'convex', label: __( 'Convex', 'wp-presenter-pro' ) },
+			{ value: 'concave', label: __( 'Concave', 'wp-presenter-pro' ) },
+			{ value: 'zoom', label: __( 'Zoom', 'wp-presenter-pro' ) },
+		];
 
 		// Get Theme Settings.
 		const backgroundSelectOptions = [
@@ -179,6 +189,14 @@ class WP_Presenter_Pro_Slide extends Component {
 							} ] }
 						>
 						</PanelColorSettings>
+						<SelectControl
+							label={ __( 'Select a Transition', 'wp-presenter-pro' ) }
+							value={transition}
+							options={ transitions }
+							onChange={ ( value ) => {
+								setAttributes( {transition: value} );
+							} }
+						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>

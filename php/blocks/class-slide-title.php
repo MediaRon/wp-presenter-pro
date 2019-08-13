@@ -86,7 +86,7 @@ class Slide_Title {
 
 		ob_start();
 		// Check for co-authors plus multi-authors.
-		return 'test';
+		echo 'test';
 		return ob_get_clean();
 	}
 }

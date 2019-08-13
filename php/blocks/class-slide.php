@@ -60,6 +60,10 @@ class Slide {
 						'type'    => 'string',
 						'default' => '#000000',
 					),
+					'transition'             => array(
+						'type'    => 'string',
+						'default' => 'slide',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -78,7 +82,16 @@ class Slide {
 
 		ob_start();
 		// Check for co-authors plus multi-authors.
-		return 'test';
+		?>
+		<div class="slides" style="background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>;" data-transition="<?php echo esc_html( isset( $attributes['transition'] ) ? $attributes['transition'] : '' ); ?>" data-background-color="<?php echo esc_html( isset( $attributes['backgroundColor'] ) ? $attributes['backgroundColor'] : '' ); ?>">
+			<section>
+				This is enough.
+			</section>
+			<section>
+				Enough I tell ya!.
+			</section>
+		</div>
+		<?php
 		return ob_get_clean();
 	}
 }
