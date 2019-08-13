@@ -1,5 +1,7 @@
 import axios from 'axios';
 import classnames from 'classnames';
+import revealFonts from '../fonts/fonts.js';
+import transitionOptions from '../transitions/transitions.js';
 
 const { Component, Fragment } = wp.element;
 const { withSelect } = wp.data;
@@ -42,13 +44,14 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, title} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, transitions} = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
 			color: textColor,
 			padding: padding + 'px',
-			borderRadius: radius + 'px'
+			borderRadius: radius + 'px',
+			fontFamily: `${font}`
 		};
 
 		return (
@@ -79,6 +82,23 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 							} ] }
 						>
 						</PanelColorSettings>
+						<SelectControl
+								label={ __( 'Select a Font', 'user-profile-picture-enhanced' ) }
+								value={font}
+								options={ revealFonts }
+								onChange={ ( value ) => {
+									setAttributes( {font: value} );
+								} }
+						/>
+						<SelectControl
+								label={ __( 'Select a Transition', 'user-profile-picture-enhanced' ) }
+								value={transitions}
+								options={ transitionOptions }
+								onChange={ ( value ) => {
+									setAttributes( {transitions: value} );
+								} }
+						/>
+
 						<RangeControl
 							label={ __( 'Padding', 'wp-presenter-pro' ) }
 							value={ padding }
@@ -95,15 +115,25 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 							max={ 20 }
 							step={ 1 }
 						/>
+						<ToggleControl
+							label={ __( 'Change Capitilization',  'post-type-archive-mapping' ) }
+							checked={ titleCapitalization }
+							onChange={ ( value ) => setAttributes( { titleCapitalization: value } ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
-					<div className="wp-presenter-pro-slide-title" style={slideStyles}>
-					<RichText
-						placeholder={__('Enter a slide title here...', 'wp-presenter-pro')}
-						value={ title }
-						onChange={ ( content ) => setAttributes( { title: content } ) }
-					/>
+					<div className={ classnames(
+							'wp-presenter-pro-slide-title',
+							titleCapitalization ? 'slide-title-capitalized' : ''
+						) }
+						style={slideStyles}
+					>
+						<RichText
+							placeholder={__('Enter a slide title here...', 'wp-presenter-pro')}
+							value={ title }
+							onChange={ ( content ) => setAttributes( { title: content } ) }
+						/>
 					</div>
 				</Fragment>
 			</Fragment>

@@ -4,4 +4,13 @@
 	align-items: center;
 	justify-content: center;
 	min-height: 600px;
+
+	.wp-presenter-pro-slide-title {
+		font-size: 2.1em;
+		line-height: 2.15em;
+		text-align: center;
+	}
+	.slide-title-capitalized {
+		text-transform: uppercase;
+	}
 }

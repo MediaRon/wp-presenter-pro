@@ -36,25 +36,37 @@ class Slide_Title {
 			'wppp/slide-title',
 			array(
 				'attributes'      => array(
-					'title'           => array(
+					'title'               => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'padding'         => array(
+					'titleCapitalization' => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
+					'padding'             => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'radius'          => array(
+					'radius'              => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'backgroundColor' => array(
+					'backgroundColor'     => array(
 						'type'    => 'string',
 						'default' => 'inherit',
 					),
-					'textColor'       => array(
+					'textColor'           => array(
 						'type'    => 'string',
 						'default' => '#000000',
+					),
+					'font'                => array(
+						'type'    => 'string',
+						'default' => 'open-sans',
+					),
+					'transitions'         => array(
+						'type'    => 'string',
+						'default' => '',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
