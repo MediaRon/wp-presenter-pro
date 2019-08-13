@@ -2,6 +2,9 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { Component, Fragment } = wp.element;
 import edit from './edit';
+const {
+	InnerBlocks
+} = wp.blockEditor;
 
 /**
  * Register Basic Block.
@@ -29,5 +32,9 @@ registerBlockType( 'wppp/slide', {
 		html: false,
 	},
 	edit: edit,
-	save() {return null }
+	save: function( props ) {
+		return (
+		  <InnerBlocks.Content />
+		);
+	},
 } );

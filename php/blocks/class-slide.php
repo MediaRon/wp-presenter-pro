@@ -56,12 +56,9 @@ class Slide {
 						'type'    => 'string',
 						'default' => '#f3a75b',
 					),
-					'innerBlocks'            => array(
-						'type'    => 'array',
-						'default' => array(),
-						'items'   => [
-							'type' => 'object',
-						],
+					'textColor'              => array(
+						'type'    => 'string',
+						'default' => '#000000',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),

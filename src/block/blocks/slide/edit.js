@@ -43,7 +43,7 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg } = this.props.attributes;
 		const allowedBlocks = [ 'core/image' ];
 
 		// Get Theme Settings.
@@ -59,6 +59,7 @@ class WP_Presenter_Pro_Slide extends Component {
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
+			color: textColor
 		};
 		if ( backgroundImg && 'background' !== backgroundType ) {
 			slideStyles.backgroundImage = `url(${backgroundImg})`;
@@ -166,6 +167,18 @@ class WP_Presenter_Pro_Slide extends Component {
 								/>
 							</Fragment>
 						}
+						<PanelColorSettings
+							title={ __( 'Text Color', 'wp-presenter-pro' ) }
+							initialOpen={ true }
+							colorSettings={ [ {
+								value: textColor,
+								onChange: ( value ) => {
+									setAttributes( { textColor: value});
+								},
+								label: __( 'Text Color', 'wp-presenter-pro' ),
+							} ] }
+						>
+						</PanelColorSettings>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>

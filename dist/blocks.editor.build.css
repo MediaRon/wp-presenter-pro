@@ -5,7 +5,23 @@
  * that are used across the project.
 */
 .wp-presenter-pro-slide {
-  min-height: 600px !important; }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-height: 600px; }
 
 .wp-presenter-pro-slide {
-  min-height: 600px !important; }
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  min-height: 600px; }
