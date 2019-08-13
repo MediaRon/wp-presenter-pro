@@ -8,9 +8,9 @@
 namespace WP_Presenter_Pro\Blocks;
 
 /**
- * Class Slide - Find your power animal.
+ * Class Admin
  */
-class Slide {
+class Slide_Title {
 
 	/**
 	 * Initialize the Admin component.
@@ -33,30 +33,26 @@ class Slide {
 			return;
 		}
 		register_block_type(
-			'wppp/slide',
+			'wppp/slide-title',
 			array(
 				'attributes'      => array(
-					'backgroundType'         => array(
-						'type'    => 'string',
-						'default' => 'background',
-					),
-					'backgroundVideo'        => array(
+					'title'           => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'backgroundImg'          => array(
-						'type'    => 'string',
-						'default' => '',
+					'padding'         => array(
+						'type'    => 'integer',
+						'default' => 0,
 					),
-					'backgroundImageOptions' => array(
-						'type'    => 'string',
-						'default' => 'cover',
+					'radius'          => array(
+						'type'    => 'integer',
+						'default' => 0,
 					),
-					'backgroundColor'        => array(
+					'backgroundColor' => array(
 						'type'    => 'string',
-						'default' => '#f3a75b',
+						'default' => 'inherit',
 					),
-					'textColor'              => array(
+					'textColor'       => array(
 						'type'    => 'string',
 						'default' => '#000000',
 					),

@@ -44,7 +44,7 @@ class WP_Presenter_Pro_Slide extends Component {
 	render() {
 		const { post, setAttributes } = this.props;
 		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg } = this.props.attributes;
-		const allowedBlocks = [ 'core/image' ];
+		const allowedBlocks = [ 'core/image', 'wppp/slide-title' ];
 
 		// Get Theme Settings.
 		const backgroundSelectOptions = [
