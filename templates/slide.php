@@ -57,7 +57,15 @@ endif;
 						switch ( $block_slug ) {
 							case 'wppp/slide-title':
 								?>
-								<div class="wp-presenter-pro-slide-title fade-in-then-semi-out fragment">
+								<div class="wp-presenter-pro-slide-title
+								<?php
+								if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+									echo esc_html( $attributes['transitions'] );
+									echo 'fragment';
+								}
+								?>
+								" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+								font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
 								<?php echo wp_kses_post( $attributes['title'] ); ?>
 								</div>
 								<?php
