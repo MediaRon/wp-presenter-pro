@@ -29,6 +29,9 @@
   width: 100%;
   min-height: 400px; }
 
+.wp-presenter-pro-image {
+  text-align: center; }
+
 .wp-presenter-pro-slide-title {
   font-size: 2.1em;
   line-height: 1.1;
