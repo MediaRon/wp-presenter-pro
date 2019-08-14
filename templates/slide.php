@@ -100,7 +100,7 @@ endif;
 									?>
 									">
 									<?php
-										echo wp_get_attachment_image( $attributes['imgId'], array( 500, 500 ) );
+										echo wp_get_attachment_image( $attributes['imgId'], array( 300, 300 ) );
 									?>
 									</div>
 									<?php
