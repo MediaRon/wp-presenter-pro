@@ -65,8 +65,8 @@ wp_enqueue_style(
 		// Full list of configuration options available here:
 		// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize( {
-				width : '1920',
-				height : '1080',
+				width : '960',
+				height : '700',
 				margin : 0.1,
 				minScale : 0.2,
 				maxScale : 1.5,
