@@ -57,8 +57,8 @@ endif;
 		'order'          => 'ASC',
 		'post_status'    => 'publish',
 		'post_type'      => 'wppp',
-		'meta_key'       => '_reorder_term_presentations_wordcamp-mental-health-2019',
-		'posts_per_page' => 100, // number of slides max
+		'meta_key'       => '_reorder_term_presentations_wordcamp-mental-health-2019', // phpcs:ignore
+		'posts_per_page' => 100, // number of slides max.
 	);
 	$posts = get_posts( $query ); // phpcs:ignore
 	if ( ! empty( $posts ) ) {
@@ -84,6 +84,22 @@ endif;
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
 									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
+									</div>
+									<?php
+									break;
+								case 'wppp/list-item':
+									?>
+									<div class="wp-presenter-pro-list-item
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo ' ';
+										echo 'fragment';
+									}
+									?>
+									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									<?php echo wp_kses_post( $attributes['content'] ); ?>
 									</div>
 									<?php
 									break;
@@ -162,12 +178,12 @@ Reveal.initialize( {
 			// Optional libraries used to extend on reveal.js
 			dependencies : [
 				<?php
-				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array(
+				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array( // phpcs:ignore
 					'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
 					'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
 					'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
 					'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
-				) ) );
+				) ) ); // phpcs:ignore
 				?>
 			]
 		} );

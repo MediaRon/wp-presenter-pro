@@ -62,12 +62,29 @@ endif;
 									<?php
 									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 										echo esc_html( $attributes['transitions'] );
+										echo ' ';
 										echo 'fragment';
 									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
 									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
+									</div>
+									<?php
+									break;
+								case 'wppp/list-item':
+									?>
+									<div class="wp-presenter-pro-list-item
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo ' ';
+										echo 'fragment';
+									}
+									?>
+									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									<?php echo wp_kses_post( $attributes['content'] ); ?>
 									</div>
 									<?php
 									break;
