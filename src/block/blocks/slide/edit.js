@@ -71,7 +71,7 @@ class WP_Presenter_Pro_Slide extends Component {
 			backgroundColor: backgroundColor,
 			color: textColor
 		};
-		if ( backgroundImg && 'background' !== backgroundType ) {
+		if ( backgroundImg && 'background' !== backgroundType && 'video' !== backgroundType ) {
 			slideStyles.backgroundImage = `url(${backgroundImg})`;
 		}
 		if ( backgroundImageOptions == 'cover' && 'background' !== backgroundType ) {
@@ -209,15 +209,6 @@ class WP_Presenter_Pro_Slide extends Component {
 				</InspectorControls>
 				<Fragment>
 					<div className="wp-presenter-pro-slide" style={slideStyles}>
-						{'video' === backgroundType && '' !== backgroundVideo &&
-							<Fragment>
-								<section class="wp-preseter-pro-video">
-									<video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-										<source src={backgroundVideo} type="video/mp4" />
-									</video>
-								</section>
-							</Fragment>
-						}
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
 								allowedBlocks={allowedBlocks}

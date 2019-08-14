@@ -49,8 +49,16 @@ endif;
 			<?php
 			$blocks = parse_blocks( $post->post_content );
 			foreach ( $blocks as $index => $block_info ) {
+				$slide_background = $block_info['attrs']['backgroundColor'];
+				$slide_video      = '';
+				if ( 'image' === $block_info['attrs']['backgroundType'] ) {
+					$slide_background = $block_info['attrs']['backgroundImg'];
+				}
+				if ( 'video' === $block_info['attrs']['backgroundType'] ) {
+					$slide_video = $block_info['attrs']['backgroundVideo'];
+				}
 				?>
-				<section data-background="<?php echo esc_html( $block_info['attrs']['backgroundColor'] ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>">
+				<section data-background-video="<?php echo esc_url( $slide_video ); ?>" data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>">
 					<?php
 					foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
 						if ( is_array( $inner_data ) ) {
