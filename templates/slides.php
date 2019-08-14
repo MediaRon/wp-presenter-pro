@@ -18,13 +18,9 @@ wp_enqueue_style(
 	WP_PRESENTER_PRO_VERSION,
 	'all'
 );
-
-$theme = get_theme_mod( 'select_theme' );
-if ( $theme ) :
-	wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
-else :
-	wp_enqueue_style( 'wp-presenter-default-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/black.css', array(), WP_PRESENTER_PRO_VERSION );
-endif;
+$wppp_term = get_queried_object();
+$theme     = function_exists( 'get_field' ) ? get_field( 'theme', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'black';
+wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
 ?>
 <?php
 /**
@@ -44,7 +40,7 @@ endif;
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 	wp_print_scripts( array( 'wp-presenter-head-js', 'wp-presenter-classlist', 'wp-presenter-core-js', 'html5shiv' ) );
-	wp_print_styles( array( 'wp-presenter-default-theme', 'wp-presenter-pro-front-end-css' ) );
+	wp_print_styles( array( 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css' ) );
 	?>
 
 </head>
@@ -166,7 +162,6 @@ endif;
 </div>
 <?php
 do_action( 'wp_footer' );
-$wppp_term = get_queried_object();
 ?>
 <script>
 // Full list of configuration options available here:
