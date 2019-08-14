@@ -32,6 +32,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_text_box = new Blocks\Text_Box();
 		$this->block_text_box->register_hooks();
 
+		// Block for code box.
+		$this->block_code = new Blocks\Code();
+		$this->block_code->register_hooks();
+
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
