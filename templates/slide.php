@@ -160,131 +160,28 @@ do_action( 'wp_footer' );
 		// Full list of configuration options available here:
 		// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize( {
-								width : '1920',
-								height : '1080',
-								margin :                 <?php if ( '' == get_theme_mod( 'margin' ) ) {
-				echo 0.1;
-			} else {
-				echo $margin;
-			} ?>,
-								minScale :               <?php if ( '' == get_theme_mod( 'minscale' ) ) {
-				echo 0.2;
-			} else {
-				echo $min_scale;
-			} ?>,
-								maxScale :               <?php if ( '' == get_theme_mod( 'maxscale' ) ) {
-				echo 1.5;
-			} else {
-				echo $max_scale;
-			} ?>,
-								controls :               <?php if ( get_theme_mod( 'controls_right_corner' ) ) {
-				echo $controls;
-			} else {
-				echo 'false';
-			} ?>,
-								progress :               <?php if ( '' == get_theme_mod( 'progress' ) ) {
-				echo 'false';
-			} else {
-				echo $progress;
-			} ?>,
-								slideNumber :            <?php if ( '' == get_theme_mod( 'number' ) ) {
-				echo 'false';
-			} else {
-				echo $slide_number;
-			} ?>,
-								history :                <?php if ( '' == get_theme_mod( 'history' ) ) {
-				echo 'false';
-			} else {
-				echo $history;
-			} ?>,
-								keyboard :               <?php if ( '' == get_theme_mod( 'keyboard_shortcuts' ) ) {
-				echo 'true';
-			} else {
-				echo $keyboard;
-			} ?>,
-								overview :               <?php if ( '' == get_theme_mod( 'overview' ) ) {
-				echo 'false';
-			} else {
-				echo $overview;
-			} ?>,
-								center :                 <?php if ( '' == get_theme_mod( 'center' ) ) {
-				echo 'true';
-			} else {
-				echo $center;
-			} ?>,
-								touch :                  <?php if ( '' == get_theme_mod( 'touch' ) ) {
-				echo 'true';
-			} else {
-				echo 'true';
-			} ?>,
-								loop :                   <?php if ( '' == get_theme_mod( 'loop_presentation' ) ) {
-				echo 'false';
-			} else {
-				echo $loop;
-			}?>,
-								rtl :                    <?php if ( '' == get_theme_mod( 'rtl' ) ) {
-				echo 'false';
-			} else {
-				echo $rtl;
-			} ?>,
-								embedded :               <?php if ( '' == get_theme_mod( 'embedded' ) ) {
-				echo 'false';
-			} else {
-				echo $embedded;
-			} ?>,
-								help :                   <?php if ( '' == get_theme_mod( 'help' ) ) {
-				echo 'true';
-			} else {
-				echo $help;
-			} ?>,
-								mouseWheel :             <?php if ( '' == get_theme_mod( 'mousewheel_navigation' ) ) {
-				echo 'false';
-			} else {
-				echo $mouse;
-			} ?>,
-								hideAddressBar :         <?php if ( '' == get_theme_mod( 'hide_address_bar' ) ) {
-				echo 'true';
-			} else {
-				echo $hide_address_bar;
-			} ?>,
-								previewLinks :           <?php if ( '' == get_theme_mod( 'preview_links' ) ) {
-				echo 'false';
-			} else {
-				echo $preview_links;
-			} ?>,
-								transition :             <?php if ( '' == get_theme_mod( 'transitions' ) ) {
-				echo '"default"';
-			} else {
-				echo '"zoom"';
-			} ?>,
-								transitionSpeed :        <?php if ( '' == get_theme_mod( 'transition_speed' ) ) {
-				echo '"slow"';
-			} else {
-				echo '"' . $transition_speed . '"';
-			} ?>,
-								backgroundTransition :   <?php if ( '' == get_theme_mod( 'bkg_transitions' ) ) {
-				echo '"default"';
-			} else {
-				echo '"' . $bkg_transition . '"';
-			} ?>,
-								viewDistance :           <?php if ( '' == get_theme_mod( 'view_distance' ) ) {
-				echo '3';
-			} else {
-				echo $view_distance;
-			} ?>,
-
-								// Optional libraries used to extend on reveal.js
-								dependencies : [
-									<?php
-									echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array(
-										'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
-										'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
-										'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
-										'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
-									) ) );
-									?>
-								]
-							} );
+				width : '1920',
+				height : '1080',
+				margin : 0.1,
+				minScale : 0.2,
+				maxScale : 1.5,
+				controls : false,
+				progress : false,
+				slideNumber : false,
+				center: true,
+				mouseWheel: true,
+				hideAddressBar: true,
+				dependencies : [
+				<?php
+				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array( // phpcs:ignore
+					'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
+					'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
+					'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
+					'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
+				) ) ); // phpcs:ignore
+				?>
+				]
+			} );
 		</script>
 </body>
 </html>
