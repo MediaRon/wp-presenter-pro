@@ -28,6 +28,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_slide_title = new Blocks\Slide_Title();
 		$this->block_slide_title->register_hooks();
 
+		// Block for text box.
+		$this->block_text_box = new Blocks\Text_Box();
+		$this->block_text_box->register_hooks();
+
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();

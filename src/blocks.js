@@ -12,3 +12,4 @@ import './block/style.scss';
 import './block/editor.scss';
 import './block/blocks/slide/block';
 import './block/blocks/title/block';
+import './block/blocks/text-box/block';

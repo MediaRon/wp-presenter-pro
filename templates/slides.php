@@ -66,27 +66,44 @@ endif;
 			$blocks = parse_blocks( $post->post_content );
 			foreach ( $blocks as $index => $block_info ) {
 				?>
-				<section data-background="<?php echo esc_attr( isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '' ); ?>" data-transition="<?php echo esc_attr( isset( $block_info['attrs']['transition'] ) ? $block_info['attrs']['transition'] : 'slide' ); ?>">
+				<section data-background="<?php echo esc_attr( isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '' ); ?>" data-transition="<?php echo esc_attr( isset( $block_info['attrs']['transition'] ) ? $block_info['attrs']['transition'] : 'slide' ); ?>"  data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>">
 					<?php
-					foreach ( $block_info['innerBlocks'] as $block_slug => $inner_data ) {
-						$attributes = $inner_data['attrs'];
-						switch ( $block_slug ) {
-							case 'wppp/slide-title':
-								?>
-								<div class="wp-presenter-pro-slide-title
-								<?php
-								if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
-									echo esc_html( $attributes['transitions'] );
-									echo ' ';
-									echo 'fragment';
-								}
-								?>
-								" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
-								font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
-								<?php echo wp_kses_post( $attributes['title'] ); ?>
-								</div>
-								<?php
-								break;
+					foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
+						if ( is_array( $inner_data ) ) {
+							$attributes = $inner_data['attrs'];
+							switch ( $inner_data['blockName'] ) {
+								case 'wppp/slide-title':
+									?>
+									<div class="wp-presenter-pro-slide-title
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo 'fragment';
+									}
+									?>
+									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									<?php echo wp_kses_post( $attributes['title'] ); ?>
+									</div>
+									<?php
+									break;
+								case 'wppp/text-box':
+									?>
+									<div class="wp-presenter-pro-text-box
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo ' ';
+										echo 'fragment';
+									}
+									?>
+									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
+									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									<?php echo wp_kses_post( $attributes['title'] ); ?>
+									</div>
+									<?php
+									break;
+							}
 						}
 					}
 					?>
@@ -205,11 +222,6 @@ do_action( 'wp_footer' );
 				echo '"slow"';
 			} else {
 				echo '"' . $transition_speed . '"';
-			} ?>,
-								backgroundTransition :   <?php if ( '' == get_theme_mod( 'bkg_transitions' ) ) {
-				echo '"default"';
-			} else {
-				echo '"' . $bkg_transition . '"';
 			} ?>,
 								viewDistance :           <?php if ( '' == get_theme_mod( 'view_distance' ) ) {
 				echo '3';

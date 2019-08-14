@@ -4,13 +4,18 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-.reveal .wp-presenter-pro-slide-title {
+.wp-presenter-pro-slide-title {
   font-size: 2.1em;
   line-height: 2.15em;
   text-align: center; }
 
-.reveal .slide-title-capitalized {
+.slide-title-capitalized {
   text-transform: uppercase; }
+
+.wp-presenter-pro-text-box {
+  font-size: 1.8em;
+  line-height: 1.85em;
+  text-align: center; }
 
 .wp-presenter-pro-slide {
   display: -ms-flexbox;

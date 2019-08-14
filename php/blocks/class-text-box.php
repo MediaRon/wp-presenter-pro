@@ -1,6 +1,6 @@
 <?php
 /**
- * Add a slide block.
+ * Add a slide text block.
  *
  * @package   WP_Presenter_Pro
  */
@@ -8,9 +8,9 @@
 namespace WP_Presenter_Pro\Blocks;
 
 /**
- * Class Slide - Find your power animal.
+ * Class Text_Box
  */
-class Slide {
+class Text_Box {
 
 	/**
 	 * Initialize the Admin component.
@@ -33,40 +33,28 @@ class Slide {
 			return;
 		}
 		register_block_type(
-			'wppp/slide',
+			'wppp/text-box',
 			array(
 				'attributes'      => array(
-					'backgroundType'         => array(
-						'type'    => 'string',
-						'default' => 'background',
-					),
-					'backgroundVideo'        => array(
+					'title'       => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'backgroundImg'          => array(
-						'type'    => 'string',
-						'default' => '',
+					'padding'     => array(
+						'type'    => 'integer',
+						'default' => 0,
 					),
-					'backgroundImageOptions' => array(
-						'type'    => 'string',
-						'default' => 'cover',
-					),
-					'backgroundColor'        => array(
-						'type'    => 'string',
-						'default' => '#f3a75b',
-					),
-					'textColor'              => array(
+					'textColor'   => array(
 						'type'    => 'string',
 						'default' => '#000000',
 					),
-					'transition'             => array(
+					'font'        => array(
 						'type'    => 'string',
-						'default' => 'slide',
+						'default' => 'open-sans',
 					),
-					'backgroundTransition'   => array(
+					'transitions' => array(
 						'type'    => 'string',
-						'default' => 'none',
+						'default' => '',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
@@ -83,11 +71,5 @@ class Slide {
 		if ( is_admin() ) {
 			return;
 		}
-		ob_start();
-		?>
-
-
-		<?php
-		return ob_get_clean();
 	}
 }

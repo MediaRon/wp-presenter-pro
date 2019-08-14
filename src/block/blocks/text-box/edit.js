@@ -29,13 +29,13 @@ const {
 } = wp.editor;
 
 const {
-	RichText,
 	InspectorControls,
+	RichText,
 	PanelColorSettings
 } = wp.blockEditor;
 
 
-class WP_Presenter_Pro_Slide_Title extends Component {
+class WP_Presenter_Pro_Text_Box extends Component {
 
 	constructor() {
 
@@ -44,32 +44,18 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, transitions} = this.props.attributes;
+		const { textColor, padding, title, font, transitions} = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: backgroundColor,
 			color: textColor,
 			padding: padding + 'px',
-			borderRadius: radius + 'px',
 			fontFamily: `${font}`
 		};
 
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'WP Presenter Pro Title', 'wp-presenter-pro' ) }>
-						<PanelColorSettings
-							title={ __( 'Background Color', 'wp-presenter-pro' ) }
-							initialOpen={ true }
-							colorSettings={ [ {
-								value: backgroundColor,
-								onChange: ( value ) => {
-									setAttributes( { backgroundColor: value});
-								},
-								label: __( 'Background Color', 'wp-presenter-pro' ),
-							} ] }
-						>
-						</PanelColorSettings>
+					<PanelBody title={ __( 'WP Presenter Pro Text Box', 'wp-presenter-pro' ) }>
 						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
@@ -107,30 +93,16 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 							max={ 100 }
 							step={ 1 }
 						/>
-						<RangeControl
-							label={ __( 'Radius', 'wp-presenter-pro' ) }
-							value={ radius }
-							onChange={ ( value ) => setAttributes( { radius: value } ) }
-							min={ 0 }
-							max={ 20 }
-							step={ 1 }
-						/>
-						<ToggleControl
-							label={ __( 'Change Capitilization',  'post-type-archive-mapping' ) }
-							checked={ titleCapitalization }
-							onChange={ ( value ) => setAttributes( { titleCapitalization: value } ) }
-						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
 					<div className={ classnames(
-							'wp-presenter-pro-slide-title',
-							titleCapitalization ? 'slide-title-capitalized' : ''
+							'wp-presenter-pro-text-box'
 						) }
 						style={slideStyles}
 					>
 						<RichText
-							placeholder={__('Enter a slide title here...', 'wp-presenter-pro')}
+							placeholder={__('Enter some text here!', 'wp-presenter-pro')}
 							value={ title }
 							onChange={ ( content ) => setAttributes( { title: content } ) }
 						/>
@@ -140,4 +112,4 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 		);
 	}
 }
-export default WP_Presenter_Pro_Slide_Title;
+export default WP_Presenter_Pro_Text_Box;

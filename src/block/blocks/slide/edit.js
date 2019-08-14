@@ -22,15 +22,15 @@ const {
 } = wp.components;
 
 const {
-	InspectorControls,
 	BlockControls,
-	MediaUpload,
-	PanelColorSettings,
+	MediaUpload
 } = wp.editor;
 
 const {
 	RichText,
-	InnerBlocks
+	InnerBlocks,
+	InspectorControls,
+	PanelColorSettings
 } = wp.blockEditor;
 
 
@@ -43,8 +43,8 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition } = this.props.attributes;
-		const allowedBlocks = [ 'core/image', 'wppp/slide-title' ];
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition } = this.props.attributes;
+		const allowedBlocks = [ 'wppp/slide-title', 'wppp/text-box' ];
 
 		// Get Theme Settings.
 		const transitions = [
@@ -195,6 +195,14 @@ class WP_Presenter_Pro_Slide extends Component {
 							options={ transitions }
 							onChange={ ( value ) => {
 								setAttributes( {transition: value} );
+							} }
+						/>
+						<SelectControl
+							label={ __( 'Select a Background Transition', 'wp-presenter-pro' ) }
+							value={backgroundTransition}
+							options={ transitions }
+							onChange={ ( value ) => {
+								setAttributes( {backgroundTransition: value} );
 							} }
 						/>
 					</PanelBody>
