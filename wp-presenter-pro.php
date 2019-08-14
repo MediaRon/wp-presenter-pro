@@ -211,6 +211,11 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							</div>
 							<?php
 							break;
+						case 'wppp/spacer':
+							?>
+							<div class="wp-presenter-pro-spacer" style="height: <?php echo absint( $attributes['height'] ); ?>px"></div>
+							<?php
+							break;
 					}
 				}
 			}
