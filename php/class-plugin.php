@@ -19,6 +19,10 @@ class Plugin extends Plugin_Abstract {
 		$this->acf = new Admin\ACF();
 		$this->acf->register_hooks();
 
+		// Load REST.
+		$this->rest_avatar = new REST\Rest_Get_Avatar();
+		$this->rest_avatar->register_hooks();
+
 		// Enqueue scripts.
 		$this->block_enqueue = new Blocks\Enqueue();
 		$this->block_enqueue->register_hooks();

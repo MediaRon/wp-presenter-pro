@@ -49,6 +49,14 @@ class Enqueue {
 	 */
 	public function block_js() {
 
+		// Get Intermedia Image Sizes for use in components.
+		$intermediate_sizes = get_intermediate_image_sizes();
+		$js_format_sizes    = array();
+		foreach ( $intermediate_sizes as $size ) {
+			$js_format_sizes[ $size ] = $size;
+		}
+		$js_format_sizes['full'] = 'Full';
+
 		// Scripts.
 		wp_enqueue_script(
 			'wp-presenter-pro-js',
@@ -61,8 +69,9 @@ class Enqueue {
 			'wp-presenter-pro-js',
 			'wp_presenter_pro',
 			array(
-				'rest_url'   => get_rest_url(),
-				'rest_nonce' => wp_create_nonce( 'wp_rest' ),
+				'rest_url'    => get_rest_url(),
+				'rest_nonce'  => wp_create_nonce( 'wp_rest' ),
+				'image_sizes' => $js_format_sizes,
 			)
 		);
 

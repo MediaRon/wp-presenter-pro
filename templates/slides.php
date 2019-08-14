@@ -127,7 +127,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 									?>
 									">
 									<?php
-										echo wp_get_attachment_image( $attributes['imgId'], array( 300, 300 ) );
+										echo wp_get_attachment_image( $attributes['imgId'], $attributes['imgSize'] );
 									?>
 									</div>
 									<?php

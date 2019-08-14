@@ -48,6 +48,10 @@ class Image {
 						'type'    => 'integer',
 						'default' => 0,
 					),
+					'imgSize'     => array(
+						'type'    => 'string',
+						'default' => 'full',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
