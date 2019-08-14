@@ -103,6 +103,23 @@ endif;
 									</div>
 									<?php
 									break;
+								case 'wppp/code':
+									?>
+									<div class="wp-presenter-pro-code-editor
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo ' ';
+										echo 'fragment';
+									}
+									?>
+									">
+<pre><code data-trim data-noescape data-line-numbers>
+<?php echo esc_html( $attributes['content'] ); // phpcs:ignore ?>
+</code></pre>
+									</div>
+									<?php
+									break;
 							}
 						}
 					}
