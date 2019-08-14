@@ -68,6 +68,10 @@ class Slide {
 						'type'    => 'string',
 						'default' => 'none',
 					),
+					'iframeUrl'              => array(
+						'type'    => 'string',
+						'default' => '',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

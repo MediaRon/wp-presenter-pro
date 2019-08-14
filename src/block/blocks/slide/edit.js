@@ -43,7 +43,7 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl } = this.props.attributes;
 		const allowedBlocks = [ 'wppp/slide-title', 'wppp/text-box', 'wppp/code', 'wppp/list-item', 'wppp/image' ];
 
 		// Get Theme Settings.
@@ -61,6 +61,7 @@ class WP_Presenter_Pro_Slide extends Component {
 			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
 			{ value: 'image', label: __( 'Background Image', 'wp-presenter-pro' ) },
 			{ value: 'video', label: __( 'Video', 'wp-presenter-pro' ) },
+			{ value: 'iframe', label: __( 'iFrame', 'wp-presenter-pro' ) },
 		];
 		const backgroundImageSelectOptions = [
 			{ value: 'cover', label: __( 'Cover', 'wp-presenter-pro' ) },
@@ -95,6 +96,15 @@ class WP_Presenter_Pro_Slide extends Component {
 								setAttributes( {backgroundType: value} );
 							} }
 						/>
+						{'iframe' === backgroundType &&
+							<TextControl
+								placeholder={__( 'Enter your iFrame URL here. No other blocks will be shown', 'wp-presenter-pro' )}
+								value={iframeUrl}
+								onChange={ ( value ) => {
+									setAttributes( {iframeUrl: value} );
+								} }
+							/>
+						}
 						{'background' === backgroundType &&
 							<PanelColorSettings
 								title={ __( 'Background Color', 'wp-presenter-pro' ) }
