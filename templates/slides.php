@@ -11,12 +11,19 @@ wp_enqueue_script( 'wp-presenter-core-js', WP_PRESENTER_PRO_URL . '/assets/revea
 wp_enqueue_script( 'html5shiv', '//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.js', array(), '3.7.2', false );
 wp_enqueue_style( 'wp-presenter-core', WP_PRESENTER_PRO_URL . '/assets/reveal/css/reveal.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
 wp_enqueue_style( 'wp-presenter-monokai', WP_PRESENTER_PRO_URL . '/assets/reveal/lib/css/monokai.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
+wp_enqueue_style(
+	'wp-presenter-pro-front-end-css', // Handle.
+	WP_PRESENTER_PRO_URL . 'dist/blocks.style.build.css',
+	array( 'wp-editor' ),
+	WP_PRESENTER_PRO_VERSION,
+	'all'
+);
 
 $theme = get_theme_mod( 'select_theme' );
 if ( $theme ) :
 	wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
 else :
-	wp_enqueue_style( 'wp-presenter-default-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/moon.css', array(), WP_PRESENTER_PRO_VERSION );
+	wp_enqueue_style( 'wp-presenter-default-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/black.css', array(), WP_PRESENTER_PRO_VERSION );
 endif;
 ?>
 <?php
@@ -35,22 +42,31 @@ endif;
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<?php do_action( 'wp_head' ); ?>
+	<?php
+	wp_print_scripts( array( 'wp-presenter-head-js', 'wp-presenter-classlist', 'wp-presenter-core-js', 'html5shiv' ) );
+	wp_print_styles( array( 'wp-presenter-default-theme', 'wp-presenter-pro-front-end-css' ) );
+	?>
 
 </head>
 <body>
 <div class="reveal">
+	<div class="slides">
 	<?php
-	if ( have_posts() ) {
-		while ( have_posts() ) {
-			the_post();
-			?>
-			<div class="slides">
-			<?php
+	$query = array(
+		'orderby'        => 'meta_value_num title',
+		'order'          => 'ASC',
+		'post_status'    => 'publish',
+		'post_type'      => 'wppp',
+		'meta_key'       => '_reorder_term_presentations_wordcamp-mental-health-2019',
+		'posts_per_page' => 100, // number of slides max
+	);
+	$posts = get_posts( $query ); // phpcs:ignore
+	if ( ! empty( $posts ) ) {
+		foreach( $posts as $post ) { // phpcs:ignore
 			$blocks = parse_blocks( $post->post_content );
 			foreach ( $blocks as $index => $block_info ) {
 				?>
-				<section data-background="<?php echo esc_html( $block_info['attrs']['backgroundColor'] ); ?>">
+				<section data-background="<?php echo esc_attr( isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '' ); ?>">
 					<?php
 					foreach ( $block_info['innerBlocks'] as $block_slug => $inner_data ) {
 						$attributes = $inner_data['attrs'];
@@ -64,7 +80,7 @@ endif;
 									echo 'fragment';
 								}
 								?>
-								" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+								" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
 								font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
 								<?php echo wp_kses_post( $attributes['title'] ); ?>
 								</div>
@@ -76,10 +92,6 @@ endif;
 				</section>
 				<?php
 			}
-			?>
-			</section>
-			</div>
-			<?php
 		}
 	}
 	?>
@@ -111,20 +123,20 @@ do_action( 'wp_footer' );
 								controls :               <?php if ( get_theme_mod( 'controls_right_corner' ) ) {
 				echo $controls;
 			} else {
-				echo 'false';
+				echo 'true';
 			} ?>,
 								progress :               <?php if ( '' == get_theme_mod( 'progress' ) ) {
-				echo 'false';
+				echo 'true';
 			} else {
 				echo $progress;
 			} ?>,
 								slideNumber :            <?php if ( '' == get_theme_mod( 'number' ) ) {
-				echo 'false';
+				echo 'true';
 			} else {
 				echo $slide_number;
 			} ?>,
 								history :                <?php if ( '' == get_theme_mod( 'history' ) ) {
-				echo 'false';
+				echo 'true';
 			} else {
 				echo $history;
 			} ?>,
@@ -149,7 +161,7 @@ do_action( 'wp_footer' );
 				echo 'true';
 			} ?>,
 								loop :                   <?php if ( '' == get_theme_mod( 'loop_presentation' ) ) {
-				echo 'false';
+				echo 'true';
 			} else {
 				echo $loop;
 			}?>,
@@ -169,14 +181,14 @@ do_action( 'wp_footer' );
 				echo $help;
 			} ?>,
 								mouseWheel :             <?php if ( '' == get_theme_mod( 'mousewheel_navigation' ) ) {
-				echo 'false';
+				echo 'true';
 			} else {
 				echo $mouse;
 			} ?>,
 								hideAddressBar :         <?php if ( '' == get_theme_mod( 'hide_address_bar' ) ) {
 				echo 'true';
 			} else {
-				echo $hide_address_bar;
+				echo 'true';
 			} ?>,
 								previewLinks :           <?php if ( '' == get_theme_mod( 'preview_links' ) ) {
 				echo 'false';

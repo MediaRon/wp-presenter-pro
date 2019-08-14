@@ -37,7 +37,12 @@ class Post_Type {
 	 */
 	public function slide_single_override( $template ) {
 		if ( 'wppp' !== get_post_type() ) {
-			return $template;
+			if ( is_tax( 'presentations' ) ) {
+				$slide = WP_PRESENTER_PRO_DIR . '/templates/slides.php';
+				return $slide;
+			} else {
+				return $template;
+			}
 		}
 		$slide = WP_PRESENTER_PRO_DIR . '/templates/slide.php';
 		if ( file_exists( $slide ) ) {
