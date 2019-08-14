@@ -77,6 +77,7 @@ endif;
 								<?php
 								if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 									echo esc_html( $attributes['transitions'] );
+									echo ' ';
 									echo 'fragment';
 								}
 								?>
