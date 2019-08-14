@@ -65,7 +65,13 @@ class EDD_License_Settings {
 	public function after_plugin_row( $plugin_file, $plugin_data, $status ) {
 		$license        = get_site_option( 'wppp_license', '' );
 		$license_status = get_site_option( 'wppp_license_status', false );
-		$options_url    = add_query_arg( array( 'page' => 'mpp' ), admin_url( 'admin.php' ) );
+		$options_url    = add_query_arg(
+			array(
+				'post_type' => 'wppp',
+				'page'      => 'wppp-settings',
+			),
+			admin_url( 'edit.php' )
+		);
 		if ( empty( $license ) || false === $license_status ) {
 			echo sprintf( '<tr class="active"><td colspan="3">%s <a href="%s">%s</a></td></tr>', esc_html__( 'Please enter a license to receive automatic updates.', 'wp-presenter-pro' ), esc_url( $options_url ), esc_html__( 'Enter License.', 'wp-presenter-pro' ) );
 		}

@@ -54,5 +54,9 @@ class Plugin extends Plugin_Abstract {
 		// Register license and settings.
 		$this->license_admin = new Admin\EDD_License_Settings();
 		$this->license_admin->register_hooks();
+
+		// Register Settings page.
+		$this->settings_admin = new Admin\Add_Settings_Page();
+		$this->settings_admin->register_hooks();
 	}
 }
