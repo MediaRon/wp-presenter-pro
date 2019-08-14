@@ -12,7 +12,7 @@ wp_enqueue_script( 'html5shiv', '//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.js
 wp_enqueue_style( 'wp-presenter-core', WP_PRESENTER_PRO_URL . '/assets/reveal/css/reveal.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
 wp_enqueue_style( 'wp-presenter-monokai', WP_PRESENTER_PRO_URL . '/assets/reveal/lib/css/monokai.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
 
-wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/black.css', array(), WP_PRESENTER_PRO_VERSION );
+wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/solarized.css', array(), WP_PRESENTER_PRO_VERSION );
 wp_enqueue_style(
 	'wp-presenter-pro-front-end-css', // Handle.
 	WP_PRESENTER_PRO_URL . 'dist/blocks.style.build.css',
