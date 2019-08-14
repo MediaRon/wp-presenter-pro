@@ -1,4 +1,4 @@
-body .reveal {
+.reveal {
 	.wp-presenter-pro-slide-title {
 		font-size: 2.1em;
 		line-height: 2.15em;
@@ -7,4 +7,12 @@ body .reveal {
 	.slide-title-capitalized {
 		text-transform: uppercase;
 	}
+}
+.wp-presenter-pro-slide {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 400px;
 }

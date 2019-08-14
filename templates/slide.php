@@ -186,7 +186,7 @@ do_action( 'wp_footer' );
 								transition :             <?php if ( '' == get_theme_mod( 'transitions' ) ) {
 				echo '"default"';
 			} else {
-				echo 'zoom';
+				echo '"zoom"';
 			} ?>,
 								transitionSpeed :        <?php if ( '' == get_theme_mod( 'transition_speed' ) ) {
 				echo '"slow"';

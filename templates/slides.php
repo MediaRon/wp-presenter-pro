@@ -66,7 +66,7 @@ endif;
 			$blocks = parse_blocks( $post->post_content );
 			foreach ( $blocks as $index => $block_info ) {
 				?>
-				<section data-background="<?php echo esc_attr( isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '' ); ?>">
+				<section data-background="<?php echo esc_attr( isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '' ); ?>" data-transition="<?php echo esc_attr( isset( $block_info['attrs']['transition'] ) ? $block_info['attrs']['transition'] : 'slide' ); ?>">
 					<?php
 					foreach ( $block_info['innerBlocks'] as $block_slug => $inner_data ) {
 						$attributes = $inner_data['attrs'];
@@ -198,7 +198,7 @@ do_action( 'wp_footer' );
 								transition :             <?php if ( '' == get_theme_mod( 'transitions' ) ) {
 				echo '"default"';
 			} else {
-				echo 'zoom';
+				echo '"slide"';
 			} ?>,
 								transitionSpeed :        <?php if ( '' == get_theme_mod( 'transition_speed' ) ) {
 				echo '"slow"';
