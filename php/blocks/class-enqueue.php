@@ -25,6 +25,23 @@ class Enqueue {
 	public function register_hooks() {
 		add_action( 'enqueue_block_assets', array( $this, 'frontend_css' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'block_js' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'load_admin_css' ) );
+	}
+
+	/**
+	 * Enqueue the Admin UI.
+	 */
+	public function load_admin_css() {
+		global $pagenow;
+		if ( 'edit-tags.php' === $pagenow ) {
+			wp_enqueue_style(
+				'wp-presenter-pro-admin', // Handle.
+				WP_PRESENTER_PRO_URL . 'css/wp-presenter-pro-admin.css',
+				array(),
+				WP_PRESENTER_PRO_VERSION,
+				'all'
+			);
+		}
 	}
 
 	/**

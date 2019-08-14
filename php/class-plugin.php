@@ -15,6 +15,9 @@ class Plugin extends Plugin_Abstract {
 	 * Execute this once plugins are loaded.
 	 */
 	public function plugin_loaded() {
+		// Load ACF.
+		$this->acf = new Admin\ACF();
+		$this->acf->register_hooks();
 
 		// Enqueue scripts.
 		$this->block_enqueue = new Blocks\Enqueue();
