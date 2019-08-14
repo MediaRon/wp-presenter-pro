@@ -73,7 +73,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 					}
 				}
 				?>
-				<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ). '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
+				<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
 					<?php
 					foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
 						if ( is_array( $inner_data ) ) {
@@ -87,9 +87,12 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 										echo esc_html( $attributes['transitions'] );
 										echo 'fragment';
 									}
+									if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
+										echo ' slide-title-capitalized';
+									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>px;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
 									</div>
 									<?php
@@ -105,7 +108,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
 									<?php echo wp_kses_post( $attributes['content'] ); ?>
 									</div>
 									<?php
@@ -121,7 +124,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
 									</div>
 									<?php

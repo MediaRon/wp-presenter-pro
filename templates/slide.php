@@ -73,9 +73,12 @@ endif;
 										echo ' ';
 										echo 'fragment';
 									}
+									if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
+										echo ' slide-title-capitalized';
+									}
 									?>
-									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
 									</div>
 									<?php
@@ -91,7 +94,7 @@ endif;
 									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
 									<?php echo wp_kses_post( $attributes['content'] ); ?>
 									</div>
 									<?php
@@ -124,7 +127,7 @@ endif;
 									}
 									?>
 									" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
-									font-family: <?php echo absint( $attributes['padding'] ); ?>px;">
+									font-family: <?php echo esc_html( $attributes['font'] ); ?>px;">
 									<?php echo wp_kses_post( $attributes['title'] ); ?>
 									</div>
 									<?php
