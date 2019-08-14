@@ -133,131 +133,44 @@ endif;
 </div>
 <?php
 do_action( 'wp_footer' );
+$wppp_term = get_queried_object();
 ?>
 <script>
-		// Full list of configuration options available here:
-		// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize( {
-								width : '1920',
-								height : '1080',
-								margin :                 <?php if ( '' == get_theme_mod( 'margin' ) ) {
-				echo 0.1;
-			} else {
-				echo $margin;
-			} ?>,
-								minScale :               <?php if ( '' == get_theme_mod( 'minscale' ) ) {
-				echo 0.2;
-			} else {
-				echo $min_scale;
-			} ?>,
-								maxScale :               <?php if ( '' == get_theme_mod( 'maxscale' ) ) {
-				echo 1.5;
-			} else {
-				echo $max_scale;
-			} ?>,
-								controls :               <?php if ( get_theme_mod( 'controls_right_corner' ) ) {
-				echo $controls;
-			} else {
-				echo 'true';
-			} ?>,
-								progress :               <?php if ( '' == get_theme_mod( 'progress' ) ) {
-				echo 'true';
-			} else {
-				echo $progress;
-			} ?>,
-								slideNumber :            <?php if ( '' == get_theme_mod( 'number' ) ) {
-				echo 'true';
-			} else {
-				echo $slide_number;
-			} ?>,
-								history :                <?php if ( '' == get_theme_mod( 'history' ) ) {
-				echo 'true';
-			} else {
-				echo $history;
-			} ?>,
-								keyboard :               <?php if ( '' == get_theme_mod( 'keyboard_shortcuts' ) ) {
-				echo 'true';
-			} else {
-				echo $keyboard;
-			} ?>,
-								overview :               <?php if ( '' == get_theme_mod( 'overview' ) ) {
-				echo 'false';
-			} else {
-				echo $overview;
-			} ?>,
-								center :                 <?php if ( '' == get_theme_mod( 'center' ) ) {
-				echo 'true';
-			} else {
-				echo $center;
-			} ?>,
-								touch :                  <?php if ( '' == get_theme_mod( 'touch' ) ) {
-				echo 'true';
-			} else {
-				echo 'true';
-			} ?>,
-								loop :                   <?php if ( '' == get_theme_mod( 'loop_presentation' ) ) {
-				echo 'true';
-			} else {
-				echo $loop;
-			}?>,
-								rtl :                    <?php if ( '' == get_theme_mod( 'rtl' ) ) {
-				echo 'false';
-			} else {
-				echo $rtl;
-			} ?>,
-								embedded :               <?php if ( '' == get_theme_mod( 'embedded' ) ) {
-				echo 'false';
-			} else {
-				echo $embedded;
-			} ?>,
-								help :                   <?php if ( '' == get_theme_mod( 'help' ) ) {
-				echo 'true';
-			} else {
-				echo $help;
-			} ?>,
-								mouseWheel :             <?php if ( '' == get_theme_mod( 'mousewheel_navigation' ) ) {
-				echo 'true';
-			} else {
-				echo $mouse;
-			} ?>,
-								hideAddressBar :         <?php if ( '' == get_theme_mod( 'hide_address_bar' ) ) {
-				echo 'true';
-			} else {
-				echo 'true';
-			} ?>,
-								previewLinks :           <?php if ( '' == get_theme_mod( 'preview_links' ) ) {
-				echo 'false';
-			} else {
-				echo $preview_links;
-			} ?>,
-								transition :             <?php if ( '' == get_theme_mod( 'transitions' ) ) {
-				echo '"default"';
-			} else {
-				echo '"slide"';
-			} ?>,
-								transitionSpeed :        <?php if ( '' == get_theme_mod( 'transition_speed' ) ) {
-				echo '"slow"';
-			} else {
-				echo '"' . $transition_speed . '"';
-			} ?>,
-								viewDistance :           <?php if ( '' == get_theme_mod( 'view_distance' ) ) {
-				echo '3';
-			} else {
-				echo $view_distance;
-			} ?>,
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize( {
+			width : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'width', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
+			height : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'height', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
+			margin : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'margin', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '0.1' ); ?>,
+			minScale : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'min_scale', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '0.2' ); ?>,
+			maxScale : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'max_scale', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1.5' ); ?>,
+			controls : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'display_controls', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			progress : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'progress_bar', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			slideNumber : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'slide_number', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			history : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'push_history', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'false' ); ?>,
+			keyboard : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'keyboard_shortcuts', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			overview : false,
+			center : true,
+			touch : true,
+			loop :<?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'loop', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			rtl : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'right_to_left', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			embedded : false,
+			mouseWheel : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'mouse_wheel_navigation', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'false' ); ?>,
+			hideAddressBar : true,
+			previewLinks : false,
 
-								// Optional libraries used to extend on reveal.js
-								dependencies : [
-									<?php
-									echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array(
-										'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
-										'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
-										'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
-										'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
-									) ) );
-									?>
-								]
-							} );
+			// Optional libraries used to extend on reveal.js
+			dependencies : [
+				<?php
+				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array(
+					'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
+					'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
+					'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
+					'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
+				) ) );
+				?>
+			]
+		} );
 		</script>
 </body>
 </html>
