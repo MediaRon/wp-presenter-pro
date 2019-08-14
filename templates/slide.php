@@ -88,6 +88,23 @@ endif;
 									</div>
 									<?php
 									break;
+								case 'wppp/image':
+									?>
+									<div class="wp-presenter-pro-image
+									<?php
+									if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+										echo esc_html( $attributes['transitions'] );
+										echo ' ';
+										echo 'fragment';
+									}
+									?>
+									">
+									<?php
+										echo wp_get_attachment_image( $attributes['imgId'], array( 500, 500 ) );
+									?>
+									</div>
+									<?php
+									break;
 								case 'wppp/text-box':
 									?>
 									<div class="wp-presenter-pro-text-box
