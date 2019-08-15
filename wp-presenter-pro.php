@@ -157,7 +157,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							?>
 							" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
 							font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
-							<?php echo wp_kses_post( $attributes['content'] ); ?>
+							<?php echo '<ul>' . wp_kses_post( $attributes['content'] ) . '</ul>'; ?>
 							</div>
 							<?php
 							break;

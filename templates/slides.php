@@ -53,7 +53,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 		'order'          => 'ASC',
 		'post_status'    => 'publish',
 		'post_type'      => 'wppp',
-		'meta_key'       => '_reorder_term_presentations_wordcamp-mental-health-2019', // phpcs:ignore
+		'meta_key'       => '_reorder_term_presentations_' . $wppp_term->slug, // phpcs:ignore
 		'posts_per_page' => 100, // number of slides max.
 	);
 	$posts = get_posts( $query ); // phpcs:ignore
