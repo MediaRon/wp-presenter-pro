@@ -16,12 +16,12 @@ gulp.task( 'bundle', function() {
 		'!tests/**/*',
 		'!phpcs.xml'
 	] )
-		.pipe( gulp.dest( 'release/user-profile-picture-enhanced' ) );
+		.pipe( gulp.dest( 'release/wp-presenter-pro' ) );
 } );
 
 gulp.task( 'remove:bundle', function() {
 	return del( [
-		'release/user-profile-picture-enhanced',
+		'release/wp-presenter-pro',
 	] );
 } );
 
@@ -30,43 +30,43 @@ gulp.task( 'wporg:prepare', function() {
 } );
 
 gulp.task( 'release:copy-for-zip', function() {
-	return gulp.src('release/user-profile-picture-enhanced/**')
-		.pipe(gulp.dest('user-profile-picture-enhanced'));
+	return gulp.src('release/wp-presenter-pro/**')
+		.pipe(gulp.dest('wp-presenter-pro'));
 } );
 
 gulp.task( 'release:zip', function() {
-	return gulp.src('user-profile-picture-enhanced/**/*', { base: "." })
-	.pipe(zip('user-profile-picture-enhanced.zip'))
+	return gulp.src('wp-presenter-pro/**/*', { base: "." })
+	.pipe(zip('wp-presenter-pro.zip'))
 	.pipe(gulp.dest('.'));
 } );
 
 gulp.task( 'cleanup', function() {
 	return del( [
 		'release',
-		'user-profile-picture-enhanced'
+		'wp-presenter-pro'
 	] );
 } );
 
 gulp.task( 'clean:bundle', function() {
 	return del( [
-		'release/user-profile-picture-enhanced/bin',
-		'release/user-profile-picture-enhanced/node_modules',
-		'release/user-profile-picture-enhanced/vendor',
-		'release/user-profile-picture-enhanced/tests',
-		'release/user-profile-picture-enhanced/trunk',
-		'release/user-profile-picture-enhanced/gulpfile.js',
-		'release/user-profile-picture-enhanced/Makefile',
-		'release/user-profile-picture-enhanced/package*.json',
-		'release/user-profile-picture-enhanced/phpunit.xml.dist',
-		'release/user-profile-picture-enhanced/README.md',
-		'release/user-profile-picture-enhanced/CHANGELOG.md',
-		'release/user-profile-picture-enhanced/webpack.config.js',
-		'release/user-profile-picture-enhanced/.editorconfig',
-		'release/user-profile-picture-enhanced/.eslistignore',
-		'release/user-profile-picture-enhanced/.eslistrcjson',
-		'release/user-profile-picture-enhanced/.git',
-		'release/user-profile-picture-enhanced/.gitignore',
-		'release/user-profile-picture-enhanced/src/block',
+		'release/wp-presenter-pro/bin',
+		'release/wp-presenter-pro/node_modules',
+		'release/wp-presenter-pro/vendor',
+		'release/wp-presenter-pro/tests',
+		'release/wp-presenter-pro/trunk',
+		'release/wp-presenter-pro/gulpfile.js',
+		'release/wp-presenter-pro/Makefile',
+		'release/wp-presenter-pro/package*.json',
+		'release/wp-presenter-pro/phpunit.xml.dist',
+		'release/wp-presenter-pro/README.md',
+		'release/wp-presenter-pro/CHANGELOG.md',
+		'release/wp-presenter-pro/webpack.config.js',
+		'release/wp-presenter-pro/.editorconfig',
+		'release/wp-presenter-pro/.eslistignore',
+		'release/wp-presenter-pro/.eslistrcjson',
+		'release/wp-presenter-pro/.git',
+		'release/wp-presenter-pro/.gitignore',
+		'release/wp-presenter-pro/src/block',
 		'package/prepare',
 	] );
 } );
