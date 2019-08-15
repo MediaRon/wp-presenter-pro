@@ -15,6 +15,11 @@ class Plugin extends Plugin_Abstract {
 	 * Execute this once plugins are loaded.
 	 */
 	public function plugin_loaded() {
+
+		// Check for dependencies.
+		$this->dependencies = new Admin\Admin_Prerequisites();
+		$this->dependencies->register_hooks();
+
 		// Load ACF.
 		$this->acf = new Admin\ACF();
 		$this->acf->register_hooks();
