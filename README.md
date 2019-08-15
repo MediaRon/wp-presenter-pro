@@ -1,4 +1,4 @@
-# User Profile Picture Enhanced
+# WP Presenter Pro
 
 [![Build Status](https://travis-ci.org/ronalfy/wp-presenter-pro.svg?branch=master)](https://travis-ci.org/ronalfy/wp-presenter-pro)
 
