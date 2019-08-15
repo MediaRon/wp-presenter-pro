@@ -17,7 +17,7 @@ import edit from './edit';
  */
 registerBlockType( 'wppp/text-box', {
 	title: __( 'Text Box', 'wp-presenter-pro' ), // Block title.
-	icon: 'slides',
+	icon: 'editor-insertmore',
 	category: 'wp-presenter-pro',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),

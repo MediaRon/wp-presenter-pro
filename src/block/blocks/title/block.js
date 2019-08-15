@@ -17,7 +17,7 @@ import edit from './edit';
  */
 registerBlockType( 'wppp/slide-title', {
 	title: __( 'Slide Title', 'wp-presenter-pro' ), // Block title.
-	icon: 'slides',
+	icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>,
 	category: 'wp-presenter-pro',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),

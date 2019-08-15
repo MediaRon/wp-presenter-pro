@@ -40,7 +40,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 	wp_print_scripts( array( 'wp-presenter-head-js', 'wp-presenter-classlist', 'wp-presenter-core-js', 'html5shiv' ) );
-	wp_print_styles( array( 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css', 'wp-presenter-core' ) );
+	wp_print_styles( array( 'wp-presenter-monokai', 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css', 'wp-presenter-core' ) );
 	?>
 
 </head>

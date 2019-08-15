@@ -12,7 +12,7 @@ wp_enqueue_script( 'html5shiv', '//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.js
 wp_enqueue_style( 'wp-presenter-core', WP_PRESENTER_PRO_URL . '/assets/reveal/css/reveal.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
 wp_enqueue_style( 'wp-presenter-monokai', WP_PRESENTER_PRO_URL . '/assets/reveal/lib/css/monokai.css', array(), WP_PRESENTER_PRO_VERSION, 'all' );
 
-wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/solarized.css', array(), WP_PRESENTER_PRO_VERSION );
+wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/black.css', array(), WP_PRESENTER_PRO_VERSION );
 wp_enqueue_style(
 	'wp-presenter-pro-front-end-css', // Handle.
 	WP_PRESENTER_PRO_URL . 'dist/blocks.style.build.css',
@@ -39,7 +39,7 @@ wp_enqueue_style(
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 	wp_print_scripts( array( 'wp-presenter-head-js', 'wp-presenter-classlist', 'wp-presenter-core-js', 'html5shiv' ) );
-	wp_print_styles( array( 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css', 'wp-presenter-core' ) );
+	wp_print_styles( array( 'wp-presenter-monokai', 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css', 'wp-presenter-core' ) );
 	?>
 
 </head>
@@ -67,15 +67,18 @@ wp_enqueue_style(
 			Reveal.initialize( {
 				width : '960',
 				height : '700',
-				margin : 0.1,
-				minScale : 0.2,
-				maxScale : 1.5,
+				margin : '0.1',
+				minScale : '0.2',
+				maxScale : '1.5',
 				controls : false,
 				progress : false,
 				slideNumber : false,
-				center: true,
+				overview : false,
+				center : true,
+				touch : true,
 				mouseWheel: true,
 				hideAddressBar: true,
+				embedded : false,
 				dependencies : [
 				<?php
 				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array( // phpcs:ignore
