@@ -185,5 +185,12 @@ class Post_Type {
 				'wppp/slide',
 			),
 		);
+
+		// Flush rewrite rules.
+		$maybe_flush_rewrite_rules = get_option( 'wp_presenter_pro_permalinks_flushed', 0 );
+		if ( ! $maybe_flush_rewrite_rules ) {
+			flush_rewrite_rules( true );
+			update_option( 'wp_presenter_pro_permalinks_flushed', 1 );
+		}
 	}
 }

@@ -29,6 +29,14 @@ define( 'WP_PRESENTER_PRO_URL', plugins_url( '/', __FILE__ ) );
 define( 'WP_PRESENTER_PRO_SLUG', plugin_basename( __FILE__ ) );
 define( 'WP_PRESENTER_PRO_FILE', __FILE__ );
 
+register_activation_hook( __FILE__, 'wp_presenter_pro_plugin_activation' );
+/**
+ * Set an option for rewrite flush rules.
+ */
+function wp_presenter_pro_plugin_activation() {
+	update_option( 'wp_presenter_pro_permalinks_flushed', 0 );
+}
+
 // Setup the plugin auto loader.
 require_once 'php/autoloader.php';
 
