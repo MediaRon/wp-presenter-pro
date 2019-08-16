@@ -28,6 +28,10 @@
 	justify-content: center;
 	.col-1 {
 		max-width: 46%;
+		margin-right: 15px;
+		p {
+			text-align: left;
+		}
 	}
 	.col-2 {
 		max-width: 50%;

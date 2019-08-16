@@ -78,7 +78,10 @@
   -ms-flex-pack: center;
       justify-content: center; }
   .wp-presenter-pro-content-image .col-1 {
-    max-width: 46%; }
+    max-width: 46%;
+    margin-right: 15px; }
+    .wp-presenter-pro-content-image .col-1 p {
+      text-align: left; }
   .wp-presenter-pro-content-image .col-2 {
     max-width: 50%; }
 
@@ -226,6 +229,9 @@
   -ms-flex-pack: center;
       justify-content: center; }
   .wp-presenter-pro-content-image .col-1 {
-    max-width: 46%; }
+    max-width: 46%;
+    margin-right: 15px; }
+    .wp-presenter-pro-content-image .col-1 p {
+      text-align: left; }
   .wp-presenter-pro-content-image .col-2 {
     max-width: 50%; }
