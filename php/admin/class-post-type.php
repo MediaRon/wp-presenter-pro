@@ -132,6 +132,7 @@ class Post_Type {
 			'supports'            => array(
 				'title',
 				'editor',
+				'page-attributes',
 			),
 			'has_archive'         => false,
 			'exclude_from_search' => true,

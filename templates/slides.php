@@ -47,12 +47,18 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
 	<div class="slides">
 	<?php
 	$query = array(
-		'orderby'        => 'meta_value_num title',
+		'orderby'        => 'title order',
 		'order'          => 'ASC',
 		'post_status'    => 'publish',
 		'post_type'      => 'wppp',
-		'meta_key'       => '_reorder_term_presentations_' . $wppp_term->slug, // phpcs:ignore
 		'posts_per_page' => 100, // number of slides max.
+		'tax_query'      => array( // phpcs:ignore
+			array(
+				'taxonomy' => $wppp_term->taxonomy,
+				'field'    => 'id',
+				'terms'    => $wppp_term->term_id,
+			),
+		),
 	);
 	$posts = get_posts( $query ); // phpcs:ignore
 	if ( ! empty( $posts ) ) {
