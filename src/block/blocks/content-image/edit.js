@@ -70,7 +70,7 @@ class WP_Presenter_Pro_Content_Image extends Component {
 			padding: padding + 'px',
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
-			fontSize: `${fontSize}px`,
+			fontSize: `${fontSize}px !important`,
 		};
 
 		return (
