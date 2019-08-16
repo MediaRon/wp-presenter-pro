@@ -228,6 +228,16 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							<div class="wp-presenter-pro-spacer" style="height: <?php echo absint( $attributes['height'] ); ?>px"></div>
 							<?php
 							break;
+						case 'wppp/show-notes':
+							?>
+							<aside class="notes">
+								<?php echo '<ul>' . wp_kses_post( $attributes['notes'] ) . '</ul>'; ?>
+								<?php if ( isset( $attributes['listitems'] ) ) : ?>
+									<?php echo '<ul>' . wp_kses_post( $attributes['listitems'] ) . '</ul>'; ?>
+								<?php endif; ?>
+							</aside>
+							<?php
+							break;
 					}
 				}
 			}

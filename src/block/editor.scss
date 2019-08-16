@@ -23,3 +23,13 @@
 .wp-presenter-pro-image {
 	text-align: center;
 }
+.wp-presenter-pro-content-image {
+	display: flex;
+	justify-content: center;
+	.col-1 {
+		max-width: 46%;
+	}
+	.col-2 {
+		max-width: 50%;
+	}
+}

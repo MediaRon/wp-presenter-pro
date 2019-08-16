@@ -17,3 +17,5 @@ import './block/blocks/code/block';
 import './block/blocks/list-item/block';
 import './block/blocks/image/block';
 import './block/blocks/spacer/block';
+import './block/blocks/show-notes/block';
+import './block/blocks/content-image/block';

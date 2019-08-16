@@ -56,9 +56,17 @@ class Plugin extends Plugin_Abstract {
 		$this->block_image = new Blocks\Image();
 		$this->block_image->register_hooks();
 
-		// Image Block.
+		// Spacer Block.
 		$this->block_spacer = new Blocks\Spacer();
 		$this->block_spacer->register_hooks();
+
+		// Show Notes Block.
+		$this->block_content_image = new Blocks\Content_Image();
+		$this->block_content_image->register_hooks();
+
+		// Show Notes Block.
+		$this->block_show_notes = new Blocks\Show_Notes();
+		$this->block_show_notes->register_hooks();
 
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
