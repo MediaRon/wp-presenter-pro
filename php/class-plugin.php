@@ -76,6 +76,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_show_notes = new Blocks\Show_Notes();
 		$this->block_show_notes->register_hooks();
 
+		// Vertical Slides Block.
+		$this->block_vertical_slide = new Blocks\Vertical_Slide();
+		$this->block_vertical_slide->register_hooks();
+
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();

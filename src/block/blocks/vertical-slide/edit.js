@@ -34,7 +34,7 @@ const {
 } = wp.blockEditor;
 
 
-class WP_Presenter_Pro_Slide extends Component {
+class WP_Presenter_Pro_Vertical_Slide extends Component {
 
 	constructor() {
 
@@ -44,7 +44,7 @@ class WP_Presenter_Pro_Slide extends Component {
 	render() {
 		const { post, setAttributes } = this.props;
 		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl } = this.props.attributes;
-		const allowedBlocks = [ 'wppp/slide-title', 'wppp/text-box', 'wppp/code', 'wppp/list-item', 'wppp/image', 'wppp/spacer', 'wppp/show-notes', 'wppp/content-image', 'wppp/content', 'wppp/content-two-columns', 'wppp/vertical-slide' ];
+		const allowedBlocks = [ 'wppp/slide-title', 'wppp/text-box', 'wppp/code', 'wppp/list-item', 'wppp/image', 'wppp/spacer', 'wppp/show-notes', 'wppp/content-image', 'wppp/content', 'wppp/content-two-columns'];
 
 		// Get Theme Settings.
 		const transitions = [
@@ -230,4 +230,4 @@ class WP_Presenter_Pro_Slide extends Component {
 		);
 	}
 }
-export default WP_Presenter_Pro_Slide;
+export default WP_Presenter_Pro_Vertical_Slide;
