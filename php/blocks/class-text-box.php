@@ -40,6 +40,10 @@ class Text_Box {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'fontSize'    => array(
+						'type'    => 'integer',
+						'default' => '32',
+					),
 					'padding'     => array(
 						'type'    => 'integer',
 						'default' => 0,

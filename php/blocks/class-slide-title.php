@@ -64,6 +64,10 @@ class Slide_Title {
 						'type'    => 'string',
 						'default' => 'open-sans',
 					),
+					'fontSize'            => array(
+						'type'    => 'integer',
+						'default' => '64',
+					),
 					'transitions'         => array(
 						'type'    => 'string',
 						'default' => '',

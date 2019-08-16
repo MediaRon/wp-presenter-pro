@@ -44,12 +44,13 @@ class WP_Presenter_Pro_Text_Box extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { textColor, padding, title, font, transitions} = this.props.attributes;
+		const { textColor, padding, title, font, fontSize, transitions} = this.props.attributes;
 
 		let slideStyles = {
 			color: textColor,
 			padding: padding + 'px',
-			fontFamily: `${font}`
+			fontFamily: `${font}`,
+			fontSize: `${fontSize}px`,
 		};
 
 		return (
@@ -75,6 +76,14 @@ class WP_Presenter_Pro_Text_Box extends Component {
 								onChange={ ( value ) => {
 									setAttributes( {font: value} );
 								} }
+						/>
+						<RangeControl
+							label={ __( 'Font Size', 'wp-presenter-pro' ) }
+							value={ fontSize }
+							onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+							min={ 12 }
+							max={ 80 }
+							step={ 1 }
 						/>
 						<SelectControl
 								label={ __( 'Select a Transition', 'user-profile-picture-enhanced' ) }

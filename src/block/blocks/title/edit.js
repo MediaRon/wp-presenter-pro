@@ -44,14 +44,15 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, transitions} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, fontSize, transitions} = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',
-			fontFamily: `${font}`
+			fontFamily: `${font}`,
+			fontSize: `${fontSize}px`,
 		};
 
 		return (
@@ -89,6 +90,14 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 								onChange={ ( value ) => {
 									setAttributes( {font: value} );
 								} }
+						/>
+						<RangeControl
+							label={ __( 'Font Size', 'wp-presenter-pro' ) }
+							value={ fontSize }
+							onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+							min={ 12 }
+							max={ 80 }
+							step={ 1 }
 						/>
 						<SelectControl
 								label={ __( 'Select a Transition', 'user-profile-picture-enhanced' ) }
