@@ -37,3 +37,15 @@
 		max-width: 50%;
 	}
 }
+.wp-presenter-pro-content-two-columns {
+	display: flex;
+	justify-content: center;
+	.col-1 {
+		max-width: 46%;
+		margin-right: 10px;
+	}
+	.col-2 {
+		margin-left: 10px;
+		max-width: 46%;
+	}
+}

@@ -68,6 +68,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_content = new Blocks\Content();
 		$this->block_content->register_hooks();
 
+		// Show Content Block.
+		$this->block_content_two_columns = new Blocks\Content_Two_Columns();
+		$this->block_content_two_columns->register_hooks();
+
 		// Show Notes Block.
 		$this->block_show_notes = new Blocks\Show_Notes();
 		$this->block_show_notes->register_hooks();
