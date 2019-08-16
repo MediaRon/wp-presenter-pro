@@ -20,6 +20,7 @@ wp_enqueue_style(
 	WP_PRESENTER_PRO_VERSION,
 	'all'
 );
+add_filter( 'show_admin_bar', '__return_false' );
 ?>
 <?php
 /**
@@ -29,7 +30,7 @@ wp_enqueue_style(
  */
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin: 0 !important;">
 <head>
 	<meta charset="utf-8">
 	<meta name="apple-mobile-web-app-capable" content="yes"/>

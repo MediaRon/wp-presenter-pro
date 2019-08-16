@@ -21,6 +21,7 @@ wp_enqueue_style(
 $wppp_term = get_queried_object();
 $theme     = function_exists( 'get_field' ) ? get_field( 'theme', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'black';
 wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
+add_filter( 'show_admin_bar', '__return_false' );
 ?>
 <?php
 /**
@@ -30,7 +31,7 @@ wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/
  */
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="margin: 0 !important;">
 <head>
 	<meta charset="utf-8">
 
