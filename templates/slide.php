@@ -32,14 +32,11 @@ wp_enqueue_style(
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-
-	<title><?php wp_title( '', true, 'right' ); ?></title>
 	<meta name="apple-mobile-web-app-capable" content="yes"/>
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
-	wp_print_scripts( array( 'wp-presenter-head-js', 'wp-presenter-classlist', 'wp-presenter-core-js', 'html5shiv' ) );
-	wp_print_styles( array( 'wp-presenter-monokai', 'wp-presenter-display-theme', 'wp-presenter-pro-front-end-css', 'wp-presenter-core' ) );
+	do_action( 'wp_head' );
 	?>
 
 </head>
@@ -91,5 +88,8 @@ wp_enqueue_style(
 				]
 			} );
 		</script>
+		<?php
+		do_action( 'wp_footer' );
+		?>
 </body>
 </html>
