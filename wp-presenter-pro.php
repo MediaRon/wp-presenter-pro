@@ -112,11 +112,15 @@ function wp_presenter_pro_add_i18n() {
  */
 function wp_presenter_pro_render_blocks( $blocks ) {
 	foreach ( $blocks as $index => $block_info ) {
-		$slide_background = $block_info['attrs']['backgroundColor'];
-		$slide_video      = false;
-		$slide_iframe     = false;
+		$default_font               = 'open-sans';
+		$default_text_box_font_size = '32';
+		$default_title_font_size    = '64';
+		$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
+		$slide_video                = false;
+		$slide_iframe               = false;
 
 		if ( isset( $block_info['attrs']['backgroundType'] ) ) {
+			$slide_background = '#f3a75b';
 			if ( 'image' === $block_info['attrs']['backgroundType'] ) {
 				$slide_background = $block_info['attrs']['backgroundImg'];
 			}
@@ -147,8 +151,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 								echo ' slide-title-capitalized';
 							}
 							?>
-							" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
-							font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
+							" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
+							font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $default_font ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $default_title_font_size ) . 'px'; ?>">
 							<?php echo wp_kses_post( $attributes['title'] ); ?>
 							</div>
 							<?php
@@ -163,8 +167,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 								echo 'fragment';
 							}
 							?>
-							" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;background-color: <?php echo esc_html( $attributes['backgroundColor'] ); ?>; padding: <?php echo absint( $attributes['padding'] ); ?>px;
-							font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
+							" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 'inherit'; ?>
+							font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $default_font ); ?>;">
 							<?php echo '<ul>' . wp_kses_post( $attributes['content'] ) . '</ul>'; ?>
 							</div>
 							<?php
@@ -179,8 +183,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 								echo 'fragment';
 							}
 							?>
-							" style="color: <?php echo esc_html( $attributes['textColor'] ); ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : ''; ?> padding: <?php echo absint( $attributes['padding'] ); ?>px;
-							font-family: <?php echo esc_html( $attributes['font'] ); ?>;">
+							" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>;
+							font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $default_font ); ?>; <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $default_text_box_font_size ) . 'px'; ?>">
 							<?php echo wp_kses_post( $attributes['title'] ); ?>
 							</div>
 							<?php
