@@ -26,12 +26,6 @@ class Admin_Prerequisites {
 		if ( ! class_exists( 'ACF' ) ) {
 			add_action( 'admin_notices', array( $this, 'show_acf_dependency' ) );
 		}
-		if ( ! class_exists( 'MN_Reorder' ) ) {
-			add_action( 'admin_notices', array( $this, 'show_reorder_posts_dependency' ) );
-		}
-		if ( ! class_exists( 'Reorder_By_Term' ) ) {
-			add_action( 'admin_notices', array( $this, 'show_reorder_by_term_posts_dependency' ) );
-		}
 	}
 
 	/**

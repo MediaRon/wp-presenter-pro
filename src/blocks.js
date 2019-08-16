@@ -19,3 +19,4 @@ import './block/blocks/image/block';
 import './block/blocks/spacer/block';
 import './block/blocks/show-notes/block';
 import './block/blocks/content-image/block';
+import './block/blocks/content/block';

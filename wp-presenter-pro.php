@@ -261,6 +261,22 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							</div>
 							<?php
 							break;
+						case 'wppp/content':
+							?>
+							<div class="wp-presenter-pro-content
+							<?php
+							if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+								echo esc_html( $attributes['transitions'] );
+								echo ' ';
+								echo 'fragment';
+							}
+							?>
+							" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
+							font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $default_font ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $default_text_box_font_size ) . 'px'; ?>">
+								<?php echo wp_kses_post( $attributes['content'] ); ?>
+							</div>
+							<?php
+							break;
 					}
 				}
 			}

@@ -60,9 +60,13 @@ class Plugin extends Plugin_Abstract {
 		$this->block_spacer = new Blocks\Spacer();
 		$this->block_spacer->register_hooks();
 
-		// Show Notes Block.
+		// Show Content Image Block.
 		$this->block_content_image = new Blocks\Content_Image();
 		$this->block_content_image->register_hooks();
+
+		// Show Content Block.
+		$this->block_content = new Blocks\Content();
+		$this->block_content->register_hooks();
 
 		// Show Notes Block.
 		$this->block_show_notes = new Blocks\Show_Notes();
