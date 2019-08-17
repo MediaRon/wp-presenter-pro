@@ -513,9 +513,8 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 						break;
 				}
 			}
-			?>
-	</section>
-			<?php
-			break;
 		}
+		?>
+	</section>
+	<?php
 }
