@@ -161,15 +161,16 @@ class WP_Presenter_Pro_Content_Image extends Component {
 						) }
 						style={slideStyles}
 					>
-						<div className="col-1 text" style={{fontSize: fontSize + 'px'}}>
+						<div className="col-1">
 							<RichText
 								tagName="div"
 								multiline="p"
 								value={ content }
 								onChange={ ( content ) => setAttributes( { content } ) }
+								placeholder={__('Enter text here...', 'wp-presenter-pro')}
 							/>
 						</div>
-						<div className="col-2 image">
+						<div className="col-2">
 							<MediaUpload
 								onSelect={ (value) => { setAttributes({img: value.sizes.full.url, imgId: value.id })} }
 								render={ ({open}) => {
