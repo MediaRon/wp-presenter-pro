@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Admin
  */
-class Slide_Title {
+class Slide_Title extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -87,5 +87,24 @@ class Slide_Title {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start();
+		?>
+		<div class="wp-presenter-pro-slide-title
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
+			echo ' slide-title-capitalized';
+		}
+		?>
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
+		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->title_font_size ) . 'px'; ?>">
+		<?php echo wp_kses_post( $attributes['title'] ); ?>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 }

@@ -176,20 +176,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							<?php
 							break;
 						case 'wppp/text-box':
-							?>
-							<div class="wp-presenter-pro-text-box
-							<?php
-							if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
-								echo esc_html( $attributes['transitions'] );
-								echo ' ';
-								echo 'fragment';
-							}
-							?>
-							" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>;
-							font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $default_font ); ?>; <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $default_text_box_font_size ) . 'px'; ?>">
-							<?php echo wp_kses_post( $attributes['title'] ); ?>
-							</div>
-							<?php
+							echo render_block( $inner_data ); // phpcs:ignore
 							break;
 						case 'wppp/image':
 							?>
@@ -302,6 +289,25 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 							break;
 						case 'wppp/vertical-slide':
 							$vertical_slides[] = $inner_data;
+							break;
+						case 'atomic-blocks/ab-accordion':
+						case 'atomic-blocks/ab-profile-box':
+						case 'atomic-blocks/ab-button':
+						case 'atomic-blocks/ab-columns':
+						case 'atomic-blocks/ab-column':
+						case 'atomic-blocks/ab-container':
+						case 'atomic-blocks/ab-cta':
+						case 'atomic-blocks/ab-drop-cap':
+						case 'atomic-blocks/ab-layouts':
+						case 'atomic-blocks/newsletter':
+						case 'atomic-blocks/ab-notice':
+						case 'atomic-blocks/ab-post-grid':
+						case 'atomic-blocks/ab-pricing':
+						case 'atomic-blocks/ab-pricing-table':
+						case 'atomic-blocks/ab-sharing':
+						case 'atomic-blocks/ab-spacer':
+						case 'atomic-blocks/ab-testimonial':
+							echo render_block( $inner_data ); // phpcs:ignore
 							break;
 					}
 				}

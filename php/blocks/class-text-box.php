@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Text_Box
  */
-class Text_Box {
+class Text_Box extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -75,5 +75,21 @@ class Text_Box {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start();
+		?>
+		<div class="wp-presenter-pro-text-box
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		?>
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>;
+		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->sub_title_font_size ) . 'px'; ?>">
+		<?php echo wp_kses_post( $attributes['title'] ); ?>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 }
