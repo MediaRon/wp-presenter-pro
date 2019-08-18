@@ -1,10 +1,10 @@
 jQuery( document ).ready( function( $ ) {
 	jQuery.upp_enhanced_sortable = function() {
-		var sort_list = $( '#user-profile-picture-enhanced-sortable' );
+		var sort_list = $( '#wp-presenter-pro-sortable' );
 		var max_levels = 1;
 		jQuery.upp_enhanced_sortable.sortable = sort_list.sortable( {
 			update: function( event, ui ) {
-				var $items = $( '#user-profile-picture-enhanced-sortable li' );
+				var $items = $( '#wp-presenter-pro-sortable li' );
 				if ( 0 == $items.length ) {
 					return;
 				}

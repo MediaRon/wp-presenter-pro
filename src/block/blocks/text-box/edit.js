@@ -70,7 +70,7 @@ class WP_Presenter_Pro_Text_Box extends Component {
 						>
 						</PanelColorSettings>
 						<SelectControl
-								label={ __( 'Select a Font', 'user-profile-picture-enhanced' ) }
+								label={ __( 'Select a Font', 'wp-presenter-pro' ) }
 								value={font}
 								options={ revealFonts }
 								onChange={ ( value ) => {
@@ -86,7 +86,7 @@ class WP_Presenter_Pro_Text_Box extends Component {
 							step={ 1 }
 						/>
 						<SelectControl
-								label={ __( 'Select a Transition', 'user-profile-picture-enhanced' ) }
+								label={ __( 'Select a Transition', 'wp-presenter-pro' ) }
 								value={transitions}
 								options={ transitionOptions }
 								onChange={ ( value ) => {

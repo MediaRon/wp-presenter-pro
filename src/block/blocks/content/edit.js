@@ -102,7 +102,7 @@ class WP_Presenter_Pro_Content extends Component {
 						>
 						</PanelColorSettings>
 						<SelectControl
-								label={ __( 'Select a Font', 'user-profile-picture-enhanced' ) }
+								label={ __( 'Select a Font', 'wp-presenter-pro' ) }
 								value={font}
 								options={ revealFonts }
 								onChange={ ( value ) => {

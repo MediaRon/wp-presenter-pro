@@ -1,0 +1,720 @@
+# Copyright (C) 2019 MediaRon LLC
+# This file is distributed under the same license as the WP Presenter Pro plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Presenter Pro 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-presenter-pro\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-08-18T21:06:45+00:00\n"
+"PO-Revision-Date: 2019-08-18T21:06:45+00:00\n"
+"X-Generator: WP-CLI 2.0.1\n"
+"X-Domain: wp-presenter-pro\n"
+
+#. Plugin Name of the plugin
+msgid "WP Presenter Pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://mediaron.com/downloads/wp-presenter-pro/"
+msgstr ""
+
+#. Description of the plugin
+msgid "A plugin for allowing you to do presentations using WordPress."
+msgstr ""
+
+#. Author of the plugin
+msgid "MediaRon LLC"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://mediaron.com"
+msgstr ""
+
+#: php/admin/class-acf.php:559
+#: php/admin/class-post-type.php:84
+msgctxt "Post Type General Name"
+msgid "Slides"
+msgstr ""
+
+#: php/admin/class-acf.php:560
+#: php/admin/class-post-type.php:85
+msgctxt "Post Type Singular Name"
+msgid "Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:561
+#: php/admin/class-post-type.php:86
+msgid "Slides"
+msgstr ""
+
+#: php/admin/class-acf.php:562
+#: php/admin/class-acf.php:595
+#: php/admin/class-acf.php:596
+#: php/admin/class-post-type.php:87
+#: php/admin/class-post-type.php:120
+#: php/admin/class-post-type.php:121
+#: dist/blocks.build.js:1
+msgid "Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:563
+#: php/admin/class-post-type.php:88
+msgid "Slide Archives"
+msgstr ""
+
+#: php/admin/class-acf.php:564
+#: php/admin/class-post-type.php:89
+msgid "Slide Attributes"
+msgstr ""
+
+#: php/admin/class-acf.php:565
+#: php/admin/class-post-type.php:90
+msgid "Parent Item:"
+msgstr ""
+
+#: php/admin/class-acf.php:566
+#: php/admin/class-post-type.php:91
+msgid "All Slides"
+msgstr ""
+
+#: php/admin/class-acf.php:567
+#: php/admin/class-acf.php:568
+#: php/admin/class-post-type.php:92
+#: php/admin/class-post-type.php:93
+msgid "Add New Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:569
+#: php/admin/class-post-type.php:94
+msgid "New Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:570
+#: php/admin/class-post-type.php:95
+msgid "Edit Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:571
+#: php/admin/class-post-type.php:96
+msgid "Update Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:572
+#: php/admin/class-post-type.php:97
+msgid "View Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:573
+#: php/admin/class-post-type.php:98
+msgid "View Slides"
+msgstr ""
+
+#: php/admin/class-acf.php:574
+#: php/admin/class-post-type.php:99
+msgid "Search Slides"
+msgstr ""
+
+#: php/admin/class-acf.php:575
+#: php/admin/class-post-type.php:100
+msgid "Not found"
+msgstr ""
+
+#: php/admin/class-acf.php:576
+#: php/admin/class-post-type.php:101
+msgid "Not found in Trash"
+msgstr ""
+
+#: php/admin/class-acf.php:577
+#: php/admin/class-post-type.php:102
+msgid "Featured Image"
+msgstr ""
+
+#: php/admin/class-acf.php:578
+#: php/admin/class-post-type.php:103
+msgid "Set featured image"
+msgstr ""
+
+#: php/admin/class-acf.php:579
+#: php/admin/class-post-type.php:104
+msgid "Remove featured image"
+msgstr ""
+
+#: php/admin/class-acf.php:580
+#: php/admin/class-post-type.php:105
+msgid "Use as featured image"
+msgstr ""
+
+#: php/admin/class-acf.php:581
+#: php/admin/class-post-type.php:106
+msgid "Insert into item"
+msgstr ""
+
+#: php/admin/class-acf.php:582
+#: php/admin/class-post-type.php:107
+msgid "Uploaded to this Slide"
+msgstr ""
+
+#: php/admin/class-acf.php:583
+#: php/admin/class-post-type.php:108
+msgid "Slide List"
+msgstr ""
+
+#: php/admin/class-acf.php:584
+#: php/admin/class-post-type.php:109
+msgid "Slide list navigation"
+msgstr ""
+
+#: php/admin/class-acf.php:585
+#: php/admin/class-post-type.php:110
+msgid "Filter Slide list"
+msgstr ""
+
+#: php/admin/class-acf.php:624
+#: php/admin/class-post-type.php:150
+msgctxt "Taxonomy General Name"
+msgid "Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:625
+#: php/admin/class-post-type.php:151
+msgctxt "Taxonomy Singular Name"
+msgid "Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:626
+#: php/admin/class-post-type.php:152
+msgid "Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:627
+#: php/admin/class-post-type.php:153
+msgid "All Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:628
+#: php/admin/class-post-type.php:154
+msgid "Parent Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:629
+#: php/admin/class-post-type.php:155
+msgid "Parent Presentation:"
+msgstr ""
+
+#: php/admin/class-acf.php:630
+#: php/admin/class-post-type.php:156
+msgid "New Presentation Name"
+msgstr ""
+
+#: php/admin/class-acf.php:631
+#: php/admin/class-post-type.php:157
+msgid "Add New Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:632
+#: php/admin/class-post-type.php:158
+msgid "Edit Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:633
+#: php/admin/class-post-type.php:159
+msgid "Update Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:634
+#: php/admin/class-post-type.php:160
+msgid "View Presentation"
+msgstr ""
+
+#: php/admin/class-acf.php:635
+#: php/admin/class-post-type.php:161
+msgid "Separate Presentations with commas"
+msgstr ""
+
+#: php/admin/class-acf.php:636
+#: php/admin/class-post-type.php:162
+msgid "Add or remove Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:637
+#: php/admin/class-post-type.php:163
+msgid "Choose from the most used"
+msgstr ""
+
+#: php/admin/class-acf.php:638
+#: php/admin/class-post-type.php:164
+msgid "Popular Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:639
+#: php/admin/class-post-type.php:165
+msgid "Search Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:640
+#: php/admin/class-post-type.php:166
+msgid "Not Found"
+msgstr ""
+
+#: php/admin/class-acf.php:641
+#: php/admin/class-post-type.php:167
+msgid "No Presentations"
+msgstr ""
+
+#: php/admin/class-acf.php:642
+#: php/admin/class-post-type.php:168
+msgid "Presentations list"
+msgstr ""
+
+#: php/admin/class-acf.php:643
+#: php/admin/class-post-type.php:169
+msgid "Presentations list navigation"
+msgstr ""
+
+#: php/admin/class-admin-prerequisites.php:35
+msgid "WP Presenter Pro Requires Advanced Custom Fields."
+msgstr ""
+
+#: php/admin/class-admin-prerequisites.php:41
+#: php/admin/class-admin-prerequisites.php:55
+#: php/admin/class-admin-prerequisites.php:69
+msgid "Install it now."
+msgstr ""
+
+#: php/admin/class-admin-prerequisites.php:49
+msgid "WP Presenter Pro Requires Reorder Posts."
+msgstr ""
+
+#: php/admin/class-admin-prerequisites.php:63
+msgid "WP Presenter Pro Requires Reorder by Term for Displaying and Reordering Slides."
+msgstr ""
+
+#: php/admin/class-edd-license-settings.php:76
+msgid "Please enter a license to receive automatic updates."
+msgstr ""
+
+#: php/admin/class-edd-license-settings.php:76
+msgid "Enter License."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:36
+#: php/admin/class-add-settings-page.php:37
+msgid "Settings"
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:77
+#: php/admin/class-add-settings-page.php:115
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:89
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:96
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:100
+msgid "Invalid license."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:105
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:108
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:111
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:128
+msgid "Welcome to WP Presenter Pro"
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:144
+msgid "Enter Your License"
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:149
+msgid "Please enter your license key."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:151
+msgid "Your license is valid and you will now receive update notifications."
+msgstr ""
+
+#: php/admin/class-add-settings-page.php:162
+msgid "Save Options"
+msgstr ""
+
+#: wp-presenter-pro.php:60
+msgid "WP Presenter Pro plugin error: Your version of PHP is too old to run this plugin. You must be running PHP 5.4 or higher."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Bubblegum"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Dosis"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Encode"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Lato"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "League"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Libre Baskerville"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Merriweather"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Montserrat"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "News Cycle"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Open Sans"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Quicksand"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Sinkins Sans"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Source Sans Pro"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Ubuntu"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "None"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Up"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Down"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Left"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Right"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Grow"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Shrink"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade Right"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade Out"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade Up"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade In Then Out"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade In Then Semi Out"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Slide"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "slide"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Fade"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Convex"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Concave"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Zoom"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Background Color"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Background Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Video"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "iFrame"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Cover"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Repeat Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Settings"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Select a Background Type"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter your iFrame URL here. No other blocks will be shown"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Remove Background Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Background Video"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Remove Background Video"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Text Color"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Select a Transition"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Select a Background Transition"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Slide Title"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "title"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Title"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Select a Font"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Font Size"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Padding"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Radius"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter a slide title here..."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Text Box"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "text"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Text Box"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter some text here!"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Code"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "code"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Code Editor"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter your code here."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Presentation code"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "List Item"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "list"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Unordered List"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter text..."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Select an Image Size"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Slide Spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Height"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "This is a spacer. No content will be shown."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Show Notes"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "notes"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Content/Image Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "content"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Content/Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter text here..."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Content"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Content"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Content Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Pro Content Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "Enter content here..."
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "WP Presenter Vertical Slide"
+msgstr ""

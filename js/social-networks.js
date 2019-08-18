@@ -29,19 +29,19 @@ jQuery( document ).ready( function( $ ) {
 		$.post( ajaxurl, args, function( response ) {
 			$button.removeAttr( 'disabled' );
 			$( '#user-profile-enhanced-spinner' ).hide();
-			$( '#user-profile-picture-enhanced-sortable' ).append( response ).find( 'input:last' ).focus();
+			$( '#wp-presenter-pro-sortable' ).append( response ).find( 'input:last' ).focus();
 		});
 	} );
 
 	// Enable the save button if a user changes input.
-	$( '#user-profile-picture-enhanced-social-networks' ).on( 'keydown', '.user-profile-enhanced-url', function( e ) {
+	$( '#wp-presenter-pro-social-networks' ).on( 'keydown', '.user-profile-enhanced-url', function( e ) {
 		var $input = jQuery( this ).parent( '.user-profile-enhanced-social-item' );
 		$input.find( '.user-profile-enhanced-social-item-save' ).html( upp_enhanced.save ).removeAttr( 'disabled' );
 	} );
 
 
 	// Remove a social network item
-	$( '#user-profile-picture-enhanced-social-networks' ).on( 'click', '.user-profile-enhanced-social-item-remove', function( e ) {
+	$( '#wp-presenter-pro-social-networks' ).on( 'click', '.user-profile-enhanced-social-item-remove', function( e ) {
 		e.preventDefault();
 		$( this ).html( upp_enhanced.removing ).attr( 'disabled', 'disabled' );
 		var $input = jQuery( this ).parent( '.user-profile-enhanced-social-item' );
@@ -57,7 +57,7 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	// Save the URL for a profile network item
-	$( '#user-profile-picture-enhanced-social-networks' ).on( 'click', '.user-profile-enhanced-social-item-save', function( e ) {
+	$( '#wp-presenter-pro-social-networks' ).on( 'click', '.user-profile-enhanced-social-item-save', function( e ) {
 		e.preventDefault();
 		var $button = $( this )
 		$button.html( upp_enhanced.saving ).attr( 'disabled', 'disabled' );

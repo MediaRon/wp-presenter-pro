@@ -95,7 +95,7 @@ class WP_Presenter_Pro_Content_Two_Columns extends Component {
 						>
 						</PanelColorSettings>
 						<SelectControl
-								label={ __( 'Select a Font', 'user-profile-picture-enhanced' ) }
+								label={ __( 'Select a Font', 'wp-presenter-pro' ) }
 								value={font}
 								options={ revealFonts }
 								onChange={ ( value ) => {

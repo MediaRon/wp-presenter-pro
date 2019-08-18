@@ -172,6 +172,33 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 						case 'atomic-blocks/ab-sharing':
 						case 'atomic-blocks/ab-spacer':
 						case 'atomic-blocks/ab-testimonial':
+						case 'coblocks/accordion':
+						case 'coblocks/alert':
+						case 'coblocks/author':
+						case 'coblocks/buttons':
+						case 'coblocks/click-to-tweet':
+						case 'coblocks/dynamic-separator':
+						case 'coblocks/features':
+						case 'coblocks/food-and-drinks':
+						case 'coblocks/form':
+						case 'coblocks/gallery-carousel':
+						case 'coblocks/gallery-masonry':
+						case 'coblocks/gallery-stacked':
+						case 'coblocks/gif':
+						case 'coblocks/gist':
+						case 'coblocks/hero':
+						case 'coblocks/highlight':
+						case 'coblocks/icon':
+						case 'coblocks/logos':
+						case 'coblocks/map':
+						case 'coblocks/media-card':
+						case 'coblocks/pricing-table':
+						case 'coblocks/row':
+						case 'coblocks/services':
+						case 'coblocks/shape-divider':
+						case 'coblocks/share':
+						case 'coblocks/social-profiles':
+						case 'ptam/custom-posts':
 							echo render_block( $inner_data ); // phpcs:ignore
 							break;
 					}
@@ -249,6 +276,33 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 					case 'atomic-blocks/ab-sharing':
 					case 'atomic-blocks/ab-spacer':
 					case 'atomic-blocks/ab-testimonial':
+					case 'coblocks/accordion':
+					case 'coblocks/alert':
+					case 'coblocks/author':
+					case 'coblocks/buttons':
+					case 'coblocks/click-to-tweet':
+					case 'coblocks/dynamic-separator':
+					case 'coblocks/features':
+					case 'coblocks/food-and-drinks':
+					case 'coblocks/form':
+					case 'coblocks/gallery-carousel':
+					case 'coblocks/gallery-masonry':
+					case 'coblocks/gallery-stacked':
+					case 'coblocks/gif':
+					case 'coblocks/gist':
+					case 'coblocks/hero':
+					case 'coblocks/highlight':
+					case 'coblocks/icon':
+					case 'coblocks/logos':
+					case 'coblocks/map':
+					case 'coblocks/media-card':
+					case 'coblocks/pricing-table':
+					case 'coblocks/row':
+					case 'coblocks/services':
+					case 'coblocks/shape-divider':
+					case 'coblocks/share':
+					case 'coblocks/social-profiles':
+					case 'ptam/custom-posts':
 						echo render_block( $inner_data ); // phpcs:ignore
 						break;
 				}
