@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Code
  */
-class Code {
+class Code extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -59,5 +59,21 @@ class Code {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start()
+		?>
+		<div class="wp-presenter-pro-code-editor
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		?>
+		">
+<pre><code data-trim data-noescape data-line-numbers>
+<?php echo esc_html( $attributes['content'] ); // phpcs:ignore ?>
+</code></pre>
+		<?php
+		return ob_get_clean();
 	}
 }

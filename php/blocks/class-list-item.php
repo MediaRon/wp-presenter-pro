@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Admin
  */
-class List_Item {
+class List_Item extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -79,5 +79,21 @@ class List_Item {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start();
+		?>
+		<div class="wp-presenter-pro-list-item
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		?>
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 'inherit'; ?>
+		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>;">
+		<?php echo '<ul>' . wp_kses_post( $attributes['content'] ) . '</ul>'; ?>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 }

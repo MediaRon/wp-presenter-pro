@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Show Notes
  */
-class Show_Notes {
+class Show_Notes extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -59,5 +59,15 @@ class Show_Notes {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start();
+		?>
+		<aside class="notes">
+			<?php echo '<ul>' . wp_kses_post( $attributes['notes'] ) . '</ul>'; ?>
+			<?php if ( isset( $attributes['listitems'] ) ) : ?>
+				<?php echo '<ul>' . wp_kses_post( $attributes['listitems'] ) . '</ul>'; ?>
+			<?php endif; ?>
+		</aside>
+		<?php
+		return ob_get_clean();
 	}
 }

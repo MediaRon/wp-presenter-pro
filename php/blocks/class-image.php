@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Code
  */
-class Image {
+class Image extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -67,5 +67,22 @@ class Image {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start();
+		?>
+		<div class="wp-presenter-pro-image
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		?>
+		">
+		<?php
+			echo wp_get_attachment_image( $attributes['imgId'], $attributes['imgSize'] );
+		?>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 }

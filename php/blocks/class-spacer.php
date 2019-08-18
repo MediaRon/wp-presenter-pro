@@ -55,5 +55,10 @@ class Spacer {
 		if ( is_admin() ) {
 			return;
 		}
+		ob_start()
+		?>
+		<div class="wp-presenter-pro-spacer" style="height: <?php echo absint( $attributes['height'] ); ?>px"></div>
+		<?php
+		return ob_get_clean();
 	}
 }

@@ -10,7 +10,7 @@ namespace WP_Presenter_Pro\Blocks;
 /**
  * Class Code
  */
-class Content_Two_Columns {
+class Content_Two_Columns extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -87,5 +87,25 @@ class Content_Two_Columns {
 		if ( is_admin() ) {
 			return;
 		}
+		?>
+		<div class="wp-presenter-pro-content-two-columns
+		<?php
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+			echo esc_html( $attributes['transitions'] );
+			echo ' ';
+			echo 'fragment';
+		}
+		?>
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
+		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->sub_title_font_size ) . 'px'; ?>">
+			<div class="col-1 text">
+				<?php echo wp_kses_post( $attributes['content'] ); ?>
+			</div>
+			<div class="col-2 text">
+				<?php echo wp_kses_post( $attributes['content2'] ); ?>
+			</div>
+		</div>
+		<?php
+		return ob_get_clean();
 	}
 }
