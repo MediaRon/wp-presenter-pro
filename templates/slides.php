@@ -48,7 +48,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 	<div class="slides">
 	<?php
 	$query = array(
-		'orderby'        => 'title order',
+		'orderby'        => 'menu_order',
 		'order'          => 'ASC',
 		'post_status'    => 'publish',
 		'post_type'      => 'wppp',

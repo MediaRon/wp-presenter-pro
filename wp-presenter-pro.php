@@ -9,7 +9,7 @@
  * Plugin Name: WP Presenter Pro
  * Plugin URI: https://mediaron.com/downloads/wp-presenter-pro/
  * Description: A plugin for allowing you to do presentations using WordPress.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: MediaRon LLC
  * Author URI: https://mediaron.com
  * License: GPL2
@@ -22,7 +22,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-define( 'WP_PRESENTER_PRO_VERSION', '1.0.0' );
+define( 'WP_PRESENTER_PRO_VERSION', '1.0.1' );
 define( 'WP_PRESENTER_PRO_PLUGIN_NAME', 'User Profile Picture Enhanced' );
 define( 'WP_PRESENTER_PRO_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_PRESENTER_PRO_URL', plugins_url( '/', __FILE__ ) );
@@ -140,65 +140,10 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 				if ( is_array( $inner_data ) ) {
 					$attributes = $inner_data['attrs'];
 					switch ( $inner_data['blockName'] ) {
-						case 'wppp/slide-title':
-						case 'wppp/list-item':
-						case 'wppp/text-box':
-						case 'wppp/image':
-						case 'wppp/code':
-						case 'wppp/spacer':
-						case 'wppp/show-notes':
-						case 'wppp/content-image':
-						case 'wppp/content':
-						case 'wppp/content-two-columns':
-							echo render_block( $inner_data ); // phpcs:ignore
-							break;
 						case 'wppp/vertical-slide':
 							$vertical_slides[] = $inner_data;
 							break;
-						case 'atomic-blocks/ab-accordion':
-						case 'atomic-blocks/ab-profile-box':
-						case 'atomic-blocks/ab-button':
-						case 'atomic-blocks/ab-columns':
-						case 'atomic-blocks/ab-column':
-						case 'atomic-blocks/ab-container':
-						case 'atomic-blocks/ab-cta':
-						case 'atomic-blocks/ab-drop-cap':
-						case 'atomic-blocks/ab-layouts':
-						case 'atomic-blocks/newsletter':
-						case 'atomic-blocks/ab-notice':
-						case 'atomic-blocks/ab-post-grid':
-						case 'atomic-blocks/ab-pricing':
-						case 'atomic-blocks/ab-pricing-table':
-						case 'atomic-blocks/ab-sharing':
-						case 'atomic-blocks/ab-spacer':
-						case 'atomic-blocks/ab-testimonial':
-						case 'coblocks/accordion':
-						case 'coblocks/alert':
-						case 'coblocks/author':
-						case 'coblocks/buttons':
-						case 'coblocks/click-to-tweet':
-						case 'coblocks/dynamic-separator':
-						case 'coblocks/features':
-						case 'coblocks/food-and-drinks':
-						case 'coblocks/form':
-						case 'coblocks/gallery-carousel':
-						case 'coblocks/gallery-masonry':
-						case 'coblocks/gallery-stacked':
-						case 'coblocks/gif':
-						case 'coblocks/gist':
-						case 'coblocks/hero':
-						case 'coblocks/highlight':
-						case 'coblocks/icon':
-						case 'coblocks/logos':
-						case 'coblocks/map':
-						case 'coblocks/media-card':
-						case 'coblocks/pricing-table':
-						case 'coblocks/row':
-						case 'coblocks/services':
-						case 'coblocks/shape-divider':
-						case 'coblocks/share':
-						case 'coblocks/social-profiles':
-						case 'ptam/custom-posts':
+						default:
 							echo render_block( $inner_data ); // phpcs:ignore
 							break;
 					}
@@ -249,60 +194,7 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 			if ( is_array( $inner_data ) ) {
 				$attributes = $inner_data['attrs'];
 				switch ( $inner_data['blockName'] ) {
-					case 'wppp/slide-title':
-					case 'wppp/list-item':
-					case 'wppp/text-box':
-					case 'wppp/image':
-					case 'wppp/code':
-					case 'wppp/spacer':
-					case 'wppp/show-notes':
-					case 'wppp/content-image':
-					case 'wppp/content':
-					case 'wppp/content-two-columns':
-					case 'atomic-blocks/ab-accordion':
-					case 'atomic-blocks/ab-profile-box':
-					case 'atomic-blocks/ab-button':
-					case 'atomic-blocks/ab-columns':
-					case 'atomic-blocks/ab-column':
-					case 'atomic-blocks/ab-container':
-					case 'atomic-blocks/ab-cta':
-					case 'atomic-blocks/ab-drop-cap':
-					case 'atomic-blocks/ab-layouts':
-					case 'atomic-blocks/newsletter':
-					case 'atomic-blocks/ab-notice':
-					case 'atomic-blocks/ab-post-grid':
-					case 'atomic-blocks/ab-pricing':
-					case 'atomic-blocks/ab-pricing-table':
-					case 'atomic-blocks/ab-sharing':
-					case 'atomic-blocks/ab-spacer':
-					case 'atomic-blocks/ab-testimonial':
-					case 'coblocks/accordion':
-					case 'coblocks/alert':
-					case 'coblocks/author':
-					case 'coblocks/buttons':
-					case 'coblocks/click-to-tweet':
-					case 'coblocks/dynamic-separator':
-					case 'coblocks/features':
-					case 'coblocks/food-and-drinks':
-					case 'coblocks/form':
-					case 'coblocks/gallery-carousel':
-					case 'coblocks/gallery-masonry':
-					case 'coblocks/gallery-stacked':
-					case 'coblocks/gif':
-					case 'coblocks/gist':
-					case 'coblocks/hero':
-					case 'coblocks/highlight':
-					case 'coblocks/icon':
-					case 'coblocks/logos':
-					case 'coblocks/map':
-					case 'coblocks/media-card':
-					case 'coblocks/pricing-table':
-					case 'coblocks/row':
-					case 'coblocks/services':
-					case 'coblocks/shape-divider':
-					case 'coblocks/share':
-					case 'coblocks/social-profiles':
-					case 'ptam/custom-posts':
+					default:
 						echo render_block( $inner_data ); // phpcs:ignore
 						break;
 				}
