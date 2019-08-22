@@ -143,6 +143,27 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 						case 'wppp/vertical-slide':
 							$vertical_slides[] = $inner_data;
 							break;
+						case 'wppp/transition':
+							?>
+							<div class="wp-presenter-pro-slide-transition-block
+							<?php
+							if ( isset( $attributes['transition'] ) && '' !== $attributes['transition'] && 'none' !== $attributes['transition'] ) {
+								echo esc_html( $attributes['transition'] );
+								echo ' ';
+								echo 'fragment';
+							}
+							?>
+							">
+							<?php
+							if ( isset( $inner_data['innerBlocks'] ) ) {
+								foreach ( $inner_data['innerBlocks'] as $index => $block ) {
+									echo render_block( $block ); // phpcs:ignore
+								}
+							}
+							?>
+							</div>
+							<?php
+							break;
 						default:
 							echo render_block( $inner_data ); // phpcs:ignore
 							break;

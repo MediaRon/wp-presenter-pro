@@ -80,6 +80,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_vertical_slide = new Blocks\Vertical_Slide();
 		$this->block_vertical_slide->register_hooks();
 
+		// Transition Slides Block.
+		$this->block_transition = new Blocks\Transition();
+		$this->block_transition->register_hooks();
+
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();

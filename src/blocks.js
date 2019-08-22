@@ -22,3 +22,4 @@ import './block/blocks/content-image/block';
 import './block/blocks/content/block';
 import './block/blocks/content-two-columns/block';
 import './block/blocks/vertical-slide/block';
+import './block/blocks/transition/block';
