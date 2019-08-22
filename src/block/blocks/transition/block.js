@@ -20,7 +20,7 @@ const {
  */
 registerBlockType( 'wppp/transition', {
 	title: __( 'WP Presenter Transition', 'wp-presenter-pro' ), // Block title.
-	icon: 'slides',
+	icon: 'leftright',
 	category: 'wp-presenter-pro',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
