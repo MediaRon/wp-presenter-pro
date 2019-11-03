@@ -36,7 +36,7 @@ class Transition {
 			'wppp/transition',
 			array(
 				'attributes'      => array(
-					'transition'             => array(
+					'transition' => array(
 						'type'    => 'string',
 						'default' => 'none',
 					),
