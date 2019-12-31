@@ -63,3 +63,5 @@ typings/
 \.DS_Store
 
 wp-presenter-pro\.zip
+
+.vscode/launch.json
