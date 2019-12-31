@@ -16,10 +16,6 @@ class Plugin extends Plugin_Abstract {
 	 */
 	public function plugin_loaded() {
 
-		// Check for dependencies.
-		$this->dependencies = new Admin\Admin_Prerequisites();
-		$this->dependencies->register_hooks();
-
 		// Load ACF.
 		$this->acf = new Admin\ACF();
 		$this->acf->register_hooks();
@@ -87,13 +83,5 @@ class Plugin extends Plugin_Abstract {
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
-
-		// Register license and settings.
-		$this->license_admin = new Admin\EDD_License_Settings();
-		$this->license_admin->register_hooks();
-
-		// Register Settings page.
-		$this->settings_admin = new Admin\Add_Settings_Page();
-		$this->settings_admin->register_hooks();
 	}
 }
