@@ -111,17 +111,27 @@ function wp_presenter_pro_add_i18n() {
  * @param array $blocks The blocks for a slide.
  */
 function wp_presenter_pro_render_blocks( $blocks ) {
+
+	// Get vertical slides.
+	$vertical_slides = array();
+	$previous_block  = '';
 	foreach ( $blocks as $index => $block_info ) {
-		$vertical_slides = array();
-		$previous_block  = '';
-		foreach ( $blocks as $vertical_slide_index => $maybe_vertical_slide ) {
-			if ( 'wppp/slide' === $maybe_vertical_slide['blockName'] || 'wppp/vertical-slide' === $maybe_vertical_slide['blockName'] ) {
-				$previous_block = $maybe_vertical_slide['blockName'];
-				if ( ( 'wppp/slide' === $previous_block || 'wppp/vertical-slide' === $previous_block ) && 'wppp/vertical-slide' === $maybe_vertical_slide['blockName'] ) {
-					$vertical_slides[] = $maybe_vertical_slide;
+		if ( 'wppp/slide' === $block_info['blockName'] ) {
+			$block_count = count( $blocks );
+			for ( $i = 0; $i < $block_count; $i++ ) {
+				if ( isset( $blocks[ $index + $i ] ) && 'wppp/vertical-slide' === $blocks[ $index + $i ]['blockName'] ) {
+					$vertical_slides[ $index ][] = $blocks[ $index + $i ];
+					continue;
+				} elseif ( ! isset( $blocks[ $index + $i ] ) ) {
+					break;
+				} elseif ( isset( $blocks[ $index + $i ] ) && 'wppp/slide' === $blocks[ $index + $i ]['blockName'] && 0 !== $i ) {
+					break;
 				}
 			}
 		}
+	}
+	// Get regular slide.
+	foreach ( $blocks as $index => $block_info ) {
 		if ( 'wppp/slide' === $block_info['blockName'] ) {
 			$default_font               = 'open-sans';
 			$default_text_box_font_size = '32';
@@ -147,7 +157,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			<section>
 			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
 				<?php
-				foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
+				foreach ( $block_info['innerBlocks'] as $inner_data ) {
 					if ( is_array( $inner_data ) ) {
 						$attributes = $inner_data['attrs'];
 						switch ( $inner_data['blockName'] ) {
@@ -164,7 +174,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 								">
 								<?php
 								if ( isset( $inner_data['innerBlocks'] ) ) {
-									foreach ( $inner_data['innerBlocks'] as $index => $block ) {
+									foreach ( $inner_data['innerBlocks'] as $block ) {
 										echo render_block( $block ); // phpcs:ignore
 									}
 								}
@@ -180,8 +190,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 				}
 				echo '</section>';
 				if ( ! empty( $vertical_slides ) ) {
-					foreach ( $vertical_slides as $index => $block ) {
-						wp_presenter_pro_render_vertical_slide_blocks( $vertical_slides[ $index ] );
+					foreach ( $vertical_slides[ $index ] as $block ) {
+						wp_presenter_pro_render_vertical_slide_blocks( $block );
 					}
 				}
 				?>
