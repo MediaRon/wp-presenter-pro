@@ -112,74 +112,82 @@ function wp_presenter_pro_add_i18n() {
  */
 function wp_presenter_pro_render_blocks( $blocks ) {
 	foreach ( $blocks as $index => $block_info ) {
-		$default_font               = 'open-sans';
-		$default_text_box_font_size = '32';
-		$default_title_font_size    = '64';
-		$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
-		$slide_video                = false;
-		$slide_iframe               = false;
-
-		if ( isset( $block_info['attrs']['backgroundType'] ) ) {
-			$slide_background = '#f3a75b';
-			if ( 'image' === $block_info['attrs']['backgroundType'] ) {
-				$slide_background = $block_info['attrs']['backgroundImg'];
-			}
-			if ( 'video' === $block_info['attrs']['backgroundType'] ) {
-				$slide_video = $block_info['attrs']['backgroundVideo'];
-			}
-			if ( 'iframe' === $block_info['attrs']['backgroundType'] ) {
-				$slide_iframe = $block_info['attrs']['iframeUrl'];
-			}
-		}
-		?>
-		<section>
-		<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
-			<?php
-			$vertical_slides = array();
-			foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
-				if ( is_array( $inner_data ) ) {
-					$attributes = $inner_data['attrs'];
-					switch ( $inner_data['blockName'] ) {
-						case 'wppp/vertical-slide':
-							$vertical_slides[] = $inner_data;
-							break;
-						case 'wppp/transition':
-							?>
-							<div class="wp-presenter-pro-slide-transition-block
-							<?php
-							if ( isset( $attributes['transition'] ) && '' !== $attributes['transition'] && 'none' !== $attributes['transition'] ) {
-								echo esc_html( $attributes['transition'] );
-								echo ' ';
-								echo 'fragment';
-							}
-							?>
-							">
-							<?php
-							if ( isset( $inner_data['innerBlocks'] ) ) {
-								foreach ( $inner_data['innerBlocks'] as $index => $block ) {
-									echo render_block( $block ); // phpcs:ignore
-								}
-							}
-							?>
-							</div>
-							<?php
-							break;
-						default:
-							echo render_block( $inner_data ); // phpcs:ignore
-							break;
-					}
+		$vertical_slides = array();
+		$previous_block  = '';
+		foreach ( $blocks as $vertical_slide_index => $maybe_vertical_slide ) {
+			if ( 'wppp/slide' === $maybe_vertical_slide['blockName'] || 'wppp/vertical-slide' === $maybe_vertical_slide['blockName'] ) {
+				$previous_block = $maybe_vertical_slide['blockName'];
+				if ( ( 'wppp/slide' === $previous_block || 'wppp/vertical-slide' === $previous_block ) && 'wppp/vertical-slide' === $maybe_vertical_slide['blockName'] ) {
+					$vertical_slides[] = $maybe_vertical_slide;
 				}
 			}
-			echo '</section>';
-			if ( ! empty( $vertical_slides ) ) {
-				foreach ( $vertical_slides as $index => $block ) {
-					wp_presenter_pro_render_vertical_slide_blocks( $vertical_slides[ $index ] );
+		}
+		if ( 'wppp/slide' === $block_info['blockName'] ) {
+			$default_font               = 'open-sans';
+			$default_text_box_font_size = '32';
+			$default_title_font_size    = '64';
+			$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
+			$slide_video                = false;
+			$slide_iframe               = false;
+
+
+			if ( isset( $block_info['attrs']['backgroundType'] ) ) {
+				$slide_background = '#f3a75b';
+				if ( 'image' === $block_info['attrs']['backgroundType'] ) {
+					$slide_background = $block_info['attrs']['backgroundImg'];
+				}
+				if ( 'video' === $block_info['attrs']['backgroundType'] ) {
+					$slide_video = $block_info['attrs']['backgroundVideo'];
+				}
+				if ( 'iframe' === $block_info['attrs']['backgroundType'] ) {
+					$slide_iframe = $block_info['attrs']['iframeUrl'];
 				}
 			}
 			?>
-			</section>
-		<?php
-		break;
+			<section>
+			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
+				<?php
+				foreach ( $block_info['innerBlocks'] as $index => $inner_data ) {
+					if ( is_array( $inner_data ) ) {
+						$attributes = $inner_data['attrs'];
+						switch ( $inner_data['blockName'] ) {
+							case 'wppp/transition':
+								?>
+								<div class="wp-presenter-pro-slide-transition-block
+								<?php
+								if ( isset( $attributes['transition'] ) && '' !== $attributes['transition'] && 'none' !== $attributes['transition'] ) {
+									echo esc_html( $attributes['transition'] );
+									echo ' ';
+									echo 'fragment';
+								}
+								?>
+								">
+								<?php
+								if ( isset( $inner_data['innerBlocks'] ) ) {
+									foreach ( $inner_data['innerBlocks'] as $index => $block ) {
+										echo render_block( $block ); // phpcs:ignore
+									}
+								}
+								?>
+								</div>
+								<?php
+								break;
+							default:
+								echo render_block( $inner_data ); // phpcs:ignore
+								break;
+						}
+					}
+				}
+				echo '</section>';
+				if ( ! empty( $vertical_slides ) ) {
+					foreach ( $vertical_slides as $index => $block ) {
+						wp_presenter_pro_render_vertical_slide_blocks( $vertical_slides[ $index ] );
+					}
+				}
+				?>
+				</section>
+				<?php
+		}
 	}
 }
 
