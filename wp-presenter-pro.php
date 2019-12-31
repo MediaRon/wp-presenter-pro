@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 define( 'WP_PRESENTER_PRO_VERSION', '1.0.2' );
-define( 'WP_PRESENTER_PRO_PLUGIN_NAME', 'User Profile Picture Enhanced' );
+define( 'WP_PRESENTER_PRO_PLUGIN_NAME', 'WP Presenter Pro' );
 define( 'WP_PRESENTER_PRO_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_PRESENTER_PRO_URL', plugins_url( '/', __FILE__ ) );
 define( 'WP_PRESENTER_PRO_SLUG', plugin_basename( __FILE__ ) );
