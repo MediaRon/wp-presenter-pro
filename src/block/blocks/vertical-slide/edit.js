@@ -43,7 +43,7 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, speakerNotes } = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -81,6 +81,8 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 		if ( backgroundImageOptions == 'repeat' && 'background' !== backgroundType ) {
 			slideStyles.backgroundRepeat = 'repeat';
 		}
+
+		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition' ];
 
 
 		return (
@@ -220,8 +222,20 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 					<div className="wp-presenter-pro-slide" style={slideStyles}>
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
+								allowedBlocks={ALLOWED_BLOCKS}
 							/>
 						</div>
+					</div>
+					<div className="wp-presenter-pro-speaker-notes">
+						<h3>{__('Speaker Notes', 'wp-presenter-pro')}</h3>
+						<RichText 
+							value={speakerNotes}
+							onChange={(value) => {
+								this.props.setAttributes( {
+									speakerNotes: value,
+								});
+							}}
+						/>
 					</div>
 				</Fragment>
 			</Fragment>

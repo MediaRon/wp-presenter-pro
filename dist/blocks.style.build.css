@@ -31,7 +31,6 @@
   min-height: 400px; }
 
 .wp-presenter-pro-slide-transition {
-  min-height: 400px;
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%; }
 
@@ -42,8 +41,10 @@
   display: -ms-flexbox;
   display: flex; }
   .wp-presenter-pro-content-image .col-1 {
+    width: 100%;
     max-width: 46%; }
   .wp-presenter-pro-content-image .col-2 {
+    width: 100%;
     max-width: 50%; }
 
 .wp-presenter-pro-content-two-columns {
@@ -52,11 +53,26 @@
   -ms-flex-pack: center;
       justify-content: center; }
   .wp-presenter-pro-content-two-columns .col-1 {
+    width: 100%;
     max-width: 46%;
     margin-right: 10px; }
   .wp-presenter-pro-content-two-columns .col-2 {
+    width: 100%;
     margin-left: 10px;
     max-width: 46%; }
+
+.wp-presenter-pro-slide,
+.wp-presenter-pro-speaker-notes {
+  border: 4px dashed #000; }
+
+.wp-presenter-pro-speaker-notes {
+  margin-top: 20px;
+  padding: 10px; }
+  .wp-presenter-pro-speaker-notes .block-editor-rich-text__editable {
+    border: 1px solid black;
+    height: 200px;
+    padding: 10px;
+    margin: 10px; }
 
 .wp-presenter-pro-slide-title {
   font-size: 60px;

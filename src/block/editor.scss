@@ -21,7 +21,6 @@
 	min-height: 400px;
 }
 .wp-presenter-pro-slide-transition {
-	min-height: 400px;
 	background-color: rgba(0,0,0,0.3);
 	width: 100%;
 }
@@ -31,9 +30,11 @@
 .wp-presenter-pro-content-image {
 	display: flex;
 	.col-1 {
+		width: 100%;
 		max-width: 46%;
 	}
 	.col-2 {
+		width: 100%;
 		max-width: 50%;
 	}
 }
@@ -41,11 +42,27 @@
 	display: flex;
 	justify-content: center;
 	.col-1 {
+		width: 100%;
 		max-width: 46%;
 		margin-right: 10px;
 	}
 	.col-2 {
+		width: 100%;
 		margin-left: 10px;
 		max-width: 46%;
+	}
+}
+.wp-presenter-pro-slide,
+.wp-presenter-pro-speaker-notes {
+	border: 4px dashed #000;
+}
+.wp-presenter-pro-speaker-notes {
+	margin-top: 20px;
+	padding: 10px;
+	.block-editor-rich-text__editable {
+		border: 1px solid black;
+		height: 200px;
+		padding: 10px;
+		margin: 10px;
 	}
 }
