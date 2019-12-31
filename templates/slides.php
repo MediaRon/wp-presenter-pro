@@ -45,27 +45,19 @@ add_filter( 'show_admin_bar', '__return_false' );
 </head>
 <body>
 <div class="reveal">
-	<div class="slides">
 	<?php
-	$query = array(
-		'orderby'        => 'menu_order',
-		'order'          => 'ASC',
-		'post_status'    => 'publish',
-		'post_type'      => 'wppp',
-		'posts_per_page' => 100, // number of slides max.
-		'tax_query'      => array( // phpcs:ignore
-			array(
-				'taxonomy' => $wppp_term->taxonomy,
-				'field'    => 'id',
-				'terms'    => $wppp_term->term_id,
-			),
-		),
-	);
-	$posts = get_posts( $query ); // phpcs:ignore
-	if ( ! empty( $posts ) ) {
-		foreach( $posts as $post ) { // phpcs:ignore
+	if ( have_posts() ) {
+		while ( have_posts() ) {
+			global $post;
+			the_post();
+			?>
+			<div class="slides">
+			<?php
 			$blocks = parse_blocks( $post->post_content );
 			wp_presenter_pro_render_blocks( $blocks );
+			?>
+			</div>
+			<?php
 		}
 	}
 	?>
@@ -76,7 +68,7 @@ do_action( 'wp_footer' );
 <script>
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize( {
+/*Reveal.initialize( {
 			width : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'width', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
 			height : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'height', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
 			margin : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'margin', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '0.1' ); ?>,
@@ -108,7 +100,33 @@ Reveal.initialize( {
 				) ) ); // phpcs:ignore
 				?>
 			]
-		} );
+		} );*/
+		Reveal.initialize( {
+				width : '960',
+				height : '700',
+				margin : '0.1',
+				minScale : '0.2',
+				maxScale : '1.5',
+				controls : false,
+				progress : false,
+				slideNumber : false,
+				overview : false,
+				center : true,
+				touch : true,
+				mouseWheel: true,
+				hideAddressBar: true,
+				embedded : false,
+				dependencies : [
+				<?php
+				echo implode( ",\n", apply_filters( 'reveal_default_dependencies', array( // phpcs:ignore
+					'classList' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } }",
+					'highlight' => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }",
+					'zoom'      => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }",
+					'notes'     => "{ src: '" . WP_PRESENTER_PRO_URL . "/assets/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }",
+				) ) ); // phpcs:ignore
+				?>
+				]
+			} );
 		</script>
 		<?php
 		do_action( 'wp_footer' );
