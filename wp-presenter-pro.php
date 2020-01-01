@@ -140,7 +140,6 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			$slide_video                = false;
 			$slide_iframe               = false;
 
-
 			if ( isset( $block_info['attrs']['backgroundType'] ) ) {
 				$slide_background = '#f3a75b';
 				if ( 'image' === $block_info['attrs']['backgroundType'] ) {
