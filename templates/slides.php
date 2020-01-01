@@ -76,7 +76,7 @@ Reveal.initialize( {
 			maxScale : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-max-scale', true ) ? get_post_meta( $wppp_id, 'slides-max-scale', true ) : '1.5' ); ?>,
 			minScale : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-min-scale', true ) ? get_post_meta( $wppp_id, 'slides-min-scale', true ) : '0.2' ); ?>,
 			controls : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-display-controls', true ) ? get_post_meta( $wppp_id, 'slides-display-controls', true ) : 'true' ); ?>,
-			progress : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-progress-bar', true ) ? get_post_meta( $wppp_id, 'slides-progress-bar', true ) : 'false' ); ?>,
+			progress : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-progress-bar', true ) ? get_post_meta( $wppp_id, 'slides-progress-bar', true ) : 'true' ); ?>,
 			slideNumber : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-number', true ) ? get_post_meta( $wppp_id, 'slides-slide-number', true ) : 'false' ); ?>,
 			history : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-push-history', true ) ? get_post_meta( $wppp_id, 'slides-push-history', true ) : 'true' ); ?>,
 			keyboard : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) ? get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) : 'true' ); ?>,

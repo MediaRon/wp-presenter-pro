@@ -82,7 +82,7 @@ class WP_Presenter_Pro_Slide extends Component {
 			slideStyles.backgroundRepeat = 'repeat';
 		}
 
-		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition' ];
+		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition', 'wppp/code' ];
 
 		return (
 			<Fragment>
