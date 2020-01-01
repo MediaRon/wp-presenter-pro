@@ -7,7 +7,7 @@
  * @license http://opensource.org/licenses/GPL-2.0 GNU General Public License, version 2 (GPL-2.0)
  *
  * Plugin Name: WP Presenter Pro
- * Plugin URI: https://mediaron.com/downloads/wp-presenter-pro/
+ * Plugin URI: https://mediaron.com/wp-presenter-pro-documentation/
  * Description: A plugin for allowing you to do presentations using WordPress.
  * Version: 2.0.0
  * Author: MediaRon LLC
