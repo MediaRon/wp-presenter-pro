@@ -188,6 +188,11 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 						}
 					}
 				}
+				?>
+				<aside class="notes">
+					<?php echo wp_kses_post( isset( $block_info['attrs']['speakerNotes'] ) ? $block_info['attrs']['speakerNotes'] : '' ); ?>
+				</aside>
+				<?php
 				echo '</section>';
 				if ( ! empty( $vertical_slides ) ) {
 					foreach ( $vertical_slides[ $index ] as $block ) {
@@ -240,6 +245,9 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 			}
 		}
 		?>
+		<aside class="notes">
+			<?php echo wp_kses_post( isset( $blocks['attrs']['speakerNotes'] ) ? $blocks['attrs']['speakerNotes'] : '' ); ?>
+		</aside>
 	</section>
 	<?php
 }
