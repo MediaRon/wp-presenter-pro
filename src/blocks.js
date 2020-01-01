@@ -9,12 +9,11 @@
  * Webpack is compiling as the input file.
  */
 const { __ } = wp.i18n; // Import __() from wp.i18n
-const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { registerPlugin } = wp.plugins;
-const { PluginSidebar, PluginSidebarMoreMenuItem, PluginDocumentSettingPanel } = wp.editPost;
-const { Component, Fragment } = wp.element;
-const { PanelBody, TextControl, SelectControl, ToggleControl } = wp.components;
-const { withSelect, withDispatch, useSelect, useDispatch } = wp.data;
+const { PluginDocumentSettingPanel } = wp.editPost;
+const { Fragment } = wp.element;
+const { PanelBody, TextControl, SelectControl, ToggleControl, TextareaControl } = wp.components;
+const { useSelect, useDispatch } = wp.data;
 
 import './block/style.scss';
 import './block/editor.scss';
@@ -45,6 +44,11 @@ const slideHeight = 'slides-slide-height';
 const slideMargin = 'slides-slide-margin';
 const slidesMinScale = 'slides-min-scale';
 const maxScale = 'slides-max-scale';
+const headerLeft = 'slides-header-left';
+const headerRight = 'slides-header-right';
+const footerLeft = 'slides-footer-left';
+const footerRight = 'slides-footer-right';
+const skipFirstSlide = 'slides-skip-first-slide';
 
 registerPlugin( 'wp-presenter-pro', {
 	icon: 'welcome-view-site',
@@ -155,6 +159,32 @@ registerPlugin( 'wp-presenter-pro', {
 						placeholder={'1.5'}
 						value={meta[maxScale]}
 						onChange={ (value ) => updateMeta( value + '', maxScale ) }
+					/>
+				</PanelBody>
+				<PanelBody title={__('Headers and Footers', 'wp-presenter-pro')}>
+					<TextareaControl
+						label={__( 'Left Header', 'wp-presenter-pro' )}
+						value={meta[headerLeft]}
+						help={__('HTML Allowed', 'wp-presenter-pro' )}
+						onChange={ (value ) => updateMeta( value + '', headerLeft ) }
+					/>
+					<TextareaControl
+						label={__( 'Right Header', 'wp-presenter-pro' )}
+						value={meta[headerRight]}
+						help={__('HTML Allowed', 'wp-presenter-pro' )}
+						onChange={ (value ) => updateMeta( value + '', headerRight ) }
+					/>
+					<TextareaControl
+						label={__( 'Left Footer', 'wp-presenter-pro' )}
+						value={meta[footerLeft]}
+						help={__('HTML Allowed', 'wp-presenter-pro' )}
+						onChange={ (value ) => updateMeta( value + '', footerLeft ) }
+					/>
+					<TextareaControl
+						label={__( 'Right Footer', 'wp-presenter-pro' )}
+						value={meta[footerRight]}
+						help={__('HTML Allowed', 'wp-presenter-pro' )}
+						onChange={ (value ) => updateMeta( value + '', footerRight ) }
 					/>
 				</PanelBody>
 			</PluginDocumentSettingPanel>

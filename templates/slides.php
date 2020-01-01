@@ -42,9 +42,45 @@ add_filter( 'show_admin_bar', '__return_false' );
 	<?php
 	do_action( 'wp_head' );
 	?>
+	<style type="text/css">
+	/* 1. Style header/footer <div> so they are positioned as desired. */
+	#header-left {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		padding: 20px;
+	}
+	#header-right {
+		position: absolute;
+		top: 0%;
+		right: 0%;
+		padding: 20px;
+	}
+	#footer-left {
+		position: absolute;
+		bottom: 0%;
+		left: 0%;
+		padding: 20px;
+	}
+	#footer-right {
+		position: absolute;
+		bottom: 0%;
+		right: 10%;
+	}
+	</style>
 
 </head>
 <body>
+<div id="hidden" style="display:none;">
+	<div id="header">
+		<div id="header-wrapper">
+			<div id="header-left"><?php echo wp_kses_post( get_post_meta( $wppp_id, 'slides-header-left', true ) ); ?></div>
+			<div id="header-right"><?php echo wp_kses_post( get_post_meta( $wppp_id, 'slides-header-right', true ) ); ?></div>
+			<div id="footer-left"><?php echo wp_kses_post( get_post_meta( $wppp_id, 'slides-footer-left', true ) ); ?></div>
+			<div id="footer-right"><?php echo wp_kses_post( get_post_meta( $wppp_id, 'slides-footer-right', true ) ); ?></div>
+		</div>
+	</div>
+</div>
 <div class="reveal">
 	<?php
 	if ( have_posts() ) {
@@ -106,5 +142,16 @@ Reveal.initialize( {
 		<?php
 		do_action( 'wp_footer' );
 		?>
+		<script>
+		Reveal.addEventListener( 'slidechanged', function( event ) {
+			if ( Reveal.isFirstSlide() ) {
+				jQuery( 'div.reveal' ).find( '#header-wrapper' ).remove();
+			}
+			if ( ! Reveal.isFirstSlide() && ! jQuery( 'div.reveal' ).find( '#header-left' ).length > 0 ) {
+				var header = jQuery('#header').html();
+				jQuery('div.reveal').append(header);
+			}
+		} );
+		</script>
 </body>
 </html>

@@ -153,6 +153,7 @@ class Post_Type {
 			'slides-push-history',
 			'slides-progress-bar',
 			'slides-slide-number',
+			'slides-skip-first-slide',
 		);
 		$meta_boxes_text   = array(
 			'slides-theme',
@@ -161,6 +162,10 @@ class Post_Type {
 			'slides-slide-margin',
 			'slides-min-scale',
 			'slides-max-scale',
+			'slides-header-left',
+			'slides-header-right',
+			'slides-footer-left',
+			'slides-footer-right',
 		);
 		foreach ( $meta_boxes_toggle as $meta_box ) {
 			register_post_meta(
