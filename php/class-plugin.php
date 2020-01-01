@@ -83,5 +83,9 @@ class Plugin extends Plugin_Abstract {
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
+
+		// Register meta boxes.
+		$this->meta_boxes = new Admin\Meta_Boxes();
+		$this->meta_boxes->register_hooks();
 	}
 }

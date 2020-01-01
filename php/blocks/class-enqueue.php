@@ -61,7 +61,7 @@ class Enqueue {
 		wp_enqueue_script(
 			'wp-presenter-pro-js',
 			WP_PRESENTER_PRO_URL . 'dist/blocks.build.js',
-			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ),
+			array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-plugins', 'wp-edit-post', 'wp-data' ),
 			WP_PRESENTER_PRO_VERSION,
 			true
 		);
