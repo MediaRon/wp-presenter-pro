@@ -79,8 +79,8 @@ class WP_Presenter_Pro_Image extends Component {
 									value={imgSize}
 									options={ thumbnailSizes }
 									onChange={ ( value ) => {
-										setAttributes( {imageSize: value} );
-										this.props.attributes.imageSize = value;
+										setAttributes( {imgSize: value} );
+										this.props.attributes.imgSize = value;
 										this.getAvatar( value, imgId );
 									} }
 							/>

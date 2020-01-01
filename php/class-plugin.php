@@ -71,5 +71,9 @@ class Plugin extends Plugin_Abstract {
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
+
+		// Register get avatar REST API.
+		$this->avatar = new Rest\Rest_Get_Avatar();
+		$this->avatar->register_hooks();
 	}
 }
