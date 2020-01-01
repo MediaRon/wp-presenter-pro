@@ -17,6 +17,8 @@ This plugin allows users to create unlimited presentations using the power of Gu
 
 Please help <a href="https://github.com/ronalfy/wp-presenter-pro">contribute on GitHub</a> whether it is code or reporting issues.
 
+Built on <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
+
 == Installation ==
 
 1. Requires WordPress 5.3 or greater.

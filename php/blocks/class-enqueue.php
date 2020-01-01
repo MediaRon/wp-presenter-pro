@@ -59,6 +59,7 @@ class Enqueue {
 				'rest_url'    => get_rest_url(),
 				'rest_nonce'  => wp_create_nonce( 'wp_rest' ),
 				'image_sizes' => $js_format_sizes,
+				'mathjax'     => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
 			)
 		);
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
