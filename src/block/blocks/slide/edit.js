@@ -22,12 +22,12 @@ const {
 } = wp.components;
 
 const {
+	RichText,
 	BlockControls,
 	MediaUpload
 } = wp.editor;
 
 const {
-	RichText,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings
@@ -43,7 +43,7 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, speakerNotes } = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -82,6 +82,7 @@ class WP_Presenter_Pro_Slide extends Component {
 			slideStyles.backgroundRepeat = 'repeat';
 		}
 
+		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition', 'wppp/code', 'wppp/list-item', 'wppp/image', 'wppp/content-two-columns', 'coblocks/alert', 'coblocks/click-to-tweet', 'coblocks/dynamic-separator', 'coblocks/gif', 'coblocks/share', 'coblocks/icon', 'coblocks/gists', 'coblock/features', 'atomic-blocks/ab-columns', 'atomic-blocks/ab-spacer', 'atomic-blocks/ab-cta', 'atomic-blocks/ab-sharing', 'atomic-blocks/ab-pricing-table', 'atomic-blocks/ab-pricing-table-title', 'atomic-blocks/ab-pricing-table-price', 'atomic-blocks/ab-pricing-table-button', 'atomic-blocks/ab-pricing-table-features', 'atomic-blocks/ab-notice', 'atomic-blocks/ab-button', 'atomic-blocks/ab-testimonial', 'atomic-blocks/atomic-blocks/ab-columns' ];
 
 		return (
 			<Fragment>
@@ -220,9 +221,20 @@ class WP_Presenter_Pro_Slide extends Component {
 					<div className="wp-presenter-pro-slide" style={slideStyles}>
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
-
+								allowedBlocks={ALLOWED_BLOCKS}
 							/>
 						</div>
+					</div>
+					<div className="wp-presenter-pro-speaker-notes">
+						<h3>{__('Speaker Notes', 'wp-presenter-pro')}</h3>
+						<RichText 
+							value={speakerNotes}
+							onChange={(value) => {
+								this.props.setAttributes( {
+									speakerNotes: value,
+								});
+							}}
+						/>
 					</div>
 				</Fragment>
 			</Fragment>

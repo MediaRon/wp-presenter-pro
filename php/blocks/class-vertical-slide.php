@@ -72,6 +72,10 @@ class Vertical_Slide {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'speakerNotes'           => array(
+						'type'    => 'string',
+						'default' => '',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

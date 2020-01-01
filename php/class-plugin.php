@@ -16,18 +16,6 @@ class Plugin extends Plugin_Abstract {
 	 */
 	public function plugin_loaded() {
 
-		// Check for dependencies.
-		$this->dependencies = new Admin\Admin_Prerequisites();
-		$this->dependencies->register_hooks();
-
-		// Load ACF.
-		$this->acf = new Admin\ACF();
-		$this->acf->register_hooks();
-
-		// Load REST.
-		$this->rest_avatar = new REST\Rest_Get_Avatar();
-		$this->rest_avatar->register_hooks();
-
 		// Enqueue scripts.
 		$this->block_enqueue = new Blocks\Enqueue();
 		$this->block_enqueue->register_hooks();
@@ -72,10 +60,6 @@ class Plugin extends Plugin_Abstract {
 		$this->block_content_two_columns = new Blocks\Content_Two_Columns();
 		$this->block_content_two_columns->register_hooks();
 
-		// Show Notes Block.
-		$this->block_show_notes = new Blocks\Show_Notes();
-		$this->block_show_notes->register_hooks();
-
 		// Vertical Slides Block.
 		$this->block_vertical_slide = new Blocks\Vertical_Slide();
 		$this->block_vertical_slide->register_hooks();
@@ -87,13 +71,5 @@ class Plugin extends Plugin_Abstract {
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
-
-		// Register license and settings.
-		$this->license_admin = new Admin\EDD_License_Settings();
-		$this->license_admin->register_hooks();
-
-		// Register Settings page.
-		$this->settings_admin = new Admin\Add_Settings_Page();
-		$this->settings_admin->register_hooks();
 	}
 }

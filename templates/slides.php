@@ -18,8 +18,9 @@ wp_enqueue_style(
 	WP_PRESENTER_PRO_VERSION,
 	'all'
 );
-$wppp_term = get_queried_object();
-$theme     = function_exists( 'get_field' ) ? get_field( 'theme', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'black';
+$wppp_id     = get_queried_object_id();
+$maybe_theme = get_post_meta( $wppp_id, 'slides-theme', true );
+$theme       = $maybe_theme ? $maybe_theme : 'black';
 wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
 add_filter( 'show_admin_bar', '__return_false' );
 ?>
@@ -45,27 +46,19 @@ add_filter( 'show_admin_bar', '__return_false' );
 </head>
 <body>
 <div class="reveal">
-	<div class="slides">
 	<?php
-	$query = array(
-		'orderby'        => 'menu_order',
-		'order'          => 'ASC',
-		'post_status'    => 'publish',
-		'post_type'      => 'wppp',
-		'posts_per_page' => 100, // number of slides max.
-		'tax_query'      => array( // phpcs:ignore
-			array(
-				'taxonomy' => $wppp_term->taxonomy,
-				'field'    => 'id',
-				'terms'    => $wppp_term->term_id,
-			),
-		),
-	);
-	$posts = get_posts( $query ); // phpcs:ignore
-	if ( ! empty( $posts ) ) {
-		foreach( $posts as $post ) { // phpcs:ignore
+	if ( have_posts() ) {
+		while ( have_posts() ) {
+			global $post;
+			the_post();
+			?>
+			<div class="slides">
+			<?php
 			$blocks = parse_blocks( $post->post_content );
 			wp_presenter_pro_render_blocks( $blocks );
+			?>
+			</div>
+			<?php
 		}
 	}
 	?>
@@ -77,25 +70,25 @@ do_action( 'wp_footer' );
 // Full list of configuration options available here:
 // https://github.com/hakimel/reveal.js#configuration
 Reveal.initialize( {
-			width : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'width', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
-			height : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'height', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1920' ); ?>,
-			margin : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'margin', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '0.1' ); ?>,
-			minScale : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'min_scale', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '0.2' ); ?>,
-			maxScale : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'max_scale', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : '1.5' ); ?>,
-			controls : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'display_controls', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
-			progress : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'progress_bar', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
-			slideNumber : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'slide_number', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
-			history : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'push_history', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'false' ); ?>,
-			keyboard : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'keyboard_shortcuts', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			width : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-width', true ) ? get_post_meta( $wppp_id, 'slides-slide-width', true ) : '960' ); ?>,
+			height : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-height', true ) ? get_post_meta( $wppp_id, 'slides-slide-height', true ) : '700' ); ?>,
+			margin : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-margin', true ) ? get_post_meta( $wppp_id, 'slides-slide-margin', true ) : '0.1' ); ?>,
+			maxScale : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-max-scale', true ) ? get_post_meta( $wppp_id, 'slides-max-scale', true ) : '1.5' ); ?>,
+			minScale : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-min-scale', true ) ? get_post_meta( $wppp_id, 'slides-min-scale', true ) : '0.2' ); ?>,
+			controls : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-display-controls', true ) ? get_post_meta( $wppp_id, 'slides-display-controls', true ) : 'true' ); ?>,
+			progress : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-progress-bar', true ) ? get_post_meta( $wppp_id, 'slides-progress-bar', true ) : 'true' ); ?>,
+			slideNumber : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-number', true ) ? get_post_meta( $wppp_id, 'slides-slide-number', true ) : 'false' ); ?>,
+			history : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-push-history', true ) ? get_post_meta( $wppp_id, 'slides-push-history', true ) : 'true' ); ?>,
+			keyboard : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) ? get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) : 'true' ); ?>,
 			overview : false,
 			center : true,
 			touch : true,
-			loop :<?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'loop', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
-			rtl : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'right_to_left', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'true' ); ?>,
+			loop :<?php echo esc_html( get_post_meta( $wppp_id, 'slides-loop-slides', true ) ? get_post_meta( $wppp_id, 'slides-loop-slides', true ) : 'false' ); ?>,
+			rtl : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-right-to-left', true ) ? get_post_meta( $wppp_id, 'slides-right-to-left', true ) : 'false' ); ?>,
 			embedded : false,
-			mouseWheel : <?php echo esc_html( function_exists( 'get_field' ) ? get_field( 'mouse_wheel_navigation', $wppp_term->taxonomy . '_' . $wppp_term->term_id ) : 'false' ); ?>,
+			mouseWheel : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-mouse-wheel-navigation', true ) ? get_post_meta( $wppp_id, 'slides-mouse-wheel-navigation', true ) : 'true' ); ?>,
 			hideAddressBar : true,
-			previewLinks : false,
+			previewLinks : true,
 
 			// Optional libraries used to extend on reveal.js
 			dependencies : [

@@ -37,14 +37,9 @@ class Post_Type {
 	 */
 	public function slide_single_override( $template ) {
 		if ( 'wppp' !== get_post_type() ) {
-			if ( is_tax( 'presentations' ) ) {
-				$slide = WP_PRESENTER_PRO_DIR . '/templates/slides.php';
-				return $slide;
-			} else {
-				return $template;
-			}
+			return $template;
 		}
-		$slide = WP_PRESENTER_PRO_DIR . '/templates/slide.php';
+		$slide = WP_PRESENTER_PRO_DIR . '/templates/slides.php';
 		if ( file_exists( $slide ) ) {
 			return $slide;
 		}
@@ -132,18 +127,63 @@ class Post_Type {
 			'supports'            => array(
 				'title',
 				'editor',
-				'page-attributes',
+				'author',
+				'thumbnail',
+				'excerpt',
+				'custom-fields',
+				'revisions',
 			),
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => true,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
 			'query_var'           => 'wppp',
-			'capability_type'     => 'page',
+			'capability_type'     => 'post',
 			'show_in_rest'        => true,
 			'show_in_menu'        => true,
 		);
 		register_post_type( 'wppp', $args );
+
+		$meta_boxes_toggle = array(
+			'slides-display-controls',
+			'slides-keyboard-shortcuts',
+			'slides-mouse-wheel-navigation',
+			'slides-loop-slides',
+			'slides-right-to-left',
+			'slides-push-history',
+			'slides-progress-bar',
+			'slides-slide-number',
+		);
+		$meta_boxes_text   = array(
+			'slides-theme',
+			'slides-slide-width',
+			'slides-slide-height',
+			'slides-slide-margin',
+			'slides-min-scale',
+			'slides-max-scale',
+		);
+		foreach ( $meta_boxes_toggle as $meta_box ) {
+			register_post_meta(
+				'wppp',
+				$meta_box,
+				array(
+					'show_in_rest' => true,
+					'type'         => 'string',
+					'single'       => true,
+				)
+			);
+		}
+		foreach ( $meta_boxes_text as $meta_box ) {
+			register_post_meta(
+				'wppp',
+				$meta_box,
+				array(
+					'show_in_rest' => true,
+					'type'         => 'string',
+					'single'       => true,
+				)
+			);
+		}
 
 		// Register the taxonomy.
 		$labels = array(
