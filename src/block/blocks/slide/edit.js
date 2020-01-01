@@ -82,7 +82,7 @@ class WP_Presenter_Pro_Slide extends Component {
 			slideStyles.backgroundRepeat = 'repeat';
 		}
 
-		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition', 'wppp/code', 'coblocks/alert', 'coblocks/click-to-tweet', 'coblocks/dynamic-separator', 'coblocks/gif', 'atomic-blocks/ab-columns', 'atomic-blocks/ab-spacer', 'atomic-blocks/ab-cta', 'atomic-blocks/ab-sharing', 'atomic-blocks/ab-pricing-table', 'atomic-blocks/ab-pricing-table-title', 'atomic-blocks/ab-pricing-table-price', 'atomic-blocks/ab-pricing-table-button', 'atomic-blocks/ab-pricing-table-features', 'atomic-blocks/ab-column', 'atomic-blocks/ab-notice', 'atomic-blocks/ab-button', 'atomic-blocks/ab-testimonial' ];
+		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition', 'wppp/code', 'wppp/list-item', 'wppp/image', 'wppp/content-two-columns', 'coblocks/alert', 'coblocks/click-to-tweet', 'coblocks/dynamic-separator', 'coblocks/gif', 'atomic-blocks/ab-columns', 'atomic-blocks/ab-spacer', 'atomic-blocks/ab-cta', 'atomic-blocks/ab-sharing', 'atomic-blocks/ab-pricing-table', 'atomic-blocks/ab-pricing-table-title', 'atomic-blocks/ab-pricing-table-price', 'atomic-blocks/ab-pricing-table-button', 'atomic-blocks/ab-pricing-table-features', 'atomic-blocks/ab-column', 'atomic-blocks/ab-notice', 'atomic-blocks/ab-button', 'atomic-blocks/ab-testimonial' ];
 
 		return (
 			<Fragment>
