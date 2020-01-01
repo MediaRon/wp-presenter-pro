@@ -8,4 +8,4 @@
 
 ## Purchase a license for support and upgrades
 
-<a href="https://mediaron.com/downloads/wp-presenter-pro/">Purchase a License for Updates and Support</a>
+<a href="https://mediaron.com/support/">Purchase Support</a>
