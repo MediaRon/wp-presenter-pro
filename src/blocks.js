@@ -68,11 +68,23 @@ registerPlugin( 'wp-presenter-pro', {
 			<PluginDocumentSettingPanel
 				title={__('Presentation Options', 'wp-presenter-pro')}
 			>
-				<ToggleControl
-					label={__( 'Display Controls', 'wp-presenter-pro' )}
-					checked={meta[displayControls] === 'true'}
-					onChange={ (value ) => updateMeta( value + '', displayControls ) }
-				/>
+				<PanelBody title={__('Navigation', 'wp-presenter-pro')}>
+					<ToggleControl
+						label={__( 'Display Controls', 'wp-presenter-pro' )}
+						checked={meta[displayControls] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', displayControls ) }
+					/>
+					<ToggleControl
+						label={__( 'Keyboard Shortcuts', 'wp-presenter-pro' )}
+						checked={meta[keyboardShortcuts] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', keyboardShortcuts ) }
+					/>
+					<ToggleControl
+						label={__( 'Mousewheel Navigation', 'wp-presenter-pro' )}
+						checked={meta[mouseWheelNavigation] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', mouseWheelNavigation ) }
+					/>
+				</PanelBody>
 			</PluginDocumentSettingPanel>
 			</Fragment>
 		)
