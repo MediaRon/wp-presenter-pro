@@ -16,12 +16,6 @@ const { Component, Fragment } = wp.element;
 const { PanelBody, TextControl, SelectControl, ToggleControl } = wp.components;
 const { withSelect, withDispatch, useSelect, useDispatch } = wp.data;
 
-// Register select item.
-const updraftCentralSelect = [
-	{ value: 'none', label: __( 'None', 'block-for-updraftcentral' ) },
-	{ value: 'full', label: __( 'Full-width', 'block-for-updraftcentral' ) },
-];
-
 import './block/style.scss';
 import './block/editor.scss';
 import './block/blocks/slide/block';
@@ -31,7 +25,6 @@ import './block/blocks/code/block';
 import './block/blocks/list-item/block';
 import './block/blocks/image/block';
 import './block/blocks/spacer/block';
-import './block/blocks/show-notes/block';
 import './block/blocks/content-image/block';
 import './block/blocks/content/block';
 import './block/blocks/content-two-columns/block';
