@@ -142,6 +142,7 @@ class Post_Type {
 			'show_in_rest'        => true,
 			'show_in_menu'        => true,
 		);
+		$args = apply_filters( 'wp_presenter_pro_post_type_args', $args );
 		register_post_type( 'wppp', $args );
 
 		$meta_boxes_toggle = array(
