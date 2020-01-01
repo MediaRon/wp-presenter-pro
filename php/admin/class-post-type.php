@@ -185,41 +185,6 @@ class Post_Type {
 			);
 		}
 
-		// Register the taxonomy.
-		$labels = array(
-			'name'                       => _x( 'Presentations', 'Taxonomy General Name', 'wp-presenter-pro' ),
-			'singular_name'              => _x( 'Presentation', 'Taxonomy Singular Name', 'wp-presenter-pro' ),
-			'menu_name'                  => __( 'Presentations', 'wp-presenter-pro' ),
-			'all_items'                  => __( 'All Presentations', 'wp-presenter-pro' ),
-			'parent_item'                => __( 'Parent Presentation', 'wp-presenter-pro' ),
-			'parent_item_colon'          => __( 'Parent Presentation:', 'wp-presenter-pro' ),
-			'new_item_name'              => __( 'New Presentation Name', 'wp-presenter-pro' ),
-			'add_new_item'               => __( 'Add New Presentation', 'wp-presenter-pro' ),
-			'edit_item'                  => __( 'Edit Presentation', 'wp-presenter-pro' ),
-			'update_item'                => __( 'Update Presentation', 'wp-presenter-pro' ),
-			'view_item'                  => __( 'View Presentation', 'wp-presenter-pro' ),
-			'separate_items_with_commas' => __( 'Separate Presentations with commas', 'wp-presenter-pro' ),
-			'add_or_remove_items'        => __( 'Add or remove Presentations', 'wp-presenter-pro' ),
-			'choose_from_most_used'      => __( 'Choose from the most used', 'wp-presenter-pro' ),
-			'popular_items'              => __( 'Popular Presentations', 'wp-presenter-pro' ),
-			'search_items'               => __( 'Search Presentations', 'wp-presenter-pro' ),
-			'not_found'                  => __( 'Not Found', 'wp-presenter-pro' ),
-			'no_terms'                   => __( 'No Presentations', 'wp-presenter-pro' ),
-			'items_list'                 => __( 'Presentations list', 'wp-presenter-pro' ),
-			'items_list_navigation'      => __( 'Presentations list navigation', 'wp-presenter-pro' ),
-		);
-		$args   = array(
-			'labels'            => $labels,
-			'hierarchical'      => true,
-			'public'            => true,
-			'show_ui'           => true,
-			'show_admin_column' => true,
-			'show_in_nav_menus' => true,
-			'show_tagcloud'     => true,
-			'show_in_rest'      => true,
-		);
-		register_taxonomy( 'presentations', array( 'wppp' ), $args );
-
 		$wp_presentation_pro           = get_post_type_object( 'wppp' );
 		$wp_presentation_pro->template = array(
 			array(

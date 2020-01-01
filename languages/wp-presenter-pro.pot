@@ -1,0 +1,784 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Presenter Pro\n"
+"POT-Creation-Date: 2020-01-01 06:48-0600\n"
+"PO-Revision-Date: 2020-01-01 06:47-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wp-presenter-pro.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: node_modules\n"
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:50
+#: src/block/blocks/transitions/transitions.js:3
+#: src/block/blocks/vertical-slide/edit.js:50 src/blocks.js:60
+msgid "None"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:4
+msgid "Up"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:5
+msgid "Down"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:6
+msgid "Left"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:7
+msgid "Right"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:8
+msgid "Grow"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:9
+msgid "Shrink"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:10
+msgid "Fade Right"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:11
+msgid "Fade Out"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:12
+msgid "Fade Up"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:13
+msgid "Fade In Then Out"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transitions/transitions.js:14
+msgid "Fade In Then Semi Out"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:3
+msgid "Bubblegum"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:4
+msgid "Dosis"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:5
+msgid "Encode"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:6
+msgid "Lato"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:7 src/blocks.js:64
+msgid "League"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:8
+msgid "Libre Baskerville"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:9
+msgid "Merriweather"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:10
+msgid "Montserrat"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:11
+msgid "News Cycle"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:12
+msgid "Open Sans"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:13
+msgid "Quicksand"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:14
+msgid "Sinkins Sans"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:15
+msgid "Source Sans Pro"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/fonts/fonts.js:16
+msgid "Ubuntu"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:61
+msgid "Beige"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:62
+msgid "Black"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:63
+msgid "Blood"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:65
+msgid "Moon"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:66
+msgid "Night"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:67
+msgid "Serif"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:68
+msgid "Solarized"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:69
+msgid "White"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:74
+msgid "Presentation Options"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:76
+msgid "Navigation"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:78
+msgid "Display Controls"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:83
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:88
+msgid "Mousewheel Navigation"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:93
+msgid "Presentation Settings"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:95
+msgid "Loop Slides"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:100
+msgid "Right to Left"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:105
+msgid "Push History"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:110
+msgid "Visual Settings"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:112
+msgid "Progress Bar"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:117
+msgid "Slide Number"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:122
+msgid "Theme"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:128
+msgid "Slide Size"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:130 src/blocks.js:136
+msgid "Width"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:142
+msgid "Margin"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:148
+msgid "Minimum Scale"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/blocks.js:154
+msgid "Maximum Scale"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/block.js:22
+msgid "WP Presenter Slide"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/block.js:26
+#: src/block/blocks/text-box/block.js:23
+#: src/block/blocks/transition/block.js:26
+#: src/block/blocks/vertical-slide/block.js:26
+msgid "slide"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:51
+#: src/block/blocks/vertical-slide/edit.js:51
+msgid "Fade"
+msgstr ""
+
+#: dist/blocks.build.js:1 php/admin/class-post-type.php:82
+#: php/admin/class-post-type.php:115 php/admin/class-post-type.php:116
+#: src/block/blocks/slide/edit.js:52 src/block/blocks/vertical-slide/edit.js:52
+msgid "Slide"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:53
+#: src/block/blocks/vertical-slide/edit.js:53
+msgid "Convex"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:54
+#: src/block/blocks/vertical-slide/edit.js:54
+msgid "Concave"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:55
+#: src/block/blocks/vertical-slide/edit.js:55
+msgid "Zoom"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:81
+#: src/block/blocks/content-image/edit.js:88
+#: src/block/blocks/content-two-columns/edit.js:74
+#: src/block/blocks/content-two-columns/edit.js:81
+#: src/block/blocks/content/edit.js:81 src/block/blocks/content/edit.js:88
+#: src/block/blocks/list-item/edit.js:62 src/block/blocks/list-item/edit.js:69
+#: src/block/blocks/slide/edit.js:60 src/block/blocks/slide/edit.js:110
+#: src/block/blocks/slide/edit.js:117 src/block/blocks/title/edit.js:63
+#: src/block/blocks/title/edit.js:70 src/block/blocks/vertical-slide/edit.js:60
+#: src/block/blocks/vertical-slide/edit.js:111
+#: src/block/blocks/vertical-slide/edit.js:118
+msgid "Background Color"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:61
+#: src/block/blocks/slide/edit.js:133 src/block/blocks/slide/edit.js:138
+#: src/block/blocks/vertical-slide/edit.js:61
+#: src/block/blocks/vertical-slide/edit.js:134
+#: src/block/blocks/vertical-slide/edit.js:139
+msgid "Background Image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:62
+#: src/block/blocks/vertical-slide/edit.js:62
+msgid "Video"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:63
+#: src/block/blocks/vertical-slide/edit.js:63
+msgid "iFrame"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:66
+#: src/block/blocks/vertical-slide/edit.js:66
+msgid "Cover"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:67
+#: src/block/blocks/vertical-slide/edit.js:67
+msgid "Repeat Image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:90
+#: src/block/blocks/vertical-slide/edit.js:91
+msgid "WP Presenter Pro Settings"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:92
+#: src/block/blocks/slide/edit.js:153
+#: src/block/blocks/vertical-slide/edit.js:93
+#: src/block/blocks/vertical-slide/edit.js:154
+msgid "Select a Background Type"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:101
+#: src/block/blocks/vertical-slide/edit.js:102
+msgid "Enter your iFrame URL here. No other blocks will be shown"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:144
+#: src/block/blocks/vertical-slide/edit.js:145
+msgid "Remove Background Image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:172
+#: src/block/blocks/vertical-slide/edit.js:173
+msgid "Background Video"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:180
+#: src/block/blocks/vertical-slide/edit.js:181
+msgid "Remove Background Video"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:93
+#: src/block/blocks/content-image/edit.js:100
+#: src/block/blocks/content-two-columns/edit.js:86
+#: src/block/blocks/content-two-columns/edit.js:93
+#: src/block/blocks/content/edit.js:93 src/block/blocks/content/edit.js:100
+#: src/block/blocks/list-item/edit.js:74 src/block/blocks/list-item/edit.js:81
+#: src/block/blocks/slide/edit.js:191 src/block/blocks/slide/edit.js:198
+#: src/block/blocks/text-box/edit.js:61 src/block/blocks/text-box/edit.js:68
+#: src/block/blocks/title/edit.js:75 src/block/blocks/title/edit.js:82
+#: src/block/blocks/vertical-slide/edit.js:192
+#: src/block/blocks/vertical-slide/edit.js:199
+msgid "Text Color"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/code/edit.js:58
+#: src/block/blocks/content-image/edit.js:133
+#: src/block/blocks/content-two-columns/edit.js:114
+#: src/block/blocks/content/edit.js:121 src/block/blocks/image/edit.js:89
+#: src/block/blocks/list-item/edit.js:94 src/block/blocks/slide/edit.js:203
+#: src/block/blocks/text-box/edit.js:89 src/block/blocks/title/edit.js:103
+#: src/block/blocks/transition/edit.js:54
+#: src/block/blocks/vertical-slide/edit.js:204
+msgid "Select a Transition"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:211
+#: src/block/blocks/vertical-slide/edit.js:212
+msgid "Select a Background Transition"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/slide/edit.js:229
+#: src/block/blocks/vertical-slide/edit.js:230
+msgid "Speaker Notes"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/title/block.js:19
+msgid "Slide Title"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "title"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/title/edit.js:61
+msgid "WP Presenter Pro Title"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:105
+#: src/block/blocks/content-two-columns/edit.js:98
+#: src/block/blocks/content/edit.js:105 src/block/blocks/list-item/edit.js:86
+#: src/block/blocks/text-box/edit.js:73 src/block/blocks/title/edit.js:87
+msgid "Select a Font"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:113
+#: src/block/blocks/content-two-columns/edit.js:106
+#: src/block/blocks/content/edit.js:113 src/block/blocks/text-box/edit.js:81
+#: src/block/blocks/title/edit.js:95
+msgid "Font Size"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:141
+#: src/block/blocks/content-two-columns/edit.js:122
+#: src/block/blocks/content/edit.js:129 src/block/blocks/list-item/edit.js:103
+#: src/block/blocks/text-box/edit.js:98 src/block/blocks/title/edit.js:112
+msgid "Padding"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:149
+#: src/block/blocks/content-two-columns/edit.js:130
+#: src/block/blocks/content/edit.js:137 src/block/blocks/list-item/edit.js:111
+#: src/block/blocks/title/edit.js:120
+msgid "Radius"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/title/edit.js:128
+msgid "Change Capitilization"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/title/edit.js:142
+msgid "Enter a slide title here..."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/text-box/block.js:19
+msgid "Text Box"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/text-box/block.js:24
+msgid "text"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/text-box/edit.js:59
+msgid "WP Presenter Pro Text Box"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/text-box/edit.js:114
+msgid "Enter some text here!"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/code/block.js:19
+msgid "Code"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "code"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/code/edit.js:56
+msgid "WP Presenter Pro Code Editor"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/code/edit.js:77
+msgid "Enter your code here."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/code/edit.js:78
+msgid "Presentation code"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/list-item/block.js:19
+msgid "List Item"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "list"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/list-item/edit.js:60
+msgid "WP Presenter Pro Unordered List"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/list-item/edit.js:132
+msgid "Enter text..."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/image/block.js:19
+msgid "Image"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/image/edit.js:75
+msgid "WP Presenter Pro Image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:122
+#: src/block/blocks/image/edit.js:78
+msgid "Select an Image Size"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/spacer/block.js:19
+msgid "Slide Spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/spacer/edit.js:52
+msgid "WP Presenter Pro Spacer"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/spacer/edit.js:54
+msgid "Height"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/spacer/edit.js:69
+msgid "This is a spacer. No content will be shown."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/block.js:19
+msgid "Content/Image Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "content"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:79
+msgid "WP Presenter Pro Content/Image"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-image/edit.js:170
+msgid "Enter text here..."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content/block.js:19
+msgid "Content"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content/edit.js:79
+msgid "WP Presenter Pro Content"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-two-columns/block.js:19
+msgid "Content Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1
+msgid "columns"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-two-columns/edit.js:72
+msgid "WP Presenter Pro Content Two Columns"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/content-two-columns/edit.js:147
+#: src/block/blocks/content-two-columns/edit.js:156
+msgid "Enter content here..."
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/vertical-slide/block.js:22
+msgid "WP Presenter Vertical Slide"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transition/block.js:22
+msgid "WP Presenter Transition"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transition/block.js:27
+msgid "transition"
+msgstr ""
+
+#: dist/blocks.build.js:1 src/block/blocks/transition/edit.js:52
+msgid "WP Presenter Pro Transition Block"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+#: php/admin/class-post-type.php:65
+msgid "WP Presenter Pro"
+msgstr ""
+
+#: php/admin/class-post-type.php:79
+msgctxt "Post Type General Name"
+msgid "Slides"
+msgstr ""
+
+#: php/admin/class-post-type.php:80
+msgctxt "Post Type Singular Name"
+msgid "Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:81
+msgid "Slides"
+msgstr ""
+
+#: php/admin/class-post-type.php:83
+msgid "Slide Archives"
+msgstr ""
+
+#: php/admin/class-post-type.php:84
+msgid "Slide Attributes"
+msgstr ""
+
+#: php/admin/class-post-type.php:85
+msgid "Parent Item:"
+msgstr ""
+
+#: php/admin/class-post-type.php:86
+msgid "All Slides"
+msgstr ""
+
+#: php/admin/class-post-type.php:87 php/admin/class-post-type.php:88
+msgid "Add New Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:89
+msgid "New Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:90
+msgid "Edit Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:91
+msgid "Update Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:92
+msgid "View Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:93
+msgid "View Slides"
+msgstr ""
+
+#: php/admin/class-post-type.php:94
+msgid "Search Slides"
+msgstr ""
+
+#: php/admin/class-post-type.php:95
+msgid "Not found"
+msgstr ""
+
+#: php/admin/class-post-type.php:96
+msgid "Not found in Trash"
+msgstr ""
+
+#: php/admin/class-post-type.php:97
+msgid "Featured Image"
+msgstr ""
+
+#: php/admin/class-post-type.php:98
+msgid "Set featured image"
+msgstr ""
+
+#: php/admin/class-post-type.php:99
+msgid "Remove featured image"
+msgstr ""
+
+#: php/admin/class-post-type.php:100
+msgid "Use as featured image"
+msgstr ""
+
+#: php/admin/class-post-type.php:101
+msgid "Insert into item"
+msgstr ""
+
+#: php/admin/class-post-type.php:102
+msgid "Uploaded to this Slide"
+msgstr ""
+
+#: php/admin/class-post-type.php:103
+msgid "Slide List"
+msgstr ""
+
+#: php/admin/class-post-type.php:104
+msgid "Slide list navigation"
+msgstr ""
+
+#: php/admin/class-post-type.php:105
+msgid "Filter Slide list"
+msgstr ""
+
+#: php/admin/class-post-type.php:190
+msgctxt "Taxonomy General Name"
+msgid "Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:191
+msgctxt "Taxonomy Singular Name"
+msgid "Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:192
+msgid "Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:193
+msgid "All Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:194
+msgid "Parent Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:195
+msgid "Parent Presentation:"
+msgstr ""
+
+#: php/admin/class-post-type.php:196
+msgid "New Presentation Name"
+msgstr ""
+
+#: php/admin/class-post-type.php:197
+msgid "Add New Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:198
+msgid "Edit Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:199
+msgid "Update Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:200
+msgid "View Presentation"
+msgstr ""
+
+#: php/admin/class-post-type.php:201
+msgid "Separate Presentations with commas"
+msgstr ""
+
+#: php/admin/class-post-type.php:202
+msgid "Add or remove Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:203
+msgid "Choose from the most used"
+msgstr ""
+
+#: php/admin/class-post-type.php:204
+msgid "Popular Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:205
+msgid "Search Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:206
+msgid "Not Found"
+msgstr ""
+
+#: php/admin/class-post-type.php:207
+msgid "No Presentations"
+msgstr ""
+
+#: php/admin/class-post-type.php:208
+msgid "Presentations list"
+msgstr ""
+
+#: php/admin/class-post-type.php:209
+msgid "Presentations list navigation"
+msgstr ""
+
+#: wp-presenter-pro.php:60
+msgid ""
+"WP Presenter Pro plugin error: Your version of PHP is too old to run this "
+"plugin. You must be running PHP 5.4 or higher."
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://mediaron.com/downloads/wp-presenter-pro/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "A plugin for allowing you to do presentations using WordPress."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "MediaRon LLC"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://mediaron.com"
+msgstr ""

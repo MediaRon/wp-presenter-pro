@@ -61,7 +61,6 @@ class Enqueue {
 				'image_sizes' => $js_format_sizes,
 			)
 		);
-
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
 
 		// Styles.
