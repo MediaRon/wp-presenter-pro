@@ -64,6 +64,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_vertical_slide = new Blocks\Vertical_Slide();
 		$this->block_vertical_slide->register_hooks();
 
+		// Blockquote block.
+		$this->blockquote = new Blocks\Blockquote();
+		$this->blockquote->register_hooks();
+
 		// Transition Slides Block.
 		$this->block_transition = new Blocks\Transition();
 		$this->block_transition->register_hooks();
