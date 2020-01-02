@@ -59,7 +59,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 		return (
 			<Fragment>
 				<InspectorControls>
-					<PanelBody title={ __( 'WP Presenter Pro Code Editor', 'wp-presenter-pro' ) }>
+					<PanelBody title={ __( 'WP Presenter Pro Blockquote', 'wp-presenter-pro' ) }>
 					<PanelColorSettings
 							title={ __( 'Background Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
@@ -140,6 +140,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							style={slideStyles}
 					>
 						<PlainText
+							style={slideStyles}
 							value={ content }
 							onChange={ ( content ) => setAttributes( { content } ) }
 							placeholder={ __( 'Enter your blockquote here.', 'wp-presenter-pro' ) }
