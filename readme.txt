@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,11 +40,31 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 4. Activate the plugin and you'll see a Slides top-level menu item.
 5. From there, you can create your presentation.
 
+# Screenshots
+
+1. Post type menu for slides.
+2. Slide preview in Gutenberg.
+3. Presentation View.
+4. Speaker Notes.
+5. Presentation Options.
+6. Options for the Slide Title.
+7. WP Presenter Pro Helper Blocks.
+8. WP Presenter Pro Slide Blocks.
+9. Presentation Navigation Options.
+10. Presentation Settings.
+11. Presentation Visual Settings.
+12. Presentation Slide Size Settings.
+13. Presentation Header/Footer placement.
+
 == Frequently Asked Questions ==
 
 = No Questions Yet =
 
 Feel free to ask a question and it will be answered here.
+
+= 2.0.1 =
+* Released 2020-01-02
+* Grouping blocks into appropriate categories for easier discovery.
 
 == Changelog ==
 
@@ -54,5 +74,5 @@ Feel free to ask a question and it will be answered here.
 
 == Upgrade Notice ==
 
-= 2.0.0 =
-Initial release.
+= 2.0.1 =
+Grouping blocks into appropriate categories for easier discovery.

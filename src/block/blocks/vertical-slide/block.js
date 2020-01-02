@@ -21,7 +21,7 @@ const {
 registerBlockType( 'wppp/vertical-slide', {
 	title: __( 'WP Presenter Vertical Slide', 'wp-presenter-pro' ), // Block title.
 	icon: 'slides',
-	category: 'wp-presenter-pro',
+	category: 'wp-presenter-pro-slides',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
 	],

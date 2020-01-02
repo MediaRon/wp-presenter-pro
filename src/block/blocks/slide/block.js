@@ -21,7 +21,7 @@ const {
 registerBlockType( 'wppp/slide', {
 	title: __( 'WP Presenter Slide', 'wp-presenter-pro' ), // Block title.
 	icon: 'slides',
-	category: 'wp-presenter-pro',
+	category: 'wp-presenter-pro-slides',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
 	],

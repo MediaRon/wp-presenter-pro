@@ -63,6 +63,11 @@ class Post_Type {
 				array(
 					'slug'  => 'wp-presenter-pro',
 					'title' => __( 'WP Presenter Pro', 'metronet-profile-picture' ),
+					'icon'  => 'admin-customizer',
+				),
+				array(
+					'slug'  => 'wp-presenter-pro-slides',
+					'title' => __( 'WP Presenter Pro Slides', 'metronet-profile-picture' ),
 					'icon'  => 'slides',
 				),
 			)
