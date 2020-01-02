@@ -22,6 +22,7 @@ import './block/blocks/title/block';
 import './block/blocks/text-box/block';
 import './block/blocks/code/block';
 import './block/blocks/list-item/block';
+import './block/blocks/ordered-list/block';
 import './block/blocks/image/block';
 import './block/blocks/spacer/block';
 import './block/blocks/content-image/block';

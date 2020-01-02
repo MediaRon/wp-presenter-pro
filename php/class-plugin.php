@@ -40,6 +40,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_list = new Blocks\List_Item();
 		$this->block_list->register_hooks();
 
+		// Ordered List Block.
+		$this->block_ordered_list = new Blocks\Ordered_List();
+		$this->block_ordered_list->register_hooks();
+
 		// Image Block.
 		$this->block_image = new Blocks\Image();
 		$this->block_image->register_hooks();
