@@ -1,4 +1,4 @@
-=== User Profile Picture Social Networks ===
+=== WP Presenter Pro ===
 Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, user profile, social networks, blocks, block
