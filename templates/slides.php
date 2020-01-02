@@ -18,6 +18,14 @@ wp_enqueue_style(
 	WP_PRESENTER_PRO_VERSION,
 	'all'
 );
+// Add support for the typekit plugin.
+if ( class_exists( 'Custom_Typekit_Fonts_Render' ) ) {
+	$typekit_instance = Custom_Typekit_Fonts_Render::get_instance();
+	$typekit_instance->typekit_embed_css();
+}
+// Allow others to hook into the header.
+do_action( 'wp_presenter_pro_slide_head' );
+// Get object ID and enqueue assets.
 $wppp_id     = get_queried_object_id();
 $maybe_theme = get_post_meta( $wppp_id, 'slides-theme', true );
 $theme       = $maybe_theme ? $maybe_theme : 'black';
@@ -140,6 +148,7 @@ Reveal.initialize( {
 		} );
 		</script>
 		<?php
+		do_action( 'wp_presenter_pro_slide_footer' );
 		do_action( 'wp_footer' );
 		?>
 		<script>

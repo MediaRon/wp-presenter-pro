@@ -29,6 +29,7 @@ import './block/blocks/content/block';
 import './block/blocks/content-two-columns/block';
 import './block/blocks/vertical-slide/block';
 import './block/blocks/transition/block';
+import './block/blocks/blockquote/block';
 
 const displayControls = 'slides-display-controls';
 const keyboardShortcuts = 'slides-keyboard-shortcuts';

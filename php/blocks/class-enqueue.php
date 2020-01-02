@@ -52,6 +52,34 @@ class Enqueue {
 			WP_PRESENTER_PRO_VERSION,
 			true
 		);
+		$pro_fonts = array(
+			'bubblebum'       => _x( 'Bubblegum', 'Font Name', 'wp-presenter-pro' ),
+			'dosis'           => _x( 'Dosis', 'Font Name', 'wp-presenter-pro' ),
+			'encode'          => _x( 'Encode', 'Font Name', 'wp-presenter-pro' ),
+			'lato'            => _x( 'Lato', 'Font Name', 'wp-presenter-pro' ),
+			'league'          => _x( 'League', 'Font Name', 'wp-presenter-pro' ),
+			'merriweather'    => _x( 'Merriweather', 'Font Name', 'wp-presenter-pro' ),
+			'montserrat'      => _x( 'Monstserrat', 'Font Name', 'wp-presenter-pro' ),
+			'news-cycle'      => _x( 'News Cycle', 'Font Name', 'wp-presenter-pro' ),
+			'open-sans'       => _x( 'Libre Baskerville', 'Font Name', 'wp-presenter-pro' ),
+			'quicksand'       => _x( 'Quicksand', 'Font Name', 'wp-presenter-pro' ),
+			'sinkins-sans'    => _x( 'Sinkins Sans', 'Font Name', 'wp-presenter-pro' ),
+			'source-sans-pro' => _x( 'Source Sans Pro', 'Font Name', 'wp-presenter-pro' ),
+			'ubuntu'          => _x( 'Ubuntu', 'Font Name', 'wp-presenter-pro' ),
+		);
+
+		// Add Typekit Fonts.
+		if ( defined( 'CUSTOM_TYPEKIT_FONTS_FILE' ) ) {
+			$fonts = get_option( 'custom-typekit-fonts', array() );
+			if ( isset( $fonts['custom-typekit-font-details'] ) ) {
+				foreach ( $fonts['custom-typekit-font-details'] as $font_name => $font_details ) {
+					$pro_fonts[ $font_details['slug'] ] = $font_details['family'];
+				}
+			}
+		}
+
+		// Allowing others to add fonts.
+		$pro_fonts = apply_filters( 'wp_presenter_pro_fonts', $pro_fonts );
 		wp_localize_script(
 			'wp-presenter-pro-js',
 			'wp_presenter_pro',
@@ -60,6 +88,7 @@ class Enqueue {
 				'rest_nonce'  => wp_create_nonce( 'wp_rest' ),
 				'image_sizes' => $js_format_sizes,
 				'mathjax'     => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
+				'fonts'       => $pro_fonts,
 			)
 		);
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
