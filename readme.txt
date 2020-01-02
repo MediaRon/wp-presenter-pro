@@ -1,7 +1,7 @@
 === WP Presenter Pro ===
 Contributors: ronalfy
 Requires at least: 5.3
-Tags: users, user profile, social networks, blocks, block
+Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
 Stable tag: 2.0.0
 Requires PHP: 5.6
@@ -19,6 +19,19 @@ Please help <a href="https://github.com/ronalfy/wp-presenter-pro">contribute on 
 
 Built on <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
 
+== Overview Video ==
+
+https://www.youtube.com/watch?v=oT18YnW_trs
+
+== Recommended Plugins ==
+
+<ul>
+<li><a href="https://wordpress.org/plugins/wordpress-seo/">Yoast SEO</a></li>
+<li><a href="https://wordpress.org/plugins/custom-typekit-fonts/">Adobe Fonts</a></li>
+<li><a href="https://wordpress.org/plugins/coblocks/">CoBlocks</a></li>
+<li><a href="https://wordpress.org/plugins/atomic-blocks/">Atomic Blocks</a></li>
+</ul>
+
 == Installation ==
 
 1. Requires WordPress 5.3 or greater.
@@ -26,11 +39,6 @@ Built on <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
 3. Requires Gutenberg (no classic editor).
 4. Activate the plugin and you'll see a Slides top-level menu item.
 5. From there, you can create your presentation.
-
-== Screenshots ==
-
-1. Gutenberg edit screen.
-2. Presentation on the front-end.
 
 == Frequently Asked Questions ==
 
