@@ -107,9 +107,11 @@ class Button extends Block {
 		if ( is_admin() ) {
 			return;
 		}
+		$no_follow = filter_var( $attributes['noFollow'], FILTER_VALIDATE_BOOLEAN );
+		$target    = filter_var( $attributes['newWindow'], FILTER_VALIDATE_BOOLEAN );
 		ob_start();
 		?>
-		<a class="wp-presenter-pro-button button
+		<a <?php echo $target ? 'target="_blank"' : ''; ?> <?php echo $no_follow ? 'rel="nofollow"' : ''; ?> class="wp-presenter-pro-button button
 		<?php
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 			echo esc_html( $attributes['transitions'] );
@@ -117,8 +119,10 @@ class Button extends Block {
 			echo 'fragment';
 		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
-		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->sub_title_font_size ) . 'px'; ?>" href="<?php echo esc_url( $attributes['buttonUrl'] ); ?>">
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo absint( $attributes['paddingTB'] ) . 'px ' . absint( $attributes['paddingLR'] ) . 'px;'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
+		border-width: <?php echo absint( $attributes['borderWidth'] ) . 'px;'; ?>
+		border-color: <?php echo esc_html( $attributes['borderColor'] ) . ';'; ?>
+		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo absint( $attributes['fontSize'] ) . 'px'; ?>" href="<?php echo esc_url( $attributes['buttonUrl'] ); ?>">
 			<?php echo wp_kses_post( $attributes['content'] ); ?>
 		</a>
 		<?php

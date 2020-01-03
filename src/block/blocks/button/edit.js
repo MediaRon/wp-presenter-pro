@@ -35,12 +35,12 @@ class WP_Presenter_Pro_Button extends Component {
 
 	render() {
 		const { setAttributes, isSelected } = this.props;
-		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTR, radius, borderColor, borderWidth, newWindow, noFollow } = this.props.attributes;
+		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTB, radius, borderColor, borderWidth, newWindow, noFollow } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
 			color: textColor,
-			padding: `${paddingTR}px ${paddingLR}px`,
+			padding: `${paddingTB}px ${paddingLR}px`,
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
 			fontSize: `${fontSize}px`,
@@ -111,8 +111,8 @@ class WP_Presenter_Pro_Button extends Component {
 						/>
 						<RangeControl
 							label={ __( 'Top/Bottom Padding', 'wp-presenter-pro' ) }
-							value={ paddingTR }
-							onChange={ ( value ) => setAttributes( { paddingTR: value } ) }
+							value={ paddingTB }
+							onChange={ ( value ) => setAttributes( { paddingTB: value } ) }
 							min={ 0 }
 							max={ 100 }
 							step={ 1 }
