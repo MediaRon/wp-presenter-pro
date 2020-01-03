@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.1
+Stable tag: 2.0.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -40,7 +40,7 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 4. Activate the plugin and you'll see a Slides top-level menu item.
 5. From there, you can create your presentation.
 
-# Screenshots
+== Screenshots ==
 
 1. Post type menu for slides.
 2. Slide preview in Gutenberg.
@@ -62,6 +62,12 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 
 Feel free to ask a question and it will be answered here.
 
+= 2.0.5 =
+* Released 2020-01-03
+* Added toggle option to turn link previews off.
+* Added button block.
+* Added dual button block.
+
 = 2.0.1 =
 * Released 2020-01-02
 * Grouping blocks into appropriate categories for easier discovery.
@@ -73,6 +79,9 @@ Feel free to ask a question and it will be answered here.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.0.5 =
+Added toggle option to turn link previews off. Added button block. Added dual button block.
 
 = 2.0.1 =
 Grouping blocks into appropriate categories for easier discovery.
