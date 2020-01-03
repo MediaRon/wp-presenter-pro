@@ -1,5 +1,6 @@
 import axios from 'axios';
 import classnames from 'classnames';
+import allowedBlocks from '../allowed-blocks/allowed-blocks.js';
 
 const { Component, Fragment } = wp.element;
 const { withSelect } = wp.data;
@@ -81,9 +82,6 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 		if ( backgroundImageOptions == 'repeat' && 'background' !== backgroundType ) {
 			slideStyles.backgroundRepeat = 'repeat';
 		}
-
-		const ALLOWED_BLOCKS = [ 'wppp/content', 'wppp/content-image', 'wppp/spacer', 'wppp/text-box', 'wppp/slide-title', 'wppp/transition', 'wppp/code', 'wppp/list-item', 'wppp/image', 'wppp/content-two-columns', 'wppp/blockquote', 'wppp/ordered-list', 'coblocks/alert', 'coblocks/click-to-tweet', 'coblocks/dynamic-separator', 'coblocks/gif', 'coblocks/share', 'coblocks/icon', 'coblocks/gists', 'coblock/features', 'atomic-blocks/ab-columns', 'atomic-blocks/ab-spacer', 'atomic-blocks/ab-cta', 'atomic-blocks/ab-sharing', 'atomic-blocks/ab-pricing-table', 'atomic-blocks/ab-pricing-table-title', 'atomic-blocks/ab-pricing-table-price', 'atomic-blocks/ab-pricing-table-button', 'atomic-blocks/ab-pricing-table-features', 'atomic-blocks/ab-notice', 'atomic-blocks/ab-button', 'atomic-blocks/ab-testimonial', 'atomic-blocks/atomic-blocks/ab-columns' ];
-
 
 		return (
 			<Fragment>
@@ -222,7 +220,7 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 					<div className="wp-presenter-pro-slide" style={slideStyles}>
 						<div className="wp-block-group__inner-container">
 							<InnerBlocks
-								allowedBlocks={ALLOWED_BLOCKS}
+								allowedBlocks={allowedBlocks}
 							/>
 						</div>
 					</div>
