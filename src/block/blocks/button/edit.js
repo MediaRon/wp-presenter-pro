@@ -13,6 +13,7 @@ const {
 	IconButton,
 	Dashicon,
 	ToggleControl,
+	TextControl,
 } = wp.components;
 
 const {
@@ -35,7 +36,7 @@ class WP_Presenter_Pro_Button extends Component {
 
 	render() {
 		const { setAttributes, isSelected } = this.props;
-		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTB, radius, borderColor, borderWidth, newWindow, noFollow } = this.props.attributes;
+		const { buttonUrl, content, transitions, backgroundColor, backgroundColorHover, textColor, textColorHover, font, fontSize, paddingLR, paddingTB, radius, borderColor, borderWidth, newWindow, noFollow, btnClassName } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
@@ -66,6 +67,18 @@ class WP_Presenter_Pro_Button extends Component {
 						>
 						</PanelColorSettings>
 						<PanelColorSettings
+							title={ __( 'Background Color on Hover', 'wp-presenter-pro' ) }
+							initialOpen={ true }
+							colorSettings={ [ {
+								value: backgroundColorHover,
+								onChange: ( value ) => {
+									setAttributes( { backgroundColorHover: value});
+								},
+								label: __( 'Background Color on Hover', 'wp-presenter-pro' ),
+							} ] }
+						>
+						</PanelColorSettings>
+						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
 							colorSettings={ [ {
@@ -74,6 +87,18 @@ class WP_Presenter_Pro_Button extends Component {
 									setAttributes( { textColor: value});
 								},
 								label: __( 'Text Color', 'wp-presenter-pro' ),
+							} ] }
+						>
+						</PanelColorSettings>
+						<PanelColorSettings
+							title={ __( 'Text Color on Hover', 'wp-presenter-pro' ) }
+							initialOpen={ true }
+							colorSettings={ [ {
+								value: textColorHover,
+								onChange: ( value ) => {
+									setAttributes( { textColorHover: value});
+								},
+								label: __( 'Text Color on Hover', 'wp-presenter-pro' ),
 							} ] }
 						>
 						</PanelColorSettings>
@@ -154,6 +179,11 @@ class WP_Presenter_Pro_Button extends Component {
 							label={__( 'No Follow', 'wp-presenter-pro' )}
 							checked={noFollow}
 							onChange={ ( value ) => setAttributes( { noFollow: value } ) }
+						/>
+						<TextControl
+							label={__( 'Button Class Name', 'wp-presenter-pro' )}
+							value={btnClassName}
+							onChange={ ( value ) => setAttributes( { btnClassName: value } ) }
 						/>
 					</PanelBody>
 				</InspectorControls>

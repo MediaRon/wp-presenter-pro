@@ -36,61 +36,73 @@ class Button extends Block {
 			'wppp/button',
 			array(
 				'attributes'      => array(
-					'content'         => array(
+					'content'              => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'buttonUrl'       => array(
+					'buttonUrl'            => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'transitions'     => array(
+					'transitions'          => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'backgroundColor' => array(
+					'backgroundColor'      => array(
 						'type'    => 'string',
 						'default' => '#cf2e2e',
 					),
-					'textColor'       => array(
+					'backgroundColorHover' => array(
+						'type'    => 'string',
+						'default' => '#cf2e2e',
+					),
+					'textColor'            => array(
 						'type'    => 'string',
 						'default' => '#FFFFFF',
 					),
-					'font'            => array(
+					'textColorHover'       => array(
+						'type'    => 'string',
+						'default' => '#FFFFFF',
+					),
+					'font'                 => array(
 						'type'    => 'string',
 						'default' => 'open-sans',
 					),
-					'fontSize'        => array(
+					'fontSize'             => array(
 						'type'    => 'integer',
 						'default' => '24',
 					),
-					'paddingLR'       => array(
+					'paddingLR'            => array(
 						'type'    => 'integer',
 						'default' => 20,
 					),
-					'paddingTB'       => array(
+					'paddingTB'            => array(
 						'type'    => 'integer',
 						'default' => 10,
 					),
-					'borderWidth'     => array(
+					'borderWidth'          => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'borderColor'     => array(
+					'borderColor'          => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'radius'          => array(
+					'radius'               => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'newWindow'       => array(
+					'newWindow'            => array(
 						'type'    => 'boolean',
 						'default' => true,
 					),
-					'noFollow'        => array(
+					'noFollow'             => array(
 						'type'    => 'boolean',
 						'default' => false,
+					),
+					'btnClassName'         => array(
+						'type'    => 'string',
+						'default' => 'wppp-button',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
@@ -111,7 +123,13 @@ class Button extends Block {
 		$target    = filter_var( $attributes['newWindow'], FILTER_VALIDATE_BOOLEAN );
 		ob_start();
 		?>
-		<a <?php echo $target ? 'target="_blank"' : ''; ?> <?php echo $no_follow ? 'rel="nofollow"' : ''; ?> class="wp-presenter-pro-button button
+		<style>
+			.<?php echo esc_html( $attributes['btnClassName'] ); ?>.wp-presenter-pro-button.button:hover {
+				background-color: <?php echo esc_html( $attributes['backgroundColorHover'] ); ?> !important;
+				color: <?php echo esc_html( $attributes['textColorHover'] ); ?> !important;
+			}
+		</style>
+		<a <?php echo $target ? 'target="_blank"' : ''; ?> <?php echo $no_follow ? 'rel="nofollow"' : ''; ?> class="wp-presenter-pro-button button <?php echo esc_html( $attributes['btnClassName'] ); ?>
 		<?php
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 			echo esc_html( $attributes['transitions'] );
