@@ -52,6 +52,7 @@ const headerRight = 'slides-header-right';
 const footerLeft = 'slides-footer-left';
 const footerRight = 'slides-footer-right';
 const skipFirstSlide = 'slides-skip-first-slide';
+const noLinkPreviews = 'slides-no-link-previews';
 
 registerPlugin( 'wp-presenter-pro', {
 	icon: 'welcome-view-site',
@@ -112,6 +113,11 @@ registerPlugin( 'wp-presenter-pro', {
 						label={__( 'Push History', 'wp-presenter-pro' )}
 						checked={meta[pushHistory] === 'true'}
 						onChange={ (value ) => updateMeta( value + '', pushHistory ) }
+					/>
+					<ToggleControl
+						label={__( 'Disable Link Previews', 'wp-presenter-pro' )}
+						checked={meta[noLinkPreviews] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', noLinkPreviews ) }
 					/>
 				</PanelBody>
 				<PanelBody title={__('Visual Settings', 'wp-presenter-pro')}>

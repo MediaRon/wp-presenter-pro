@@ -119,7 +119,7 @@ class Button extends Block {
 			echo 'fragment';
 		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo absint( $attributes['paddingTB'] ) . 'px ' . absint( $attributes['paddingLR'] ) . 'px;'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
+		" style="text-decoration: none; color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo absint( $attributes['paddingTB'] ) . 'px ' . absint( $attributes['paddingLR'] ) . 'px;'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
 		border-width: <?php echo absint( $attributes['borderWidth'] ) . 'px;'; ?>
 		border-color: <?php echo esc_html( $attributes['borderColor'] ) . ';'; ?>
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo absint( $attributes['fontSize'] ) . 'px'; ?>" href="<?php echo esc_url( $attributes['buttonUrl'] ); ?>">

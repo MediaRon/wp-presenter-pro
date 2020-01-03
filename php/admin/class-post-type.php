@@ -160,6 +160,7 @@ class Post_Type {
 			'slides-progress-bar',
 			'slides-slide-number',
 			'slides-skip-first-slide',
+			'slides-no-link-previews',
 		);
 		$meta_boxes_text   = array(
 			'slides-theme',
