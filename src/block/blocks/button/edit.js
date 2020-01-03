@@ -1,30 +1,21 @@
-import axios from 'axios';
 import classnames from 'classnames';
 import revealFonts from '../fonts/fonts.js';
 import transitionOptions from '../transitions/transitions.js';
 
 const { Component, Fragment } = wp.element;
-const { withSelect } = wp.data;
 const { __, _x } = wp.i18n;
 
 
 const {
 	PanelBody,
-	Placeholder,
 	SelectControl,
-	TextControl,
-	Toolbar,
-	ToggleControl,
-	Button,
 	RangeControl,
-	ButtonGroup,
-	PanelRow,
-	Spinner,
+	IconButton,
+	Dashicon,
 } = wp.components;
 
 const {
-	BlockControls,
-	MediaUpload
+	URLInput,
 } = wp.editor;
 
 const {
@@ -42,23 +33,29 @@ class WP_Presenter_Pro_Button extends Component {
 	};
 
 	render() {
-		const { post, setAttributes } = this.props;
-		const { content, transitions, backgroundColor, textColor, font, fontSize, padding, radius } = this.props.attributes;
+		const { setAttributes } = this.props;
+		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTR, radius, borderColor, borderWidth } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
 			color: textColor,
-			padding: padding + 'px',
+			paddingTop: paddingTR,
+			paddingBottom: paddingTR,
+			paddingLeft: paddingLR,
+			paddingRight: paddingLR,
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
 			fontSize: `${fontSize}px`,
+			borderStyle: 'solid',
+			borderWidth: borderWidth + 'px',
+			borderColor: borderColor,
 		};
 
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Button', 'wp-presenter-pro' ) }>
-					<PanelColorSettings
+						<PanelColorSettings
 							title={ __( 'Background Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
 							colorSettings={ [ {
@@ -107,15 +104,43 @@ class WP_Presenter_Pro_Button extends Component {
 								} }
 						/>
 						<RangeControl
-							label={ __( 'Padding', 'wp-presenter-pro' ) }
-							value={ padding }
-							onChange={ ( value ) => setAttributes( { padding: value } ) }
+							label={ __( 'Left/Right Padding', 'wp-presenter-pro' ) }
+							value={ paddingLR }
+							onChange={ ( value ) => setAttributes( { paddingLR: value } ) }
 							min={ 0 }
 							max={ 100 }
 							step={ 1 }
 						/>
 						<RangeControl
-							label={ __( 'Radius', 'wp-presenter-pro' ) }
+							label={ __( 'Top/Bottom Padding', 'wp-presenter-pro' ) }
+							value={ paddingTR }
+							onChange={ ( value ) => setAttributes( { paddingTR: value } ) }
+							min={ 0 }
+							max={ 100 }
+							step={ 1 }
+						/>
+						<PanelColorSettings
+							title={ __( 'Border Color', 'wp-presenter-pro' ) }
+							initialOpen={ true }
+							colorSettings={ [ {
+								value: borderColor,
+								onChange: ( value ) => {
+									setAttributes( { borderColor: value});
+								},
+								label: __( 'Border Color', 'wp-presenter-pro' ),
+							} ] }
+						>
+						</PanelColorSettings>
+						<RangeControl
+							label={ __( 'Border Width', 'wp-presenter-pro' ) }
+							value={ borderWidth }
+							onChange={ ( value ) => setAttributes( { borderWidth: value } ) }
+							min={ 0 }
+							max={ 20 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __( 'Border Radius', 'wp-presenter-pro' ) }
 							value={ radius }
 							onChange={ ( value ) => setAttributes( { radius: value } ) }
 							min={ 0 }
@@ -134,15 +159,33 @@ class WP_Presenter_Pro_Button extends Component {
 							tagName="span"
 							value={ content }
 							onChange={ ( content ) => setAttributes( { content } ) }
-							placeholder={ __( 'Button text...', 'atomic-blocks' ) }
+							placeholder={ __( 'Button text...', 'wp-presenter-pro' ) }
 							keepPlaceholderOnFocus
 							formattingControls={ [] }
 							className={classnames('wppp-button')}
 						/>
 					</div>
+					<form
+						key="form-link"
+						className={ `blocks-button__inline-link wppp-button-link`}
+						onSubmit={ event => event.preventDefault() }
+					>
+						<Dashicon icon={ 'admin-links' } />
+						<URLInput
+							className="button-url"
+							value={ buttonUrl }
+							onChange={ ( value ) => setAttributes({ buttonUrl: value }) }
+						/>
+						<IconButton
+							icon="editor-break"
+							label={ __( 'Apply', 'wp-presenter-pro' ) }
+							type="submit"
+						/>
+					</form>
+				}
 				</Fragment>
 			</Fragment>
 		);
 	}
 }
-export default WP_Presenter_Pro_Content;
+export default WP_Presenter_Pro_Button;
