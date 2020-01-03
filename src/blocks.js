@@ -32,6 +32,7 @@ import './block/blocks/vertical-slide/block';
 import './block/blocks/transition/block';
 import './block/blocks/blockquote/block';
 import './block/blocks/button/block';
+import './block/blocks/dual-buttons/block';
 
 const displayControls = 'slides-display-controls';
 const keyboardShortcuts = 'slides-keyboard-shortcuts';

@@ -52,6 +52,10 @@ class Plugin extends Plugin_Abstract {
 		$this->button = new Blocks\Button();
 		$this->button->register_hooks();
 
+		// Button Block Dual.
+		$this->button_dual = new Blocks\Dual_Buttons();
+		$this->button_dual->register_hooks();
+
 		// Spacer Block.
 		$this->block_spacer = new Blocks\Spacer();
 		$this->block_spacer->register_hooks();
