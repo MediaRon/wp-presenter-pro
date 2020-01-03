@@ -109,6 +109,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 </div>
 <?php
 do_action( 'wp_footer' );
+$preview_link = filter_var( get_post_meta( $wppp_id, 'slides-no-link-previews', true ), FILTER_VALIDATE_BOOLEAN );
 ?>
 <script>
 // Full list of configuration options available here:
@@ -124,7 +125,7 @@ Reveal.initialize( {
 			slideNumber : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-slide-number', true ) ? get_post_meta( $wppp_id, 'slides-slide-number', true ) : 'false' ); ?>,
 			history : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-push-history', true ) ? get_post_meta( $wppp_id, 'slides-push-history', true ) : 'true' ); ?>,
 			keyboard : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) ? get_post_meta( $wppp_id, 'slides-keyboard-shortcuts', true ) : 'true' ); ?>,
-			overview : false,
+			overview : true,
 			center : true,
 			touch : true,
 			loop :<?php echo esc_html( get_post_meta( $wppp_id, 'slides-loop-slides', true ) ? get_post_meta( $wppp_id, 'slides-loop-slides', true ) : 'false' ); ?>,
@@ -132,7 +133,7 @@ Reveal.initialize( {
 			embedded : false,
 			mouseWheel : <?php echo esc_html( get_post_meta( $wppp_id, 'slides-mouse-wheel-navigation', true ) ? get_post_meta( $wppp_id, 'slides-mouse-wheel-navigation', true ) : 'true' ); ?>,
 			hideAddressBar : true,
-			previewLinks : true,
+			previewLinks : <?php echo esc_html( $preview_link ? 'false' : 'true' ); ?>,
 
 			// Optional libraries used to extend on reveal.js
 			dependencies : [

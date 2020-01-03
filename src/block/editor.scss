@@ -66,3 +66,34 @@
 		margin: 10px;
 	}
 }
+.wp-presenter-pro-button {
+	text-align: center;
+	.wppp-button {
+		display: inline-block;
+	}
+}
+.wppp-button-link {
+	vertical-align: middle;
+	.editor-url-input {
+		display: inline-block;
+		width: auto;
+		margin-left: 10px;
+	}
+	.components-button {
+		display: inline-block;
+	}
+}
+.wp-presenter-pro-dual-buttons {
+	text-align: center;
+	div {
+		display: inline-block;
+		text-align: center;
+
+	}
+	div:first-child {
+		margin-right: 15px;
+	}
+	div:last-child {
+		margin-left: 15px;
+	}
+}

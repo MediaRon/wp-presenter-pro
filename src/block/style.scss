@@ -58,3 +58,15 @@
 	font-style: normal;
 	border: 0;
 }
+.wp-presenter-pro-dual-buttons {
+	a {
+		display: inline-block;
+		margin-bottom: 20px;
+		&:first-child {
+			margin-right: 15px;
+		}
+		&:last-child {
+			margin-left: 15px;
+		}
+	}
+}
