@@ -12,6 +12,7 @@ const {
 	RangeControl,
 	IconButton,
 	Dashicon,
+	ToggleControl,
 } = wp.components;
 
 const {
@@ -33,16 +34,13 @@ class WP_Presenter_Pro_Button extends Component {
 	};
 
 	render() {
-		const { setAttributes } = this.props;
-		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTR, radius, borderColor, borderWidth } = this.props.attributes;
+		const { setAttributes, isSelected } = this.props;
+		const { buttonUrl, content, transitions, backgroundColor, textColor, font, fontSize, paddingLR, paddingTR, radius, borderColor, borderWidth, newWindow, noFollow } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
 			color: textColor,
-			paddingTop: paddingTR,
-			paddingBottom: paddingTR,
-			paddingLeft: paddingLR,
-			paddingRight: paddingLR,
+			padding: `${paddingTR}px ${paddingLR}px`,
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
 			fontSize: `${fontSize}px`,
@@ -147,13 +145,22 @@ class WP_Presenter_Pro_Button extends Component {
 							max={ 20 }
 							step={ 1 }
 						/>
+						<ToggleControl
+							label={__( 'New Window', 'wp-presenter-pro' )}
+							checked={newWindow}
+							onChange={ ( value ) => setAttributes( { newWindow: value } ) }
+						/>
+						<ToggleControl
+							label={__( 'No Follow', 'wp-presenter-pro' )}
+							checked={noFollow}
+							onChange={ ( value ) => setAttributes( { noFollow: value } ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
 					<div className={ classnames(
 							'wp-presenter-pro-button'
 						) }
-						style={slideStyles}
 					>
 						<RichText
 							tagName="span"
@@ -163,26 +170,28 @@ class WP_Presenter_Pro_Button extends Component {
 							keepPlaceholderOnFocus
 							formattingControls={ [] }
 							className={classnames('wppp-button')}
+							style={slideStyles}
 						/>
 					</div>
-					<form
-						key="form-link"
-						className={ `blocks-button__inline-link wppp-button-link`}
-						onSubmit={ event => event.preventDefault() }
-					>
-						<Dashicon icon={ 'admin-links' } />
-						<URLInput
-							className="button-url"
-							value={ buttonUrl }
-							onChange={ ( value ) => setAttributes({ buttonUrl: value }) }
-						/>
-						<IconButton
-							icon="editor-break"
-							label={ __( 'Apply', 'wp-presenter-pro' ) }
-							type="submit"
-						/>
-					</form>
-				}
+					{ isSelected && 
+						<form
+							key="form-link"
+							className={ `blocks-button__inline-link wppp-button-link`}
+							onSubmit={ event => event.preventDefault() }
+						>
+							<Dashicon icon={ 'admin-links' } />
+							<URLInput
+								className="button-url"
+								value={ buttonUrl }
+								onChange={ ( value ) => setAttributes({ buttonUrl: value }) }
+							/>
+							<IconButton
+								icon="editor-break"
+								label={ __( 'Apply', 'wp-presenter-pro' ) }
+								type="submit"
+							/>
+						</form>
+					}
 				</Fragment>
 			</Fragment>
 		);

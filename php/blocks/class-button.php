@@ -50,11 +50,11 @@ class Button extends Block {
 					),
 					'backgroundColor' => array(
 						'type'    => 'string',
-						'default' => 'inherit',
+						'default' => '#cf2e2e',
 					),
 					'textColor'       => array(
 						'type'    => 'string',
-						'default' => '#000000',
+						'default' => '#FFFFFF',
 					),
 					'font'            => array(
 						'type'    => 'string',
@@ -64,11 +64,11 @@ class Button extends Block {
 						'type'    => 'integer',
 						'default' => '24',
 					),
-					'paddingLR'         => array(
+					'paddingLR'       => array(
 						'type'    => 'integer',
 						'default' => 20,
 					),
-					'paddingTB'         => array(
+					'paddingTB'       => array(
 						'type'    => 'integer',
 						'default' => 10,
 					),
@@ -83,6 +83,14 @@ class Button extends Block {
 					'radius'          => array(
 						'type'    => 'integer',
 						'default' => 0,
+					),
+					'newWindow'       => array(
+						'type'    => 'boolean',
+						'default' => true,
+					),
+					'noFollow'        => array(
+						'type'    => 'boolean',
+						'default' => false,
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),

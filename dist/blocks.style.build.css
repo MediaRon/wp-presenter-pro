@@ -74,6 +74,20 @@
     padding: 10px;
     margin: 10px; }
 
+.wp-presenter-pro-button {
+  text-align: center; }
+  .wp-presenter-pro-button .wppp-button {
+    display: inline-block; }
+
+.wppp-button-link {
+  vertical-align: middle; }
+  .wppp-button-link .editor-url-input {
+    display: inline-block;
+    width: auto;
+    margin-left: 10px; }
+  .wppp-button-link .components-button {
+    display: inline-block; }
+
 .wp-presenter-pro-slide-title {
   font-size: 60px;
   line-height: 1.1;
