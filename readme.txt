@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.5
+Stable tag: 2.0.7
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -62,6 +62,15 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 
 Feel free to ask a question and it will be answered here.
 
+== Changelog ==
+
+= 2.0.7 =
+* Released 2020-01-04
+* Adding filter for others to add blocks programmatically.
+* Adding admin option to show all blocks when editing a slide.
+* New slide option for disabling the centered view.
+* Added a taxonomy so you can display an archive of your presentations.
+
 = 2.0.5 =
 * Released 2020-01-03
 * Added toggle option to turn link previews off.
@@ -72,16 +81,11 @@ Feel free to ask a question and it will be answered here.
 * Released 2020-01-02
 * Grouping blocks into appropriate categories for easier discovery.
 
-== Changelog ==
-
 = 2.0.0 =
 * Released 2020-01-02
 * Initial release.
 
 == Upgrade Notice ==
 
-= 2.0.5 =
-Added toggle option to turn link previews off. Added button block. Added dual button block.
-
-= 2.0.1 =
-Grouping blocks into appropriate categories for easier discovery.
+= 2.0.7 =
+Adding filter for others to add blocks programmatically. Adding admin option to show all blocks when editing a slide. New slide option for disabling the centered view. Added a taxonomy so you can display an archive of your presentations.
