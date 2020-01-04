@@ -100,7 +100,7 @@ class Options {
 	 *
 	 * @return array Array of option values.
 	 */
-	private function get_options( $force_reload = false ) {
+	public function get_options( $force_reload = false ) {
 		// Try to get cached options.
 		$options = $this->options;
 		if ( empty( $options ) || true === $force_reload ) {
@@ -137,7 +137,7 @@ class Options {
 		?>
 		<div class="notice <?php echo esc_attr( $class ); ?>">
 			<p>
-				<?php if ( ! empty( $title ) ) :?>
+				<?php if ( ! empty( $title ) ) : ?>
 					<strong>
 						<?php echo esc_html( $title ); ?>
 					</strong>
