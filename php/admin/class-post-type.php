@@ -150,6 +150,42 @@ class Post_Type {
 		$args = apply_filters( 'wp_presenter_pro_post_type_args', $args );
 		register_post_type( 'wppp', $args );
 
+		// Register the taxonomy.
+		$labels = array(
+			'name'                       => _x( 'Categories', 'Taxonomy General Name', 'wp-presenter-pro' ),
+			'singular_name'              => _x( 'Category', 'Taxonomy Singular Name', 'wp-presenter-pro' ),
+			'menu_name'                  => __( 'Categories', 'wp-presenter-pro' ),
+			'all_items'                  => __( 'All Categories', 'wp-presenter-pro' ),
+			'parent_item'                => __( 'Parent Category', 'wp-presenter-pro' ),
+			'parent_item_colon'          => __( 'Parent Category:', 'wp-presenter-pro' ),
+			'new_item_name'              => __( 'New Category Name', 'wp-presenter-pro' ),
+			'add_new_item'               => __( 'Add New Category', 'wp-presenter-pro' ),
+			'edit_item'                  => __( 'Edit Category', 'wp-presenter-pro' ),
+			'update_item'                => __( 'Update Category', 'wp-presenter-pro' ),
+			'view_item'                  => __( 'View Category', 'wp-presenter-pro' ),
+			'separate_items_with_commas' => __( 'Separate Categories with commas', 'wp-presenter-pro' ),
+			'add_or_remove_items'        => __( 'Add or remove Categories', 'wp-presenter-pro' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'wp-presenter-pro' ),
+			'popular_items'              => __( 'Popular Categories', 'wp-presenter-pro' ),
+			'search_items'               => __( 'Search Categories', 'wp-presenter-pro' ),
+			'not_found'                  => __( 'Not Found', 'wp-presenter-pro' ),
+			'no_terms'                   => __( 'No Categories', 'wp-presenter-pro' ),
+			'items_list'                 => __( 'Categories list', 'wp-presenter-pro' ),
+			'items_list_navigation'      => __( 'Categories list navigation', 'wp-presenter-pro' ),
+		);
+		$args   = array(
+			'labels'            => $labels,
+			'hierarchical'      => true,
+			'public'            => true,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'show_in_nav_menus' => true,
+			'show_tagcloud'     => true,
+			'show_in_rest'      => true,
+		);
+		$args   = apply_filters( 'wp_presenter_pro_taxonomy_args', $args );
+		register_taxonomy( 'presentation-category', array( 'wppp' ), $args );
+
 		$meta_boxes_toggle = array(
 			'slides-display-controls',
 			'slides-keyboard-shortcuts',
