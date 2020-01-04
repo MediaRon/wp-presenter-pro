@@ -88,6 +88,10 @@ class Plugin extends Plugin_Abstract {
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();
 
+		// Register options for WP PResenter Pro.
+		$this->admin_options = new Admin\Options();
+		$this->admin_options->register_hooks();
+
 		// Register get avatar REST API.
 		$this->avatar = new Rest\Rest_Get_Avatar();
 		$this->avatar->register_hooks();
