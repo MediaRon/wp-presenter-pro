@@ -54,6 +54,7 @@ const footerLeft = 'slides-footer-left';
 const footerRight = 'slides-footer-right';
 const skipFirstSlide = 'slides-skip-first-slide';
 const noLinkPreviews = 'slides-no-link-previews';
+const noCenterView = 'slides-no-center-view';
 
 registerPlugin( 'wp-presenter-pro', {
 	icon: 'welcome-view-site',
@@ -119,6 +120,11 @@ registerPlugin( 'wp-presenter-pro', {
 						label={__( 'Disable Link Previews', 'wp-presenter-pro' )}
 						checked={meta[noLinkPreviews] === 'true'}
 						onChange={ (value ) => updateMeta( value + '', noLinkPreviews ) }
+					/>
+					<ToggleControl
+						label={__( 'Disable Center Layout', 'wp-presenter-pro' )}
+						checked={meta[noCenterView] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', noCenterView ) }
 					/>
 				</PanelBody>
 				<PanelBody title={__('Visual Settings', 'wp-presenter-pro')}>

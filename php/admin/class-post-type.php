@@ -161,6 +161,7 @@ class Post_Type {
 			'slides-slide-number',
 			'slides-skip-first-slide',
 			'slides-no-link-previews',
+			'slides-no-center-view',
 		);
 		$meta_boxes_text   = array(
 			'slides-theme',
