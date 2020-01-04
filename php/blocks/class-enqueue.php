@@ -120,6 +120,7 @@ class Enqueue {
 			'atomic-blocks/atomic-blocks/ab-columns',
 		);
 		$allowed_blocks = apply_filters( 'wp_presenter_pro_allowed_blocks', $allowed_blocks );
+		$options        = wp_presenter_pro()->admin_options->get_options();
 		wp_localize_script(
 			'wp-presenter-pro-js',
 			'wp_presenter_pro',
@@ -130,6 +131,7 @@ class Enqueue {
 				'mathjax'        => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
 				'fonts'          => $pro_fonts,
 				'allowed_blocks' => $allowed_blocks,
+				'block_options'  => $options['blocks'],
 			)
 		);
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
