@@ -54,19 +54,19 @@ class Options {
 		$options = $this->get_options( true );
 		if ( isset( $_POST['wppp_options_nonce'] ) ) {
 			$post_vars = filter_input_array( INPUT_POST );
-			if ( wp_verify_nonce( $post_vars['wppp_options_nonce'], 'save_wppp_options' ) ) {
+			if ( wp_verify_nonce( $post_vars['wppp_options_nonce'], 'save_wppp_options' ) && current_user_can( 'manage_options' ) ) {
 				$options['blocks'] = sanitize_text_field( $post_vars['wppp-block-select'] );
 				update_option( 'wp-presenter-pro-admin-options', $options );
 				$this->options = $options;
 				$this->show_admin_message(
 					esc_html__( 'Settings Saved!', 'wp-presenter-pro' ),
-					esc_html__( 'Your settings have been saved', 'wp-presenter-pro' ),
+					esc_html__( 'Your settings have been saved.', 'wp-presenter-pro' ),
 					'notice-success'
 				);
 			} else {
 				$this->show_admin_message(
 					esc_html__( 'Settings could not be saved!', 'wp-presenter-pro' ),
-					esc_html__( 'Your settings have not been saved because the nonce could not be verified', 'wp-presenter-pro' )
+					esc_html__( 'Your settings have not been saved because the nonce could not be verified.', 'wp-presenter-pro' )
 				);
 			}
 		}
