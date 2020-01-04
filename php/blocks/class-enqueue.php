@@ -80,15 +80,58 @@ class Enqueue {
 
 		// Allowing others to add fonts.
 		$pro_fonts = apply_filters( 'wp_presenter_pro_fonts', $pro_fonts );
+
+		// Allow others to add blocks.
+		$allowed_blocks = array(
+			'wppp/content',
+			'wppp/content-image',
+			'wppp/spacer',
+			'wppp/text-box',
+			'wppp/slide-title',
+			'wppp/transition',
+			'wppp/code',
+			'wppp/list-item',
+			'wppp/image',
+			'wppp/content-two-columns',
+			'wppp/blockquote',
+			'wppp/ordered-list',
+			'wppp/button',
+			'wppp/dual-buttons',
+			'coblocks/alert',
+			'coblocks/click-to-tweet',
+			'coblocks/dynamic-separator',
+			'coblocks/gif',
+			'coblocks/share',
+			'coblocks/icon',
+			'coblocks/gists',
+			'coblock/features',
+			'atomic-blocks/ab-columns',
+			'atomic-blocks/ab-spacer',
+			'atomic-blocks/ab-cta',
+			'atomic-blocks/ab-sharing',
+			'atomic-blocks/ab-pricing-table',
+			'atomic-blocks/ab-pricing-table-title',
+			'atomic-blocks/ab-pricing-table-price',
+			'atomic-blocks/ab-pricing-table-button',
+			'atomic-blocks/ab-pricing-table-features',
+			'atomic-blocks/ab-notice',
+			'atomic-blocks/ab-button',
+			'atomic-blocks/ab-testimonial',
+			'atomic-blocks/atomic-blocks/ab-columns',
+		);
+		$allowed_blocks = apply_filters( 'wp_presenter_pro_allowed_blocks', $allowed_blocks );
+		$options        = wp_presenter_pro()->admin_options->get_options();
 		wp_localize_script(
 			'wp-presenter-pro-js',
 			'wp_presenter_pro',
 			array(
-				'rest_url'    => get_rest_url(),
-				'rest_nonce'  => wp_create_nonce( 'wp_rest' ),
-				'image_sizes' => $js_format_sizes,
-				'mathjax'     => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
-				'fonts'       => $pro_fonts,
+				'rest_url'       => get_rest_url(),
+				'rest_nonce'     => wp_create_nonce( 'wp_rest' ),
+				'image_sizes'    => $js_format_sizes,
+				'mathjax'        => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
+				'fonts'          => $pro_fonts,
+				'allowed_blocks' => $allowed_blocks,
+				'block_options'  => $options['blocks'],
 			)
 		);
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
