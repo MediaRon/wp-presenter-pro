@@ -36,7 +36,7 @@ class Post_Type {
 	 * @return string updated template file.
 	 */
 	public function slide_single_override( $template ) {
-		if ( 'wppp' !== get_post_type() ) {
+		if ( 'wppp' !== get_post_type() || is_tax() ) {
 			return $template;
 		}
 		$slide = WP_PRESENTER_PRO_DIR . '/templates/slides.php';
@@ -112,8 +112,6 @@ class Post_Type {
 		$rewrite = array(
 			'slug'       => 'slides',
 			'with_front' => true,
-			'pages'      => true,
-			'feeds'      => false,
 		);
 
 		$args = array(
@@ -139,7 +137,7 @@ class Post_Type {
 				'revisions',
 			),
 			'has_archive'         => true,
-			'exclude_from_search' => true,
+			'exclude_from_search' => false,
 			'publicly_queryable'  => true,
 			'rewrite'             => $rewrite,
 			'query_var'           => 'wppp',
@@ -182,6 +180,11 @@ class Post_Type {
 			'show_in_nav_menus' => true,
 			'show_tagcloud'     => true,
 			'show_in_rest'      => true,
+			'rewrite'           => array(
+				'slug'         => 'presentations',
+				'with_front'   => true,
+				'hierarchical' => true,
+			),
 		);
 		$args   = apply_filters( 'wp_presenter_pro_taxonomy_args', $args );
 		register_taxonomy( 'presentation-category', array( 'wppp' ), $args );
