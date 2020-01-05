@@ -55,6 +55,7 @@ const footerRight = 'slides-footer-right';
 const skipFirstSlide = 'slides-skip-first-slide';
 const noLinkPreviews = 'slides-no-link-previews';
 const noCenterView = 'slides-no-center-view';
+const showAdminBar = 'slides-show-admin-bar';
 
 registerPlugin( 'wp-presenter-pro', {
 	icon: 'welcome-view-site',
@@ -137,6 +138,11 @@ registerPlugin( 'wp-presenter-pro', {
 						label={__( 'Slide Number', 'wp-presenter-pro' )}
 						checked={meta[slideNumber] === 'true'}
 						onChange={ (value ) => updateMeta( value + '', slideNumber ) }
+					/>
+					<ToggleControl
+						label={__( 'Show Admin Bar', 'wp-presenter-pro' )}
+						checked={meta[showAdminBar] === 'true'}
+						onChange={ (value ) => updateMeta( value + '', showAdminBar ) }
 					/>
 					<SelectControl
 						label={ __( 'Theme', 'block-for-updraftcentral' ) }

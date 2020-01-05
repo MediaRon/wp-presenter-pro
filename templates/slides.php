@@ -30,7 +30,13 @@ $wppp_id     = get_queried_object_id();
 $maybe_theme = get_post_meta( $wppp_id, 'slides-theme', true );
 $theme       = $maybe_theme ? $maybe_theme : 'black';
 wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
-add_filter( 'show_admin_bar', '__return_false' );
+
+$show_admin_bar_meta   = get_post_meta( $wppp_id, 'slides-show-admin-bar', true );
+$show_admin_bar_helper = '__return_false';
+if ( 'true' === $show_admin_bar_meta ) {
+	$show_admin_bar_helper = '__return_true';
+}
+add_filter( 'show_admin_bar', $show_admin_bar_helper );
 ?>
 <?php
 /**

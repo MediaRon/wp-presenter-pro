@@ -201,6 +201,7 @@ class Post_Type {
 			'slides-skip-first-slide',
 			'slides-no-link-previews',
 			'slides-no-center-view',
+			'slides-show-admin-bar',
 		);
 		$meta_boxes_text   = array(
 			'slides-theme',
