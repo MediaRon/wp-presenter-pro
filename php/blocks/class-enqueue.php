@@ -118,6 +118,20 @@ class Enqueue {
 			'atomic-blocks/ab-button',
 			'atomic-blocks/ab-testimonial',
 			'atomic-blocks/atomic-blocks/ab-columns',
+			'uagb/advanced-heading',
+			'uagb/buttons',
+			'uagb/info-box',
+			'uagb/testimonial',
+			'uagb/team',
+			'uagb/social-share',
+			'uagb/google-map',
+			'uagb/icon-list',
+			'uagb/call-to-action',
+			'uagb/cf7-styler',
+			'uagb/gf-styler',
+			'uagb/blockquote',
+			'uagb/marketing-button',
+			'uagb/section',
 		);
 		$allowed_blocks = apply_filters( 'wp_presenter_pro_allowed_blocks', $allowed_blocks );
 		$options        = wp_presenter_pro()->admin_options->get_options();
