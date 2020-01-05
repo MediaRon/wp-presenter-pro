@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.7
+Stable tag: 2.0.9
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,8 +26,10 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 == Recommended Plugins ==
 
 <ul>
+<li><a href="https://wordpress.org/plugins/gutenberg/">Gutenberg</a></li>
 <li><a href="https://wordpress.org/plugins/wordpress-seo/">Yoast SEO</a></li>
 <li><a href="https://wordpress.org/plugins/custom-typekit-fonts/">Adobe Fonts</a></li>
+<li><a href="https://wordpress.org/plugins/ultimate-addons-for-gutenberg/">Ultimate Addons for Gutenberg</a></li>
 <li><a href="https://wordpress.org/plugins/coblocks/">CoBlocks</a></li>
 <li><a href="https://wordpress.org/plugins/atomic-blocks/">Atomic Blocks</a></li>
 </ul>
@@ -36,7 +38,7 @@ https://www.youtube.com/watch?v=oT18YnW_trs
 
 1. Requires WordPress 5.3 or greater.
 2. Requires PHP 5.6 or greater.
-3. Requires Gutenberg (no classic editor).
+3. Requires Gutenberg (no classic editor). The Gutenberg plugin is recommended.
 4. Activate the plugin and you'll see a Slides top-level menu item.
 5. From there, you can create your presentation.
 
@@ -64,6 +66,13 @@ Feel free to ask a question and it will be answered here.
 
 == Changelog ==
 
+= 2.0.9 =
+* Released 2020-01-05
+* Added background gradient to slides and vertical slides (requires the Gutenberg plugin).
+* Added support for Ultimate Addons for Gutenberg.
+* Fixing undefined errors with vertical slides.
+* Added option to show/hide the admin bar during presentation view.
+
 = 2.0.7 =
 * Released 2020-01-04
 * Adding filter for others to add blocks programmatically.
@@ -87,5 +96,5 @@ Feel free to ask a question and it will be answered here.
 
 == Upgrade Notice ==
 
-= 2.0.7 =
-Adding filter for others to add blocks programmatically. Adding admin option to show all blocks when editing a slide. New slide option for disabling the centered view. Added a taxonomy so you can display an archive of your presentations.
+= 2.0.9 =
+Added background gradient to slides and vertical slides (requires the Gutenberg plugin). Added support for Ultimate Addons for Gutenberg. Fixing undefined errors with vertical slides. Added option to show/hide the admin bar during presentation view.

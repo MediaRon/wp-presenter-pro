@@ -9,7 +9,7 @@
  * Plugin Name: WP Presenter Pro
  * Plugin URI: https://mediaron.com/wp-presenter-pro-documentation/
  * Description: A plugin for allowing you to do presentations using WordPress.
- * Version: 2.0.7
+ * Version: 2.09
  * Author: MediaRon LLC
  * Author URI: https://mediaron.com
  * License: GPL2
@@ -22,7 +22,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-define( 'WP_PRESENTER_PRO_VERSION', '2.0.7' );
+define( 'WP_PRESENTER_PRO_VERSION', '2.0.9' );
 define( 'WP_PRESENTER_PRO_PLUGIN_NAME', 'WP Presenter Pro' );
 define( 'WP_PRESENTER_PRO_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_PRESENTER_PRO_URL', plugins_url( '/', __FILE__ ) );
