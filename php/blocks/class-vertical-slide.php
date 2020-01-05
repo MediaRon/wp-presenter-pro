@@ -76,6 +76,10 @@ class Vertical_Slide {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'backgroundGradient'     => array(
+						'type'    => 'string',
+						'default' => '',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

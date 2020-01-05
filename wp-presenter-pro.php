@@ -136,14 +136,14 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			$default_font               = 'open-sans';
 			$default_text_box_font_size = '32';
 			$default_title_font_size    = '64';
-			$gradient_background = false;
+			$gradient_background        = false;
 			$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
 			$slide_video                = false;
 			$slide_iframe               = false;
 
 			if ( isset( $block_info['attrs']['backgroundType'] ) ) {
 				$slide_background = '#f3a75b';
-			
+
 				if ( 'image' === $block_info['attrs']['backgroundType'] ) {
 					$slide_background = $block_info['attrs']['backgroundImg'];
 				}
@@ -219,14 +219,19 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 	$default_font               = 'open-sans';
 	$default_text_box_font_size = '32';
 	$default_title_font_size    = '64';
+	$gradient_background        = false;
 	$slide_background           = isset( $blocks['attrs']['backgroundColor'] ) ? $blocks['attrs']['backgroundColor'] : '#f3a75b';
 	$slide_video                = false;
 	$slide_iframe               = false;
 
 	if ( isset( $blocks['attrs']['backgroundType'] ) ) {
 		$slide_background = '#f3a75b';
+
 		if ( 'image' === $blocks['attrs']['backgroundType'] ) {
 			$slide_background = $blocks['attrs']['backgroundImg'];
+		}
+		if ( 'gradient' === $blocks['attrs']['backgroundType'] ) {
+			$gradient_background = $blocks['attrs']['backgroundGradient'];
 		}
 		if ( 'video' === $blocks['attrs']['backgroundType'] ) {
 			$slide_video = $blocks['attrs']['backgroundVideo'];
@@ -236,7 +241,7 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 		}
 	}
 	?>
-	<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo esc_html( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
+	<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>" data-background-video-loop data-background-video-muted>
 		<?php
 		foreach ( $blocks['innerBlocks'] as $index => $inner_data ) {
 			if ( is_array( $inner_data ) ) {

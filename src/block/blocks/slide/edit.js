@@ -61,7 +61,7 @@ class WP_Presenter_Pro_Slide extends Component {
 		const backgroundSelectOptions = [
 			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
 			{ value: 'image', label: __( 'Background Image', 'wp-presenter-pro' ) },
-			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg)', 'wp-presenter-pro' ) },
+			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg plugin)', 'wp-presenter-pro' ) },
 			{ value: 'video', label: __( 'Video', 'wp-presenter-pro' ) },
 			{ value: 'iframe', label: __( 'iFrame', 'wp-presenter-pro' ) },
 		];
