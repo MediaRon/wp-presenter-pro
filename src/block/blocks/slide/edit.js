@@ -29,6 +29,7 @@ const {
 } = wp.editor;
 
 const {
+	__experimentalGradientPickerControl,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings
@@ -44,7 +45,7 @@ class WP_Presenter_Pro_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, speakerNotes } = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, speakerNotes, backgroundGradient } = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -60,6 +61,7 @@ class WP_Presenter_Pro_Slide extends Component {
 		const backgroundSelectOptions = [
 			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
 			{ value: 'image', label: __( 'Background Image', 'wp-presenter-pro' ) },
+			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg)', 'wp-presenter-pro' ) },
 			{ value: 'video', label: __( 'Video', 'wp-presenter-pro' ) },
 			{ value: 'iframe', label: __( 'iFrame', 'wp-presenter-pro' ) },
 		];
@@ -72,8 +74,11 @@ class WP_Presenter_Pro_Slide extends Component {
 			backgroundColor: backgroundColor,
 			color: textColor
 		};
-		if ( backgroundImg && 'background' !== backgroundType && 'video' !== backgroundType ) {
+		if ( backgroundImg && 'image' === backgroundType ) {
 			slideStyles.backgroundImage = `url(${backgroundImg})`;
+		}
+		if ( 'gradient' === backgroundType ) {
+			slideStyles.backgroundImage = backgroundGradient;	
 		}
 		if ( backgroundImageOptions == 'cover' && 'background' !== backgroundType ) {
 			slideStyles.backgroundSize = backgroundImageOptions;
@@ -117,6 +122,17 @@ class WP_Presenter_Pro_Slide extends Component {
 								} ] }
 							>
 							</PanelColorSettings>
+						}
+						{ 'gradient' === backgroundType && __experimentalGradientPickerControl && 
+							<Fragment>
+								<__experimentalGradientPickerControl	
+									label={__( 'Choose a Background Gradient', 'wp-presenter-pro' )}
+									value={backgroundGradient}
+									onChange={( value ) => {
+										setAttributes( {backgroundGradient: value});	
+									}}
+								/>
+							</Fragment>
 						}
 						{'image' === backgroundType &&
 							<Fragment>
