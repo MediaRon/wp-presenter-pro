@@ -193,7 +193,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 				</aside>
 				<?php
 				echo '</section>';
-				if ( ! empty( $vertical_slides ) ) {
+				if ( ! empty( $vertical_slides ) && isset( $vertical_slides[ $index ] ) ) {
 					foreach ( $vertical_slides[ $index ] as $block ) {
 						wp_presenter_pro_render_vertical_slide_blocks( $block );
 					}
