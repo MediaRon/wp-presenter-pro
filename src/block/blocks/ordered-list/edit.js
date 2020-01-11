@@ -2,6 +2,7 @@ import axios from 'axios';
 import classnames from 'classnames';
 import revealFonts from '../fonts/fonts.js';
 import transitionOptions from '../transitions/transitions.js';
+import hexToRgba from 'hex-to-rgba';
 
 const { Component, Fragment } = wp.element;
 const { withSelect } = wp.data;
@@ -44,10 +45,10 @@ class WP_Presenter_Pro_Ordered_List extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity} = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: backgroundColor,
+			backgroundColor: hexToRgba(backgroundColor, opacity),
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',
@@ -70,6 +71,14 @@ class WP_Presenter_Pro_Ordered_List extends Component {
 							} ] }
 						>
 						</PanelColorSettings>
+						<RangeControl
+							label={ __( 'Opacity', 'wp-presenter-pro' ) }
+							value={ opacity }
+							onChange={ ( value ) => setAttributes( { opacity: value } ) }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.01 }
+						/>
 						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }

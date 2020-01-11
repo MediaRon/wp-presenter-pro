@@ -72,6 +72,10 @@ class BlockQuote extends Block {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'opacity'             => array(
+						'type'    => 'number',
+						'default' => 1,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -99,8 +103,15 @@ class BlockQuote extends Block {
 		if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
 			echo ' slide-title-capitalized';
 		}
+		$background_hex     = isset( $attributes['backgroundColor'] ) ? $attributes['backgroundColor'] : 'inherit';
+		$background_opacity = isset( $attributes['opacity'] ) ? $attributes['opacity'] : '1';
+		if ( 'inherit' !== $background_hex ) {
+			$background_color = wppp_hex2rgba( $background_hex, $background_opacity );
+		} else {
+			$background_color = $background_hex;
+		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->title_font_size ) . 'px'; ?>">
 		<?php echo wp_kses_post( $attributes['content'] ); ?>
 		</blockquote>

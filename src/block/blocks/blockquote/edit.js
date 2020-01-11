@@ -1,7 +1,7 @@
-import axios from 'axios';
 import classnames from 'classnames';
 import revealFonts from '../fonts/fonts.js';
 import transitionOptions from '../transitions/transitions.js';
+import hexToRgba from 'hex-to-rgba';
 
 const { Component, Fragment } = wp.element;
 const { withSelect } = wp.data;
@@ -21,6 +21,7 @@ const {
 	ButtonGroup,
 	PanelRow,
 	Spinner,
+	ColorPicker,
 } = wp.components;
 
 const {
@@ -45,10 +46,10 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content } = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity } = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: backgroundColor,
+			backgroundColor: hexToRgba(backgroundColor, opacity),
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',
@@ -60,7 +61,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Blockquote', 'wp-presenter-pro' ) }>
-					<PanelColorSettings
+						<PanelColorSettings
 							title={ __( 'Background Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
 							colorSettings={ [ {
@@ -72,6 +73,14 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							} ] }
 						>
 						</PanelColorSettings>
+						<RangeControl
+							label={ __( 'Opacity', 'wp-presenter-pro' ) }
+							value={ opacity }
+							onChange={ ( value ) => setAttributes( { opacity: value } ) }
+							min={ 0 }
+							max={ 1 }
+							step={ 0.01 }
+						/>
 						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
@@ -82,6 +91,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 								},
 								label: __( 'Text Color', 'wp-presenter-pro' ),
 							} ] }
+							disableAlpha={true}
 						>
 						</PanelColorSettings>
 						<SelectControl
