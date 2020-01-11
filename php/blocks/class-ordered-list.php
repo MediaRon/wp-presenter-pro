@@ -64,6 +64,10 @@ class Ordered_List extends Block {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'opacity'         => array(
+						'type'    => 'number',
+						'default' => 1,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -88,8 +92,15 @@ class Ordered_List extends Block {
 			echo ' ';
 			echo 'fragment';
 		}
+		$background_hex     = isset( $attributes['backgroundColor'] ) ? $attributes['backgroundColor'] : 'inherit';
+		$background_opacity = isset( $attributes['opacity'] ) ? $attributes['opacity'] : '1';
+		if ( 'inherit' !== $background_hex ) {
+			$background_color = wppp_hex2rgba( $background_hex, $background_opacity );
+		} else {
+			$background_color = $background_hex;
+		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;background-color: <?php echo isset( $attributes['backgroundColor'] ) ? esc_html( $attributes['backgroundColor'] ) : 'inherit'; ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 'inherit'; ?>
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 'inherit'; ?>;
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>;">
 		<?php echo '<ol>' . wp_kses_post( $attributes['content'] ) . '</ol>'; ?>
 		</div>
