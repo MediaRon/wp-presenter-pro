@@ -284,7 +284,7 @@ function wppp_hex2rgba( $color, $opacity = false ) {
 	}
 
 	// Check if color has 6 or 3 characters and get values.
-	if ( strlen( $color ) == 6 ) {
+	if ( strlen( $color ) === 6 ) {
 			$hex = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
 	} elseif ( strlen( $color ) === 3 ) {
 			$hex = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );

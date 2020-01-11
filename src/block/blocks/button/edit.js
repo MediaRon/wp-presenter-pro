@@ -21,6 +21,7 @@ const {
 } = wp.editor;
 
 const {
+	__experimentalGradientPickerControl,
 	InspectorControls,
 	RichText,
 	PanelColorSettings
@@ -36,7 +37,7 @@ class WP_Presenter_Pro_Button extends Component {
 
 	render() {
 		const { setAttributes, isSelected } = this.props;
-		const { buttonUrl, content, transitions, backgroundColor, backgroundColorHover, textColor, textColorHover, font, fontSize, paddingLR, paddingTB, radius, borderColor, borderWidth, newWindow, noFollow, btnClassName } = this.props.attributes;
+		const { buttonUrl, content, transitions, backgroundColor, backgroundColorHover, textColor, textColorHover, font, fontSize, paddingLR, paddingTB, radius, borderColor, borderWidth, newWindow, noFollow, btnClassName, backgroundType, backgroundGradient, backgroundGradientHover } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor,
@@ -49,35 +50,73 @@ class WP_Presenter_Pro_Button extends Component {
 			borderWidth: borderWidth + 'px',
 			borderColor: borderColor,
 		};
+		if ( 'gradient' === backgroundType ) {
+			slideStyles.backgroundImage = backgroundGradient;	
+		}
+
+		const backgroundSelectOptions = [
+			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
+			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg plugin)', 'wp-presenter-pro' ) },
+		];
 
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Button', 'wp-presenter-pro' ) }>
-						<PanelColorSettings
-							title={ __( 'Background Color', 'wp-presenter-pro' ) }
-							initialOpen={ true }
-							colorSettings={ [ {
-								value: backgroundColor,
-								onChange: ( value ) => {
-									setAttributes( { backgroundColor: value});
-								},
-								label: __( 'Background Color', 'wp-presenter-pro' ),
-							} ] }
-						>
-						</PanelColorSettings>
-						<PanelColorSettings
-							title={ __( 'Background Color on Hover', 'wp-presenter-pro' ) }
-							initialOpen={ true }
-							colorSettings={ [ {
-								value: backgroundColorHover,
-								onChange: ( value ) => {
-									setAttributes( { backgroundColorHover: value});
-								},
-								label: __( 'Background Color on Hover', 'wp-presenter-pro' ),
-							} ] }
-						>
-						</PanelColorSettings>
+						<SelectControl
+							label={ __( 'Select a Background Type', 'wp-presenter-pro' ) }
+							value={backgroundType}
+							options={ backgroundSelectOptions }
+							onChange={ ( value ) => {
+								setAttributes( {backgroundType: value} );
+							} }
+						/>
+						{'background' === backgroundType &&
+							<Fragment>
+								<PanelColorSettings
+									title={ __( 'Background Color', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: backgroundColor,
+										onChange: ( value ) => {
+											setAttributes( { backgroundColor: value});
+										},
+										label: __( 'Background Color', 'wp-presenter-pro' ),
+									} ] }
+								>
+								</PanelColorSettings>
+								<PanelColorSettings
+									title={ __( 'Background Color on Hover', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: backgroundColorHover,
+										onChange: ( value ) => {
+											setAttributes( { backgroundColorHover: value});
+										},
+										label: __( 'Background Color on Hover', 'wp-presenter-pro' ),
+									} ] }
+								>
+								</PanelColorSettings>
+							</Fragment>
+						}
+						{ 'gradient' === backgroundType && __experimentalGradientPickerControl && 
+							<Fragment>
+								<__experimentalGradientPickerControl	
+									label={__( 'Choose a Background Gradient', 'wp-presenter-pro' )}
+									value={backgroundGradient}
+									onChange={( value ) => {
+										setAttributes( {backgroundGradient: value});	
+									}}
+								/>
+								<__experimentalGradientPickerControl	
+									label={__( 'Choose a Background Hover Gradient', 'wp-presenter-pro' )}
+									value={backgroundGradientHover}
+									onChange={( value ) => {
+										setAttributes( {backgroundGradientHover: value});	
+									}}
+								/>
+							</Fragment>
+						}
 						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
