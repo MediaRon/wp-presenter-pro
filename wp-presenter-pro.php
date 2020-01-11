@@ -140,8 +140,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
 			$slide_video                = false;
 			$slide_iframe               = false;
-			$video_muted                = isset( $attributes['muteVideo'] ) ? filter_var( $attributes['muteVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
-			$loop_video                 = isset( $attributes['loopVideo'] ) ? filter_var( $attributes['loopVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
+			$video_muted                = isset( $block_info['attrs']['muteVideo'] ) ? filter_var( $block_info['attrs']['muteVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
+			$loop_video                 = isset( $block_info['attrs']['loopVideo'] ) ? filter_var( $block_info['attrs']['loopVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
 
 			if ( isset( $block_info['attrs']['backgroundType'] ) ) {
 				$slide_background = '#f3a75b';

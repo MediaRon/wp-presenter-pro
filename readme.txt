@@ -69,9 +69,10 @@ Feel free to ask a question and it will be answered here.
 = 3.0.0 =
 * Released 2020-01-12
 * Fudged up the version numbers, so bumping to 3.0 so people can upgrade.
-* Added background opacity to most of the core blocks.
+* Added background opacity to most of the core WP Presenter blocks.
 * Added option to change the slugs of the post type and taxonomy.
 * Added experimental gradient to the Button block.
+* Added option to mute/loop video slides.
 
 = 2.1.1 =
 * Released 2020-01-12
@@ -112,10 +113,4 @@ Feel free to ask a question and it will be answered here.
 == Upgrade Notice ==
 
 = 3.0.0 =
-Fudged up the version numbers, so bumping to 3.0 so people can upgrade. Added background opacity to most of the core blocks. Added option to change the slugs of the post type and taxonomy. Added experimental gradient to the Button block.
-
-= 2.1.1 =
-Removing muted video and loop video automatically.
-
-= 2.1.0 =
-Added ability to select a URL for video slide.
+Fudged up the version numbers, so bumping to 3.0 so people can upgrade. Added background opacity to most of the core WP Presenter blocks. Added option to change the slugs of the post type and taxonomy. Added experimental gradient to the Button block. Added option to mute/loop video slides.
