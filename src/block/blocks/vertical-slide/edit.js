@@ -36,7 +36,7 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, speakerNotes, backgroundGradient} = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, videoType, speakerNotes, backgroundGradient} = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -59,6 +59,11 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 		const backgroundImageSelectOptions = [
 			{ value: 'cover', label: __( 'Cover', 'wp-presenter-pro' ) },
 			{ value: 'repeat', label: __( 'Repeat Image', 'wp-presenter-pro' ) },
+		];
+
+		const videoSelectOptions = [
+			{ value: 'media', label: __( 'Media Library', 'wp-presenter-pro' ) },
+			{ value: 'url', label: __( 'URL', 'wp-presenter-pro' ) },
 		];
 
 		let slideStyles = {
@@ -166,6 +171,16 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 							</Fragment>
 						}
 						{'video' === backgroundType &&
+							<SelectControl
+								label={ __( 'Select a Video Type', 'wp-presenter-pro' ) }
+								value={videoType}
+								options={ videoSelectOptions }
+								onChange={ ( value ) => {
+									setAttributes( {videoType: value} );
+								} }
+							/>
+						}
+						{'media' === videoType && 'video' === backgroundType &&
 							<Fragment>
 								<MediaUpload
 								onSelect={ ( imageObject ) => {
@@ -190,6 +205,17 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 										}
 									</Fragment>
 								) }
+								/>
+							</Fragment>
+						}
+						{'url' === videoType && 'video' === backgroundType &&
+							<Fragment>
+								<TextControl
+									placeholder={__( 'Enter your video URL here.', 'wp-presenter-pro' )}
+									value={backgroundVideo}
+									onChange={ ( value ) => {
+										setAttributes( {backgroundVideo: value} );
+									} }
 								/>
 							</Fragment>
 						}

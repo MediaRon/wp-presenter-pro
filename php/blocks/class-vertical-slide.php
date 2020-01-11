@@ -80,6 +80,10 @@ class Vertical_Slide {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'videoType'              => array(
+						'type'    => 'string',
+						'default' => 'url',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

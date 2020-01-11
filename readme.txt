@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.9
+Stable tag: 2.0.10
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,10 @@ Feel free to ask a question and it will be answered here.
 
 == Changelog ==
 
+= 2.0.10 =
+* Released 2020-01-12
+* Added ability to select a URL for video slide.
+
 = 2.0.9 =
 * Released 2020-01-05
 * Added background gradient to slides and vertical slides (requires the Gutenberg plugin).
@@ -96,5 +100,5 @@ Feel free to ask a question and it will be answered here.
 
 == Upgrade Notice ==
 
-= 2.0.9 =
-Added background gradient to slides and vertical slides (requires the Gutenberg plugin). Added support for Ultimate Addons for Gutenberg. Fixing undefined errors with vertical slides. Added option to show/hide the admin bar during presentation view.
+= 2.0.10 =
+Added ability to select a URL for video slide.
