@@ -80,6 +80,10 @@ class Content_Image extends Block {
 						'type'    => 'integer',
 						'default' => 0,
 					),
+					'opacity'         => array(
+						'type'    => 'number',
+						'default' => 1,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -104,8 +108,15 @@ class Content_Image extends Block {
 			echo ' ';
 			echo 'fragment';
 		}
+		$background_hex     = isset( $attributes['backgroundColor'] ) ? $attributes['backgroundColor'] : 'inherit';
+		$background_opacity = isset( $attributes['opacity'] ) ? $attributes['opacity'] : '1';
+		if ( 'inherit' !== $background_hex ) {
+			$background_color = wppp_hex2rgba( $background_hex, $background_opacity );
+		} else {
+			$background_color = $background_hex;
+		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>;<?php echo ( isset( $attributes['backgroundColor'] ) ) ? esc_html( 'background-color: ' . $attributes['backgroundColor'] ) . ';' : 'inherit'; ?> padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : '0px'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>;
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->sub_title_font_size ) . 'px'; ?>">
 			<div class="col-1 text">
 				<?php echo wp_kses_post( $attributes['content'] ); ?>
