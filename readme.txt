@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 2.0.10
+Stable tag: 2.1.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,7 +66,7 @@ Feel free to ask a question and it will be answered here.
 
 == Changelog ==
 
-= 2.0.10 =
+= 2.1.0 =
 * Released 2020-01-12
 * Added ability to select a URL for video slide.
 
@@ -100,5 +100,5 @@ Feel free to ask a question and it will be answered here.
 
 == Upgrade Notice ==
 
-= 2.0.10 =
+= 2.1.0 =
 Added ability to select a URL for video slide.
