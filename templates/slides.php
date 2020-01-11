@@ -161,10 +161,10 @@ Reveal.initialize( {
 		?>
 		<script>
 		Reveal.addEventListener( 'slidechanged', function( event ) {
-			if ( Reveal.isFirstSlide() ) {
+			if ( Reveal.isFirstSlide() || Reveal.isLastSlide() ) {
 				jQuery( 'div.reveal' ).find( '#header-wrapper' ).remove();
 			}
-			if ( ! Reveal.isFirstSlide() && ! jQuery( 'div.reveal' ).find( '#header-left' ).length > 0 ) {
+			if ( ! Reveal.isFirstSlide() && ! Reveal.isLastSlide() && ! jQuery( 'div.reveal' ).find( '#header-left' ).length > 0 ) {
 				var header = jQuery('#header').html();
 				jQuery('div.reveal').append(header);
 			}
