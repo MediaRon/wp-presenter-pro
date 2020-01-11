@@ -84,6 +84,14 @@ class Vertical_Slide {
 						'type'    => 'string',
 						'default' => 'url',
 					),
+					'muteVideo'              => array(
+						'type'    => 'boolean',
+						'default' => true,
+					),
+					'loopVideo'              => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

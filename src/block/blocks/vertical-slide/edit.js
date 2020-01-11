@@ -12,6 +12,7 @@ const {
 	PanelBody,
 	SelectControl,
 	TextControl,
+	ToggleControl,
 } = wp.components;
 
 const {
@@ -36,7 +37,7 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, videoType, speakerNotes, backgroundGradient} = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, videoType, speakerNotes, backgroundGradient, loopVideo, muteVideo} = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -171,14 +172,26 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 							</Fragment>
 						}
 						{'video' === backgroundType &&
-							<SelectControl
-								label={ __( 'Select a Video Type', 'wp-presenter-pro' ) }
-								value={videoType}
-								options={ videoSelectOptions }
-								onChange={ ( value ) => {
-									setAttributes( {videoType: value} );
-								} }
-							/>
+							<Fragment>
+								<SelectControl
+									label={ __( 'Select a Video Type', 'wp-presenter-pro' ) }
+									value={videoType}
+									options={ videoSelectOptions }
+									onChange={ ( value ) => {
+										setAttributes( {videoType: value} );
+									} }
+								/>
+								<ToggleControl
+									label={__( 'Mute Video', 'wp-presenter-pro' )}
+									checked={muteVideo}
+									onChange={ ( value ) => setAttributes( { muteVideo: value } ) }
+								/>
+								<ToggleControl
+									label={__( 'Loop Video', 'wp-presenter-pro' )}
+									checked={loopVideo}
+									onChange={ ( value ) => setAttributes( { loopVideo: value } ) }
+								/>
+							</Fragment>
 						}
 						{'media' === videoType && 'video' === backgroundType &&
 							<Fragment>

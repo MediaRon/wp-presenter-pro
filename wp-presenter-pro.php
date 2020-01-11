@@ -140,6 +140,8 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			$slide_background           = isset( $block_info['attrs']['backgroundColor'] ) ? $block_info['attrs']['backgroundColor'] : '#f3a75b';
 			$slide_video                = false;
 			$slide_iframe               = false;
+			$video_muted                = isset( $attributes['muteVideo'] ) ? filter_var( $attributes['muteVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
+			$loop_video                 = isset( $attributes['loopVideo'] ) ? filter_var( $attributes['loopVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
 
 			if ( isset( $block_info['attrs']['backgroundType'] ) ) {
 				$slide_background = '#f3a75b';
@@ -159,7 +161,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			}
 			?>
 			<section>
-			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url_raw( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background="gray <?php echo esc_html( $gradient_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>">
+			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url_raw( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background="gray <?php echo esc_html( $gradient_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
 				<?php
 				foreach ( $block_info['innerBlocks'] as $inner_data ) {
 					if ( is_array( $inner_data ) ) {
@@ -223,6 +225,8 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 	$slide_background           = isset( $blocks['attrs']['backgroundColor'] ) ? $blocks['attrs']['backgroundColor'] : '#f3a75b';
 	$slide_video                = false;
 	$slide_iframe               = false;
+	$video_muted                = isset( $blocks['attrs']['muteVideo'] ) ? filter_var( $blocks['attrs']['muteVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
+	$loop_video                 = isset( $blocks['attrs']['loopVideo'] ) ? filter_var( $blocks['attrs']['loopVideo'], FILTER_VALIDATE_BOOLEAN ) : true;
 
 	if ( isset( $blocks['attrs']['backgroundType'] ) ) {
 		$slide_background = '#f3a75b';
@@ -241,7 +245,7 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 		}
 	}
 	?>
-	<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>">
+	<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
 		<?php
 		foreach ( $blocks['innerBlocks'] as $index => $inner_data ) {
 			if ( is_array( $inner_data ) ) {
