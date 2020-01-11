@@ -109,8 +109,9 @@ class Post_Type {
 			'items_list_navigation' => __( 'Slide list navigation', 'wp-presenter-pro' ),
 			'filter_items_list'     => __( 'Filter Slide list', 'wp-presenter-pro' ),
 		);
+		$options = wp_presenter_pro()->admin_options->get_options();
 		$rewrite = array(
-			'slug'       => 'slides',
+			'slug'       => sanitize_title( $options['post_type_slug'] ),
 			'with_front' => true,
 		);
 
@@ -181,7 +182,7 @@ class Post_Type {
 			'show_tagcloud'     => true,
 			'show_in_rest'      => true,
 			'rewrite'           => array(
-				'slug'         => 'presentations',
+				'slug'         => sanitize_title( $options['taxonomy_slug'] ),
 				'with_front'   => true,
 				'hierarchical' => true,
 			),
