@@ -92,6 +92,10 @@ class Slide {
 						'type'    => 'boolean',
 						'default' => false,
 					),
+					'align'                  => array(
+						'type'    => 'string',
+						'default' => 'full',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

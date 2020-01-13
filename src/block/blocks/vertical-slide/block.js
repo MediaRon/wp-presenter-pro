@@ -5,7 +5,7 @@ import edit from './edit';
 const {
 	InnerBlocks
 } = wp.blockEditor;
-
+const validAlignments = [ 'full' ];
 /**
  * Register Basic Block.
  *
@@ -26,10 +26,11 @@ registerBlockType( 'wppp/vertical-slide', {
 		__( 'slide', 'wp-presenter-pro' ),
 	],
 	className: 'wppp',
-	supports: {
-		align: [ 'wide', 'full' ],
-		anchor: true,
-		html: false,
+	getEditWrapperProps( attributes ) {
+		const { align } = attributes;
+		if ( -1 !== validAlignments.indexOf( align ) ) {
+			return { 'data-align': align };
+		}
 	},
 	edit: edit,
 	save: function( props ) {
