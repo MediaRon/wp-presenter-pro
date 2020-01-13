@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 3.0.0
+Stable tag: 3.0.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,11 @@ Feel free to ask a question and it will be answered here.
 
 == Changelog ==
 
+= 3.0.1 =
+* Released 2020-01-13
+* Added full alignment to slides and vertical slides.
+* Fixed video looping on main slide block.
+
 = 3.0.0 =
 * Released 2020-01-12
 * Fudged up the version numbers, so bumping to 3.0 so people can upgrade.
@@ -112,5 +117,5 @@ Feel free to ask a question and it will be answered here.
 
 == Upgrade Notice ==
 
-= 3.0.0 =
-Fudged up the version numbers, so bumping to 3.0 so people can upgrade. Added background opacity to most of the core WP Presenter blocks. Added option to change the slugs of the post type and taxonomy. Added experimental gradient to the Button block. Added option to mute/loop video slides.
+= 3.0.1 =
+Added full alignment to slides and vertical slides. Fixed video looping on main slide block.
