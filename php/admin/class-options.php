@@ -99,6 +99,15 @@ class Options {
 						<input type="text" class="regular-text" name="wppp-taxonomy-slug" id="wppp-taxonomy-slug" value="<?php echo esc_attr( $options['taxonomy_slug'] ); ?>" />
 					</p>
 				</fieldset>
+				<?php submit_button(); ?>
+				</form>
+				<hr />
+				<h3><?php esc_html_e( 'Gradients', 'wp-presenter-pro' ); ?></h3>
+				<p><?php esc_html_e( 'Requires an up-to-date Gutenberg plugin.', 'wp-presenter-pro' ); ?></p>
+				<p>
+					<?php /* translators: %s is the URL to webgradients.com */ ?>
+					<?php echo wp_kses_post( sprintf( __( 'Gradients from %s', 'wp-presenter-pro' ), '<a href="https://webgradients.com/">WebGradients.com</a>' ) ); ?>
+				</p>
 				<?php
 				$gradients = array(
 					'linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)' => 'Warm Flame',
@@ -274,13 +283,10 @@ class Options {
 				);
 				foreach ( $gradients as $style => $name ) {
 					?>
-					<span style="display: inline-block; margin: 10px; width:50px; height: 50px; background-image: <?php echo esc_attr( $style ); ?>;"></span>
+					<button class="wppp-gradient unchecked" arial-label="<?php echo esc_attr( $name ); ?>" title="<?php echo esc_attr( $name ); ?>" data-title="<?php echo esc_attr( sanitize_title( $name ) ); ?>" data-name="<?php echo esc_attr( $name ); ?>" data-style="<?php echo esc_attr( $style ); ?>" style="cursor: pointer; display: inline-block; border-radius: 50%; margin: 10px; width:50px; height: 50px; background-image: <?php echo esc_attr( $style ); ?>;"></button>
 					<?php
 				}
-
-				submit_button();
 				?>
-			</form>
 		</div>
 		<?php
 	}
