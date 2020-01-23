@@ -23,9 +23,21 @@ class Post_Type {
 	 * Register any hooks that this component needs.
 	 */
 	public function register_hooks() {
+		add_action( 'after_setup_theme', array( $this, 'maybe_add_gradients' ), 100 );
 		add_action( 'init', array( $this, 'post_type_args' ) );
 		add_filter( 'block_categories', array( $this, 'add_block_category' ), 10, 2 );
 		add_filter( 'template_include', array( $this, 'slide_single_override' ), 99 );
+	}
+
+	public function maybe_add_gradients() {
+		// Set gradients. Maybe.
+		$gradient_options = get_option( 'wppp_gradients', array() );
+		if ( is_array( $gradient_options ) && ! empty( $gradient_options ) ) {
+			add_theme_support(
+				'__experimental-editor-gradient-presets',
+				array_values( $gradient_options )
+			);
+		}
 	}
 
 	/**
@@ -252,5 +264,6 @@ class Post_Type {
 			flush_rewrite_rules( true );
 			update_option( 'wp_presenter_pro_permalinks_flushed', 1 );
 		}
+		
 	}
 }

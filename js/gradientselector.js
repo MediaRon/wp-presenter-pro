@@ -30,6 +30,16 @@ jQuery( function( $ ) {
 				gradient: $button.data( 'style' )
 			};
 		} );
-		console.log( selected );
+		$.post(
+			ajaxurl,
+			{
+				action: 'wppp_save_gradients',
+				gradients: selected,
+				nonce: $('#wppp_ajax_gradients_nonce').val()
+			},
+			function( response ) {
+
+			}
+		);
 	} );
 } );
