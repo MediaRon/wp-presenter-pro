@@ -102,7 +102,7 @@ class Options {
 				<?php submit_button(); ?>
 				</form>
 				<hr />
-				<h3><?php esc_html_e( 'Gradients', 'wp-presenter-pro' ); ?></h3>
+				<h3><?php esc_html_e( 'Select Gradients for Your Presentation Slides', 'wp-presenter-pro' ); ?></h3>
 				<p><?php esc_html_e( 'Requires an up-to-date Gutenberg plugin.', 'wp-presenter-pro' ); ?></p>
 				<p>
 					<?php /* translators: %s is the URL to webgradients.com */ ?>
@@ -281,12 +281,25 @@ class Options {
 					'linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%)' => 'Fabled Sunset',
 					'linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%)' => 'Perfect Blue',
 				);
+				?>
+				<div id="wppp-gradients">
+					<form method="POST" id="wppp-gradients-form">
+					<?php
+					wp_nonce_field( 'save_wppp_gradients', 'wppp_options_nonce' );
+					?>
+				<?php
 				foreach ( $gradients as $style => $name ) {
 					?>
-					<button class="wppp-gradient unchecked" arial-label="<?php echo esc_attr( $name ); ?>" title="<?php echo esc_attr( $name ); ?>" data-title="<?php echo esc_attr( sanitize_title( $name ) ); ?>" data-name="<?php echo esc_attr( $name ); ?>" data-style="<?php echo esc_attr( $style ); ?>" style="cursor: pointer; display: inline-block; border-radius: 50%; margin: 10px; width:50px; height: 50px; background-image: <?php echo esc_attr( $style ); ?>;"></button>
+					<button class="wppp-gradient unchecked" arial-label="<?php echo esc_attr( $name ); ?>" title="<?php echo esc_attr( $name ); ?>" data-title="<?php echo esc_attr( sanitize_title( $name ) ); ?>" data-name="<?php echo esc_attr( $name ); ?>" data-style="<?php echo esc_attr( $style ); ?>" style="background-image: <?php echo esc_attr( $style ); ?>;"></button>
 					<?php
 				}
 				?>
+					<div>
+					<a href="#" id="wppp-gradient-select-all"><?php esc_html_e( 'Select All', 'wp-presenter-pro' ); ?></a> | <a href="#" id="wppp-gradient-deselect-all"><?php esc_html_e( 'Deselect All', 'wp-presenter-pro' ); ?></a>
+					</div>
+					<?php submit_button( __( 'Save Gradients', 'wp-presenter-pro' ) ); ?>
+					</form>
+				</div>
 		</div>
 		<?php
 	}

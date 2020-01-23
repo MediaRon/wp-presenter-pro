@@ -95,5 +95,9 @@ class Plugin extends Plugin_Abstract {
 		// Register get avatar REST API.
 		$this->avatar = new Rest\Rest_Get_Avatar();
 		$this->avatar->register_hooks();
+
+		// Register gradient enqueue.
+		$this->admin_enqueue = new Admin\Enqueue();
+		$this->admin_enqueue->register_hooks();
 	}
 }
