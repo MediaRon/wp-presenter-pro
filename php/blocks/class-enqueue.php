@@ -164,6 +164,9 @@ class Enqueue {
 	 * Enqueue the front-end CSS.
 	 */
 	public function frontend_css() {
+		if ( 'wppp' !== get_post_type() ) {
+			return;
+		}
 		wp_enqueue_style(
 			'wp-presenter-pro-front-end-css', // Handle.
 			WP_PRESENTER_PRO_URL . 'dist/blocks.style.build.css',
