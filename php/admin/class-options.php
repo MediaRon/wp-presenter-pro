@@ -290,7 +290,7 @@ class Options {
 				<?php
 				foreach ( $gradients as $style => $name ) {
 					?>
-					<button class="wppp-gradient unchecked" arial-label="<?php echo esc_attr( $name ); ?>" title="<?php echo esc_attr( $name ); ?>" data-title="<?php echo esc_attr( sanitize_title( $name ) ); ?>" data-name="<?php echo esc_attr( $name ); ?>" data-style="<?php echo esc_attr( $style ); ?>" style="background-image: <?php echo esc_attr( $style ); ?>;"></button>
+					<button class="wppp-gradient unchecked" arial-label="<?php echo esc_attr( $name ); ?>" title="<?php echo esc_attr( $name ); ?>" data-title="<?php echo esc_attr( sanitize_title( $name ) ); ?>" data-name="<?php echo esc_attr( $name ); ?>" data-style="<?php echo esc_attr( $style ); ?>"><span style="background-image: <?php echo esc_attr( $style ); ?>;"></span></button>
 					<?php
 				}
 				?>

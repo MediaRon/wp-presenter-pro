@@ -1,6 +1,7 @@
 jQuery( function( $ ) {
 	// Handle on click per gradient.
 	$( '#wppp-gradients' ).on( 'click', '.wppp-gradient', function( e ) {
+		e.preventDefault();
 		$button = $( this );
 		if ( $button.hasClass( 'unchecked' ) ) {
 			$button.removeClass( 'unchecked' ).addClass( 'checked' );
@@ -17,5 +18,18 @@ jQuery( function( $ ) {
 	$( '#wppp-gradients' ).on( 'click', '#wppp-gradient-deselect-all', function( e ) {
 		e.preventDefault();
 		$( '.wppp-gradient' ).removeClass( 'checked' ).addClass( 'unchecked' );
+	} );
+	// Handle submit handler.
+	$( '#wppp-gradients-form' ).on( 'submit', function( e ) {
+		e.preventDefault();
+		var selected = {};
+		$('#wppp-gradients .checked' ).each( function() {
+			var $button = $( this );
+			selected[ $button.data( 'title' ) ] = {
+				name: $button.data( 'name' ),
+				gradient: $button.data( 'style' )
+			};
+		} );
+		console.log( selected );
 	} );
 } );

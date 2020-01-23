@@ -28,6 +28,8 @@ class Enqueue {
 
 	/**
 	 * Enqueue the admin JS.
+	 *
+	 * @param string $hook Admin hook slug.
 	 */
 	public function add_scripts( $hook ) {
 		if ( 'wppp_page_wp-presenter-pro-options' !== $hook ) {
@@ -47,7 +49,7 @@ class Enqueue {
 		wp_enqueue_style(
 			'wp-presenter-pro-gradients-css',
 			WP_PRESENTER_PRO_URL . 'css/gradients.css',
-			array( ),
+			array(),
 			WP_PRESENTER_PRO_VERSION,
 			'all'
 		);
