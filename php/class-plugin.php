@@ -84,6 +84,10 @@ class Plugin extends Plugin_Abstract {
 		$this->block_transition = new Blocks\Transition();
 		$this->block_transition->register_hooks();
 
+		// HTML Slides Block.
+		$this->block_html = new Blocks\HTML();
+		$this->block_html->register_hooks();
+
 		// Register post type actions and filters.
 		$this->post_type = new Admin\Post_Type();
 		$this->post_type->register_hooks();

@@ -25,6 +25,7 @@
     "gulp": "^4.0.2",
     "gulp-run": "^1.7.1",
     "gulp-zip": "^4.2.0",
+    "html-react-parser": "^0.10.0",
     "lodash": "^4.17.15"
   },
   "dependencies": {

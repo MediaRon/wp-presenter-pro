@@ -36,45 +36,57 @@ class BlockQuote extends Block {
 			'wppp/blockquote',
 			array(
 				'attributes'      => array(
-					'content'             => array(
+					'content'                 => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'titleCapitalization' => array(
+					'titleCapitalization'     => array(
 						'type'    => 'boolean',
 						'default' => false,
 					),
-					'padding'             => array(
+					'padding'                 => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'radius'              => array(
+					'radius'                  => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'backgroundColor'     => array(
+					'backgroundColor'         => array(
 						'type'    => 'string',
 						'default' => 'inherit',
 					),
-					'textColor'           => array(
+					'textColor'               => array(
 						'type'    => 'string',
 						'default' => '#000000',
 					),
-					'font'                => array(
+					'font'                    => array(
 						'type'    => 'string',
 						'default' => 'open-sans',
 					),
-					'fontSize'            => array(
+					'fontSize'                => array(
 						'type'    => 'integer',
 						'default' => '64',
 					),
-					'transitions'         => array(
+					'transitions'             => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'opacity'             => array(
+					'opacity'                 => array(
 						'type'    => 'number',
 						'default' => 1,
+					),
+					'backgroundGradient'      => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundGradientHover' => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundType'          => array(
+						'type'    => 'string',
+						'default' => 'background',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),

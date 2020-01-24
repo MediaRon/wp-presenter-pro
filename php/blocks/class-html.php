@@ -1,6 +1,6 @@
 <?php
 /**
- * Add a code.
+ * Add HTML.
  *
  * @package   WP_Presenter_Pro
  */
@@ -8,9 +8,9 @@
 namespace WP_Presenter_Pro\Blocks;
 
 /**
- * Class Code
+ * Class HTML
  */
-class Code extends Block {
+class HTML extends Block {
 
 	/**
 	 * Initialize the Admin component.
@@ -33,44 +33,64 @@ class Code extends Block {
 			return;
 		}
 		register_block_type(
-			'wppp/code',
+			'wppp/html',
 			array(
 				'attributes'      => array(
-					'content'         => array(
+					'content'                 => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'transitions'     => array(
+					'transitions'             => array(
 						'type'    => 'string',
 						'default' => '',
 					),
-					'padding'         => array(
+					'titleCapitalization'     => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
+					'padding'                 => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'radius'          => array(
+					'radius'                  => array(
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'backgroundColor' => array(
+					'backgroundColor'         => array(
 						'type'    => 'string',
 						'default' => 'inherit',
 					),
-					'textColor'       => array(
+					'textColor'               => array(
 						'type'    => 'string',
 						'default' => '#000000',
 					),
-					'font'            => array(
+					'font'                    => array(
 						'type'    => 'string',
 						'default' => 'open-sans',
 					),
-					'fontSize'        => array(
+					'fontSize'                => array(
 						'type'    => 'integer',
-						'default' => '32',
+						'default' => '64',
 					),
-					'opacity'         => array(
+					'transitions'             => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'opacity'                 => array(
 						'type'    => 'number',
 						'default' => 1,
+					),
+					'backgroundGradient'      => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundGradientHover' => array(
+						'type'    => 'string',
+						'default' => '',
+					),
+					'backgroundType'          => array(
+						'type'    => 'string',
+						'default' => 'background',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
@@ -89,7 +109,7 @@ class Code extends Block {
 		}
 		ob_start()
 		?>
-		<div class="wp-presenter-pro-code-editor
+		<div class="wp-presenter-pro-html-editor
 		<?php
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 			echo esc_html( $attributes['transitions'] );
@@ -98,9 +118,7 @@ class Code extends Block {
 		}
 		?>
 		">
-<pre><code data-trim data-noescape data-line-numbers>
-<?php echo esc_html( $attributes['content'] ); // phpcs:ignore ?>
-</code></pre>
+<?php echo wp_kses_post( $attributes['content'] ); // phpcs:ignore ?>
 		<?php
 		return ob_get_clean();
 	}

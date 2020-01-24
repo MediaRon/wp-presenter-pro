@@ -90,6 +90,7 @@ class Enqueue {
 			'wppp/slide-title',
 			'wppp/transition',
 			'wppp/code',
+			'wppp/html',
 			'wppp/list-item',
 			'wppp/image',
 			'wppp/content-two-columns',
