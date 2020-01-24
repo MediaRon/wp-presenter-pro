@@ -29,6 +29,9 @@ class Post_Type {
 		add_filter( 'template_include', array( $this, 'slide_single_override' ), 99 );
 	}
 
+	/**
+	 * Maybe add gradients to the theme.
+	 */
 	public function maybe_add_gradients() {
 		// Set gradients. Maybe.
 		$gradient_options = get_option( 'wppp_gradients', array() );
@@ -264,6 +267,5 @@ class Post_Type {
 			flush_rewrite_rules( true );
 			update_option( 'wp_presenter_pro_permalinks_flushed', 1 );
 		}
-		
 	}
 }
