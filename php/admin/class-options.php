@@ -232,7 +232,7 @@ class Options {
 					'linear-gradient(-45deg, rgb(255,199,150) 0%, rgb(255,107,149) 100%)' => 'African Field',
 					'linear-gradient(to right, rgb(36,57,73) 0%, rgb(81,127,164) 100%)' => 'Solid Stone',
 					'linear-gradient(-20deg, rgb(252,96,118) 0%, rgb(255,154,68) 100%)' => 'Orange Juice',
-					'linear-gradient(to top, rgb(223,233,243) 0%, white 100%)' => 'Glass Water',
+					'linear-gradient(to top, rgb(223,233,243) 0%, rgb(255,255,255) 100%)' => 'Glass Water',
 					'linear-gradient(to right, rgb(0,219,222) 0%, rgb(252,0,255) 100%)' => 'North Miracle',
 					'linear-gradient(to right, rgb(249,212,35) 0%, rgb(255,78,80) 100%)' => 'Fruit Blend',
 					'linear-gradient(to top, rgb(80,204,127) 0%, rgb(245,209,0) 100%)' => 'Millennium Pine',
