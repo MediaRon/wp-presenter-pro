@@ -33,6 +33,7 @@ import './block/blocks/transition/block';
 import './block/blocks/blockquote/block';
 import './block/blocks/button/block';
 import './block/blocks/dual-buttons/block';
+import './block/blocks/html/block';
 
 const displayControls = 'slides-display-controls';
 const keyboardShortcuts = 'slides-keyboard-shortcuts';

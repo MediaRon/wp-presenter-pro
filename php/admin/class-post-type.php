@@ -23,9 +23,44 @@ class Post_Type {
 	 * Register any hooks that this component needs.
 	 */
 	public function register_hooks() {
+		add_action( 'after_setup_theme', array( $this, 'maybe_add_gradients' ), 100 );
 		add_action( 'init', array( $this, 'post_type_args' ) );
 		add_filter( 'block_categories', array( $this, 'add_block_category' ), 10, 2 );
 		add_filter( 'template_include', array( $this, 'slide_single_override' ), 99 );
+	}
+
+	/**
+	 * Maybe add gradients to the theme.
+	 */
+	public function maybe_add_gradients() {
+
+		$options = wp_presenter_pro()->admin_options->get_options();
+		if ( 'on' === $options['gradients'] ) :
+			// Set gradients. Maybe.
+			$gradient_options = get_option( 'wppp_gradients', array() );
+			/**
+			 * Add your own Gradients.
+			 *
+			 * Add your own Gradients.
+			 *
+			 * @since 3.1.0
+			 *
+			 * @param array $gradient_options {
+			 *     Array of gradients.
+			 *
+			 *     @type string Gradient in RGB format.
+			 *     @type string Gradient name.
+			 *     @type string Gradient slug.
+			 * }
+			 */
+			$gradient_options = apply_filters( 'wppp_theme_gradients', $gradient_options );
+			if ( is_array( $gradient_options ) && ! empty( $gradient_options ) ) {
+				add_theme_support(
+					'__experimental-editor-gradient-presets',
+					array_values( $gradient_options )
+				);
+			}
+		endif;
 	}
 
 	/**
