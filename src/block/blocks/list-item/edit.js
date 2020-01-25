@@ -124,7 +124,7 @@ class WP_Presenter_Pro_Unordered_List extends Component {
 							max={ 20 }
 							step={ 1 }
 						/>
-							<ToggleControl
+						<ToggleControl
 							label={ __( 'Break into Fragments',  'post-type-archive-mapping' ) }
 							checked={ fragments }
 							onChange={ ( value ) => setAttributes( { fragments: value } ) }
