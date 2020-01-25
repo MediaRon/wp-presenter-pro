@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 3.0.1
+Stable tag: 3.1.0
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -66,6 +66,14 @@ Feel free to ask a question and it will be answered here.
 
 == Changelog ==
 
+= 3.1.0 =
+* Released 2020-01-24
+* Added gradient selector to options (Requires Gutenberg 7.3+)
+* Fixed background clearing invalidating on several blocks.
+* Added HTML block.
+* Changing verbiage of slides to presentations.
+* Added fragment option to list item blocks
+
 = 3.0.1 =
 * Released 2020-01-13
 * Added full alignment to slides and vertical slides.
@@ -116,6 +124,9 @@ Feel free to ask a question and it will be answered here.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.1.0 =
+Added gradient selector to options (Requires Gutenberg 7.3+). Fixed background clearing invalidating on several blocks. Added HTML block, which allows you to input fragments. Changing verbiage of slides to presentations. Added fragment option to list item blocks.
 
 = 3.0.1 =
 Added full alignment to slides and vertical slides. Fixed video looping on main slide block.
