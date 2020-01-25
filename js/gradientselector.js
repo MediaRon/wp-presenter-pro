@@ -22,6 +22,8 @@ jQuery( function( $ ) {
 	// Handle submit handler.
 	$( '#wppp-gradients-form' ).on( 'submit', function( e ) {
 		e.preventDefault();
+		var $submit_button = $( '#wppp-save-gradients' );
+		$submit_button.val( wp_presenter_gradients.saving ).prop( 'disabled', 'disabled' );
 		var selected = {};
 		$('#wppp-gradients .checked' ).each( function() {
 			var $button = $( this );
@@ -38,7 +40,7 @@ jQuery( function( $ ) {
 				nonce: $('#wppp_ajax_gradients_nonce').val()
 			},
 			function( response ) {
-
+				$submit_button.val( wp_presenter_gradients.saved ).removeAttr( 'disabled' );
 			}
 		);
 	} );

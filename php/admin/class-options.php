@@ -181,7 +181,7 @@ class Options {
 					'linear-gradient(to top, rgb(80,82,133) 0%, rgb(88,94,146) 12%, rgb(101,104,159) 25%, rgb(116,116,176) 37%, rgb(126,126,187) 50%, rgb(131,137,199) 62%, rgb(151,149,212) 75%, rgb(162,161,220) 87%, rgb(181,174,228) 100%)' => 'Spiky Naga',
 					'linear-gradient(to top, rgb(255,8,68) 0%, rgb(255,177,153) 100%)' => 'Love Kiss',
 					'linear-gradient(45deg, rgb(147,165,207) 0%, rgb(228,239,233) 100%)' => 'Cochiti Lake',
-					'linear-gradient(to right, rgb(67,67,67) 0%, black 100%)'  => 'Premium Dark',
+					'linear-gradient(to right, rgb(67,67,67) 0%, rgb(0,0,0) 100%)'  => 'Premium Dark',
 					'linear-gradient(to top, rgb(12,52,131) 0%, rgb(162,182,223) 100%, rgb(107,140,206) 100%, rgb(162,182,223) 100%)' => 'Cold Evening',
 					'linear-gradient(to right, rgb(146,254,157) 0%, rgb(0,201,255) 100%)' => 'Summer Games',
 					'linear-gradient(to right, rgb(255,117,140) 0%, rgb(255,126,179) 100%)' => 'Passionate Bed',
@@ -217,7 +217,6 @@ class Options {
 					'linear-gradient(60deg, rgb(100,179,244) 0%, rgb(194,229,156) 100%)' => 'Flying Lemon',
 					'linear-gradient(to top, rgb(59,65,197) 0%, rgb(169,129,187) 49%, rgb(255,200,169) 100%)' => 'New Retrowave',
 					'linear-gradient(to top, rgb(15,216,80) 0%, rgb(249,240,71) 100%)' => 'Hidden Jaguar',
-					'linear-gradient(to top, lightgrey 0%, lightgrey 1%, rgb(224,224,224) 26%, rgb(239,239,239) 48%, rgb(217,217,217) 75%, rgb(188,188,188) 100%)' => 'Above The Sky',
 					'linear-gradient(45deg, rgb(238,156,167) 0%, rgb(255,221,225) 100%)' => 'Nega',
 					'linear-gradient(to right, rgb(58,181,176) 0%, rgb(61,153,190) 31%, rgb(86,49,122) 100%)' => 'Dense Water',
 					'linear-gradient(to top, rgb(32,156,255) 0%, rgb(104,224,207) 100%)' => 'Seashore',
@@ -278,6 +277,21 @@ class Options {
 					'linear-gradient(-225deg, rgb(35,21,87) 0%, rgb(68,16,122) 29%, rgb(255,19,97) 67%, rgb(255,248,0) 100%)' => 'Fabled Sunset',
 					'linear-gradient(-225deg, rgb(61,78,129) 0%, rgb(87,83,201) 48%, rgb(110,127,243) 100%)' => 'Perfect Blue',
 				);
+				/**
+				 * Add your own Gradients.
+				 *
+				 * Add your own Gradients.
+				 *
+				 * @since 3.1.0
+				 *
+				 * @param array $gradients {
+				 *     Array of gradients.
+				 *
+				 *     @type string Gradient in RGB format.
+				 *     @type string Gradient name (will be used as the gradient slug).
+				 * }
+				 */
+				$gradients = apply_filters( 'wppp_admin_gradients', $gradients );
 				?>
 				<div id="wppp-gradients">
 					<form method="POST" id="wppp-gradients-form">
@@ -293,10 +307,10 @@ class Options {
 					<?php
 				}
 				?>
-					<div>
+					<div><br />
 					<a href="#" id="wppp-gradient-select-all"><?php esc_html_e( 'Select All', 'wp-presenter-pro' ); ?></a> | <a href="#" id="wppp-gradient-deselect-all"><?php esc_html_e( 'Deselect All', 'wp-presenter-pro' ); ?></a>
 					</div>
-					<?php submit_button( __( 'Save Gradients', 'wp-presenter-pro' ) ); ?>
+					<?php submit_button( __( 'Save Gradients', 'wp-presenter-pro' ), 'primary', 'wppp-save-gradients' ); ?>
 					</form>
 				</div>
 		</div>

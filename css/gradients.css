@@ -2,6 +2,9 @@ button.wppp-gradient {
 	position: relative;
 	cursor: pointer; 
 }
+button.wppp-gradient.unchecked:hover {
+	background: #DDD;
+}
 button.wppp-gradient span {
 	display: inline-block;
 	border-radius: 50%;

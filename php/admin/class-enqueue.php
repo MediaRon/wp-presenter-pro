@@ -45,6 +45,14 @@ class Enqueue {
 			WP_PRESENTER_PRO_VERSION,
 			true
 		);
+		wp_localize_script(
+			'wp-presenter-pro-gradients',
+			'wp_presenter_gradients',
+			array(
+				'saving' => __( 'Saving...', 'wp-presenter-pro' ),
+				'saved'  => __( 'Saved', 'wp-presenter-pro' ),
+			)
+		);
 
 		// Scripts.
 		wp_enqueue_style(

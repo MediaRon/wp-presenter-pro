@@ -35,6 +35,22 @@ class Post_Type {
 	public function maybe_add_gradients() {
 		// Set gradients. Maybe.
 		$gradient_options = get_option( 'wppp_gradients', array() );
+		/**
+		 * Add your own Gradients.
+		 *
+		 * Add your own Gradients.
+		 *
+		 * @since 3.1.0
+		 *
+		 * @param array $gradient_options {
+		 *     Array of gradients.
+		 *
+		 *     @type string Gradient in RGB format.
+		 *     @type string Gradient name.
+		 *     @type string Gradient slug.
+		 * }
+		 */
+		$gradient_options = apply_filters( 'wppp_theme_gradients', $gradient_options );
 		if ( is_array( $gradient_options ) && ! empty( $gradient_options ) ) {
 			add_theme_support(
 				'__experimental-editor-gradient-presets',
