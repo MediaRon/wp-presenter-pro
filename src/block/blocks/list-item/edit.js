@@ -45,10 +45,10 @@ class WP_Presenter_Pro_Unordered_List extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity, fragments} = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: hexToRgba(backgroundColor, opacity),
+			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',
@@ -124,12 +124,18 @@ class WP_Presenter_Pro_Unordered_List extends Component {
 							max={ 20 }
 							step={ 1 }
 						/>
+							<ToggleControl
+							label={ __( 'Break into Fragments',  'post-type-archive-mapping' ) }
+							checked={ fragments }
+							onChange={ ( value ) => setAttributes( { fragments: value } ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
 					<div className={ classnames(
 							'wp-presenter-pro-unordered-list',
-							titleCapitalization ? 'slide-title-capitalized' : ''
+							titleCapitalization ? 'slide-title-capitalized' : '',
+							'fragment'
 						) }
 						style={slideStyles}
 					>

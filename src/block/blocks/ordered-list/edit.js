@@ -48,7 +48,7 @@ class WP_Presenter_Pro_Ordered_List extends Component {
 		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity} = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: hexToRgba(backgroundColor, opacity),
+			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',

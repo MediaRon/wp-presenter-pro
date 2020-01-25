@@ -49,7 +49,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity } = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: hexToRgba(backgroundColor, opacity),
+			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',

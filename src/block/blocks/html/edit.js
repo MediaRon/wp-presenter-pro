@@ -54,7 +54,7 @@ class WP_Presenter_Pro_HTML extends Component {
 		const { content, transitions, backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, opacity } = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: hexToRgba(backgroundColor, opacity),
+			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',

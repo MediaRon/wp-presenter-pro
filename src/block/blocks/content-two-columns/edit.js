@@ -59,7 +59,7 @@ class WP_Presenter_Pro_Content_Two_Columns extends Component {
 		const { content, content2, transitions, backgroundColor, textColor, font, fontSize, padding, radius, opacity } = this.props.attributes;
 
 		let slideStyles = {
-			backgroundColor: hexToRgba(backgroundColor, opacity),
+			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
 			padding: padding + 'px',
 			borderRadius: radius + 'px',

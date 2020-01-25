@@ -68,6 +68,10 @@ class List_Item extends Block {
 						'type'    => 'number',
 						'default' => 1,
 					),
+					'fragments'       => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -102,7 +106,13 @@ class List_Item extends Block {
 		?>
 		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : 'inherit'; ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 'inherit'; ?>;
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>;">
-		<?php echo '<ul>' . wp_kses_post( $attributes['content'] ) . '</ul>'; ?>
+		<?php
+		if ( isset( $attributes['fragments'] ) && filter_var( $attributes['fragments'], FILTER_VALIDATE_BOOLEAN ) ) {
+			echo '<ul>' . wp_kses_post( str_replace( '<li>', '<li class="fragment">', $attributes['content'] ) ) . '</ul>';
+		} else {
+			echo '<ul>' . wp_kses_post( $attributes['content'] ) . '</ul>';
+		}
+		?>
 		</div>
 		<?php
 		return ob_get_clean();
