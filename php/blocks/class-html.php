@@ -118,8 +118,44 @@ class HTML extends Block {
 		}
 		?>
 		">
-<?php echo wp_kses_post( $attributes['content'] ); // phpcs:ignore ?>
+		<?php add_filter( 'safe_style_css', array( $this, 'safe_css' ) ); ?>
+		<?php echo wp_kses_post( $attributes['content'] ); ?>
+		<?php remove_filter( 'safe_style_css', array( $this, 'safe_css' ) ); ?>
 		<?php
 		return ob_get_clean();
+	}
+
+	/**
+	 * Adds CSS attributes for use.
+	 *
+	 * @param array $css Safe CSS attributes to use.
+	 */
+	public function safe_css( $css = array() ) {
+		$args = array(
+			'position',
+			'display',
+			'top',
+			'left',
+			'right',
+			'bottom',
+			'border',
+			'padding',
+			'background-image',
+			'background',
+			'justify-content',
+			'flex-wrap',
+			'font',
+			'font-size',
+			'margin',
+		);
+		/**
+		 * Add your own CSS attributes.
+		 *
+		 * @since 3.1.1
+		 *
+		 * @param array $args Array of safe css attributes.
+		 */
+		$args = apply_filters( 'wppp_html_safe_css', $args );
+		return array_merge( $css, $args );
 	}
 }
