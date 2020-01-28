@@ -9,7 +9,7 @@
  * Plugin Name: WP Presenter Pro
  * Plugin URI: https://mediaron.com/wp-presenter-pro-documentation/
  * Description: A plugin for allowing you to do presentations using WordPress.
- * Version: 3.1.0
+ * Version: 3.1.1
  * Author: MediaRon LLC
  * Author URI: https://mediaron.com
  * License: GPL2
@@ -22,7 +22,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-define( 'WP_PRESENTER_PRO_VERSION', '3.1.0' );
+define( 'WP_PRESENTER_PRO_VERSION', '3.1.1' );
 define( 'WP_PRESENTER_PRO_PLUGIN_NAME', 'WP Presenter Pro' );
 define( 'WP_PRESENTER_PRO_DIR', plugin_dir_path( __FILE__ ) );
 define( 'WP_PRESENTER_PRO_URL', plugins_url( '/', __FILE__ ) );
@@ -161,7 +161,7 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 			}
 			?>
 			<section data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" data-transition="<?php echo esc_attr( isset( $block_info['attrs']['transition'] ) ? $block_info['attrs']['transition'] : 'none' ); ?>">
-			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url_raw( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background="gray <?php echo esc_html( $gradient_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
+			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url_raw( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background="gray <?php echo esc_html( $gradient_background ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
 				<?php
 				foreach ( $block_info['innerBlocks'] as $inner_data ) {
 					if ( is_array( $inner_data ) ) {
@@ -246,7 +246,7 @@ function wp_presenter_pro_render_vertical_slide_blocks( $blocks ) {
 		}
 	}
 	?>
-	<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
+	<section data-background-transition="<?php echo esc_attr( isset( $blocks['attrs']['backgroundTransition'] ) ? $blocks['attrs']['backgroundTransition'] : 'none' ); ?>" data-transition="<?php echo esc_attr( isset( $blocks['attrs']['transition'] ) ? $blocks['attrs']['transition'] : 'none' ); ?>" <?php echo false !== $slide_video ? 'data-background-video="' . esc_url( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>"  <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
 		<?php
 		foreach ( $blocks['innerBlocks'] as $index => $inner_data ) {
 			if ( is_array( $inner_data ) ) {
