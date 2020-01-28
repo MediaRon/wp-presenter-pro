@@ -13,15 +13,11 @@ Allow users to create presentations using Gutenberg.
 
 == Description ==
 
-This plugin allows users to create unlimited presentations using the power of Gutenberg. <a href="https://mediaron.com/wp-presenter-pro-documentation/">View the documentation</a>.
+This plugin allows users to create unlimited presentations using the power of Gutenberg. <a href="https://wppresenter.pro">View the documentation</a>.
 
 Please help <a href="https://github.com/ronalfy/wp-presenter-pro">contribute on GitHub</a> whether it is code or reporting issues.
 
 Built on <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
-
-== Overview Video ==
-
-https://www.youtube.com/watch?v=oT18YnW_trs
 
 == Recommended Plugins ==
 
@@ -69,7 +65,7 @@ Feel free to ask a question and it will be answered here.
 = 3.1.1 =
 * Released 2020-01-28
 * Added style attributes to the HTML block attribute for immense flexibility.
-* Fixed transitions on regular slides.
+* Fixed transitions on horizontal and vertical slides.
 
 = 3.1.0 =
 * Released 2020-01-24
@@ -129,6 +125,9 @@ Feel free to ask a question and it will be answered here.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.1.1 =
+Added style attributes to the HTML block attribute for immense flexibility. Fixed transitions on horizontal and vertical slides.
 
 = 3.1.0 =
 Added gradient selector to options (Requires Gutenberg 7.3+). Fixed background clearing invalidating on several blocks. Added HTML block, which allows you to input fragments. Changing verbiage of slides to presentations. Added fragment option to list item blocks.
