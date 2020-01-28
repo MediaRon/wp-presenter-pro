@@ -160,7 +160,6 @@ function wp_presenter_pro_render_blocks( $blocks ) {
 				}
 			}
 			?>
-			<section>
 			<section <?php echo false !== $slide_video ? 'data-background-video="' . esc_url_raw( $slide_video ) . '"' : ''; ?> <?php echo false !== $slide_iframe ? 'data-background-iframe="' . esc_url( $slide_iframe ) . '"' : ''; ?> data-background="<?php echo $gradient_background ? esc_attr( 'gray ' . $gradient_background ) : esc_attr( $slide_background ); ?>" data-background="gray <?php echo esc_html( $gradient_background ); ?>" data-background-transition="<?php echo esc_attr( isset( $block_info['attrs']['backgroundTransition'] ) ? $block_info['attrs']['backgroundTransition'] : 'none' ); ?>" <?php echo $video_muted ? 'data-background-video-muted' : ''; ?>  <?php echo $loop_video ? 'data-background-video-loop' : ''; ?>>
 				<?php
 				foreach ( $block_info['innerBlocks'] as $inner_data ) {

@@ -143,6 +143,7 @@ class HTML extends Block {
 			'background-image',
 			'background',
 			'justify-content',
+			'align-items',
 			'flex-wrap',
 			'font',
 			'font-size',
