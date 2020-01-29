@@ -45,7 +45,7 @@ class WP_Presenter_Pro_Code extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { content, transitions} = this.props.attributes;
+		const { content, transitions, fontSize} = this.props.attributes;
 
 		let slideStyles = {
 		};
@@ -54,6 +54,14 @@ class WP_Presenter_Pro_Code extends Component {
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Code Editor', 'wp-presenter-pro' ) }>
+						<RangeControl
+							label={ __( 'Font Size', 'wp-presenter-pro' ) }
+							value={ fontSize }
+							onChange={ ( value ) => setAttributes( { fontSize: value } ) }
+							min={ 12 }
+							max={ 80 }
+							step={ 1 }
+						/>
 						<SelectControl
 								label={ __( 'Select a Transition', 'wp-presenter-pro' ) }
 								value={transitions}

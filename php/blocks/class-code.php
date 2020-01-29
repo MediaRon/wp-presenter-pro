@@ -66,11 +66,15 @@ class Code extends Block {
 					),
 					'fontSize'        => array(
 						'type'    => 'integer',
-						'default' => '32',
+						'default' => '24',
 					),
 					'opacity'         => array(
 						'type'    => 'number',
 						'default' => 1,
+					),
+					'align'           => array(
+						'type'    => 'string',
+						'default' => 'full',
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
@@ -96,9 +100,13 @@ class Code extends Block {
 			echo ' ';
 			echo 'fragment';
 		}
+		$font_size = false;
+		if ( isset( $attributes['fontSize'] ) ) {
+			$font_size = absint( $attributes['fontSize'] );
+		}
 		?>
 		">
-<pre><code data-trim data-noescape data-line-numbers>
+<pre><code data-trim data-noescape class="hljs" style="<?php echo $font_size ? 'font-size: ' . absint( $font_size ) . 'px;' : ''; ?>">
 <?php echo esc_html( $attributes['content'] ); // phpcs:ignore ?>
 </code></pre>
 		<?php
