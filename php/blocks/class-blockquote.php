@@ -105,7 +105,7 @@ class BlockQuote extends Block {
 		}
 		ob_start()
 		?>
-		<blockquote class="wp-presenter-pro-slide-title
+		<blockquote class="wp-presenter-pro-blockquote
 		<?php
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 			echo esc_html( $attributes['transitions'] );
@@ -113,7 +113,7 @@ class BlockQuote extends Block {
 			echo 'fragment';
 		}
 		if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
-			echo ' slide-title-capitalized';
+			echo ' slide-blockquote-capitalized';
 		}
 		$background_hex     = isset( $attributes['backgroundColor'] ) ? $attributes['backgroundColor'] : 'inherit';
 		$background_opacity = isset( $attributes['opacity'] ) ? $attributes['opacity'] : '1';

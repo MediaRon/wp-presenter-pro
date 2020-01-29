@@ -144,8 +144,8 @@ class WP_Presenter_Pro_Blockquote extends Component {
 				</InspectorControls>
 				<Fragment>
 					<blockquote className={ classnames(
-								'wp-presenter-pro-slide-title',
-								titleCapitalization ? 'slide-title-capitalized' : ''
+								'wp-presenter-pro-blockquote',
+								titleCapitalization ? 'slide-blockquote-capitalized' : ''
 							) }
 							style={slideStyles}
 					>
