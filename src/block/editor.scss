@@ -79,6 +79,15 @@ blockquote.slide-blockquote-capitalized,
 	line-height: 1.2;
 	text-align: left;
 	margin: 0;
+	&.left {
+		text-align: left;
+	}
+	&.center {
+		text-align: center;
+	}
+	&.right {
+		text-align: right;
+	}
 }
 .wp-presenter-pro-button {
 	text-align: center;

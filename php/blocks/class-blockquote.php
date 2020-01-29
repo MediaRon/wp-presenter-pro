@@ -100,6 +100,10 @@ class BlockQuote extends Block {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'blockquoteAlign' => array(
+						'type' => 'string',
+						'default' => '',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -115,6 +119,12 @@ class BlockQuote extends Block {
 		if ( is_admin() ) {
 			return;
 		}
+		$gradient = false;
+		if ( isset( $attributes['backgroundType'] ) ) {
+			if ( 'gradient' === $attributes['backgroundType'] ) {
+				$gradient = true;
+			}
+		}
 		ob_start()
 		?>
 		<blockquote class="wp-presenter-pro-blockquote
@@ -123,6 +133,9 @@ class BlockQuote extends Block {
 			echo esc_html( $attributes['transitions'] );
 			echo ' ';
 			echo 'fragment';
+		}
+		if ( isset( $attributes['blockquoteAlign'] ) ) {
+			echo esc_html( ' ' . $attributes['blockquoteAlign'] );
 		}
 		if ( isset( $attributes['titleCapitalization'] ) && true === $attributes['titleCapitalization'] ) {
 			echo ' slide-blockquote-capitalized';
@@ -135,7 +148,7 @@ class BlockQuote extends Block {
 			$background_color = $background_hex;
 		}
 		?>
-		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
+		" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-image: <?php echo isset( $attributes['backgroundGradient'] ) && $gradient ? esc_html( $attributes['backgroundGradient'] ) : 'inherit'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
 		font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->title_font_size ) . 'px'; ?>">
 		<?php echo wp_kses_post( $attributes['content'] ); ?>
 		</blockquote>

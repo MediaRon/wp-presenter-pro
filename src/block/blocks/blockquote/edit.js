@@ -25,15 +25,16 @@ const {
 } = wp.components;
 
 const {
-	BlockControls,
 	MediaUpload,
-	PlainText,
 } = wp.editor;
 
 const {
+	__experimentalGradientPickerControl,
 	InspectorControls,
 	RichText,
-	PanelColorSettings
+	PanelColorSettings,
+	AlignmentToolbar,
+	BlockControls,
 } = wp.blockEditor;
 
 
@@ -46,7 +47,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author } = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author, backgroundType, backgroundGradient, blockquoteAlign } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
@@ -57,30 +58,62 @@ class WP_Presenter_Pro_Blockquote extends Component {
 			fontSize: `${fontSize}px`,
 		};
 
+		if ( 'gradient' === backgroundType ) {
+			slideStyles.backgroundImage = backgroundGradient;	
+		}
+
+		const backgroundSelectOptions = [
+			{ value: 'background', label: __( 'Background Color', 'wp-presenter-pro' ) },
+			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg plugin)', 'wp-presenter-pro' ) },
+		];
+
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Blockquote', 'wp-presenter-pro' ) }>
-						<PanelColorSettings
-							title={ __( 'Background Color', 'wp-presenter-pro' ) }
-							initialOpen={ true }
-							colorSettings={ [ {
-								value: backgroundColor,
-								onChange: ( value ) => {
-									setAttributes( { backgroundColor: value});
-								},
-								label: __( 'Background Color', 'wp-presenter-pro' ),
-							} ] }
-						>
-						</PanelColorSettings>
-						<RangeControl
-							label={ __( 'Opacity', 'wp-presenter-pro' ) }
-							value={ opacity }
-							onChange={ ( value ) => setAttributes( { opacity: value } ) }
-							min={ 0 }
-							max={ 1 }
-							step={ 0.01 }
+						<SelectControl
+							label={ __( 'Select a Background Type', 'wp-presenter-pro' ) }
+							value={backgroundType}
+							options={ backgroundSelectOptions }
+							onChange={ ( value ) => {
+								setAttributes( {backgroundType: value} );
+							} }
 						/>
+						{'background' === backgroundType &&
+							<Fragment>
+								<PanelColorSettings
+									title={ __( 'Background Color', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: backgroundColor,
+										onChange: ( value ) => {
+											setAttributes( { backgroundColor: value});
+										},
+										label: __( 'Background Color', 'wp-presenter-pro' ),
+									} ] }
+								>
+								</PanelColorSettings>
+								<RangeControl
+									label={ __( 'Opacity', 'wp-presenter-pro' ) }
+									value={ opacity }
+									onChange={ ( value ) => setAttributes( { opacity: value } ) }
+									min={ 0 }
+									max={ 1 }
+									step={ 0.01 }
+								/>
+							</Fragment>
+						}
+						{ 'gradient' === backgroundType && __experimentalGradientPickerControl && 
+							<Fragment>
+								<__experimentalGradientPickerControl	
+									label={__( 'Choose a Background Gradient', 'wp-presenter-pro' )}
+									value={backgroundGradient}
+									onChange={( value ) => {
+										setAttributes( {backgroundGradient: value});	
+									}}
+								/>
+							</Fragment>
+						}
 						<PanelColorSettings
 							title={ __( 'Text Color', 'wp-presenter-pro' ) }
 							initialOpen={ true }
@@ -147,10 +180,17 @@ class WP_Presenter_Pro_Blockquote extends Component {
 						/>
 					</PanelBody>
 				</InspectorControls>
+				<BlockControls>
+					<AlignmentToolbar
+						value={ blockquoteAlign }
+						onChange={ ( value ) => setAttributes( { blockquoteAlign: value }) }
+					/>
+				</BlockControls>
 				<Fragment>
 					<blockquote className={ classnames(
 								'wp-presenter-pro-blockquote',
-								titleCapitalization ? 'slide-blockquote-capitalized' : ''
+								titleCapitalization ? 'slide-blockquote-capitalized' : '',
+								blockquoteAlign
 							) }
 							style={slideStyles}
 					>
