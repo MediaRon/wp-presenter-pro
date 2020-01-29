@@ -88,6 +88,18 @@ class BlockQuote extends Block {
 						'type'    => 'string',
 						'default' => 'background',
 					),
+					'quoteStyle'              => array(
+						'type'    => 'string',
+						'default' => 'none',
+					),
+					'showAuthor'              => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
+					'author'              => array(
+						'type'    => 'string',
+						'default' => '',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

@@ -12,6 +12,10 @@ blockquote.slide-blockquote-capitalized,
 	font-style: normal;
 	border: 0;
 }
+.wp-presenter-pro-blockquote-author {
+	text-align: left;
+	font-size: 25px;
+}
 .wp-presenter-pro-text-box {
 	font-size: 32px;
 	line-height: 1.1;
@@ -73,6 +77,8 @@ blockquote.slide-blockquote-capitalized,
 }
 .wp-presenter-pro-blockquote {
 	line-height: 1.2;
+	text-align: left;
+	margin: 0;
 }
 .wp-presenter-pro-button {
 	text-align: center;

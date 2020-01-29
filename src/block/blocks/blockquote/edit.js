@@ -46,7 +46,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity } = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
@@ -140,6 +140,11 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							checked={ titleCapitalization }
 							onChange={ ( value ) => setAttributes( { titleCapitalization: value } ) }
 						/>
+						<ToggleControl
+							label={ __( 'Show Author',  'post-type-archive-mapping' ) }
+							checked={ showAuthor }
+							onChange={ ( value ) => setAttributes( { showAuthor: value } ) }
+						/>
 					</PanelBody>
 				</InspectorControls>
 				<Fragment>
@@ -149,7 +154,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							) }
 							style={slideStyles}
 					>
-						<PlainText
+						<RichText
 							style={slideStyles}
 							value={ content }
 							onChange={ ( content ) => setAttributes( { content } ) }
@@ -157,6 +162,17 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							aria-label={ __( 'Blockquote content.', 'wp-presenter-pro' ) }
 						/>
 					</blockquote>
+					{showAuthor &&
+						<RichText
+							className={ classnames(
+								'wp-presenter-pro-blockquote-author',
+							) }
+							value={ author }
+							onChange={ ( author ) => setAttributes( { author } ) }
+							placeholder={ __( 'Author name here.', 'wp-presenter-pro' ) }
+							aria-label={ __( 'Author name.', 'wp-presenter-pro' ) }
+						/>
+					}
 				</Fragment>
 			</Fragment>
 		);
