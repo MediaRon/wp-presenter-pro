@@ -47,12 +47,12 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author, backgroundType, backgroundGradient, blockquoteAlign, authorFont, authorFontSize, authorImage, authorWidth, authorRadius, authorColor, quoteFont, quoteFontSize, quoteColor } = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author, backgroundType, backgroundGradient, blockquoteAlign, authorFont, authorFontSize, authorImage, authorWidth, authorRadius, authorColor, quoteFont, quoteFontSize, quoteColor, borderSize, borderColor, paddingLeft, paddingRight, paddingTop, paddingBottom } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
 			color: textColor,
-			padding: padding + 'px',
+			padding: `${paddingTop}px ${paddingRight}px ${paddingBottom}px ${paddingLeft}px`,
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
 			fontSize: `${fontSize}px`,
@@ -72,6 +72,9 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 		if ( 'gradient' === backgroundType ) {
 			slideStyles.backgroundImage = backgroundGradient;	
+		}
+		if ( 'border' === quoteStyle ) {
+			slideStyles.borderLeft = `${borderSize}px solid ${borderColor}`
 		}
 
 		const backgroundSelectOptions = [
@@ -171,9 +174,33 @@ class WP_Presenter_Pro_Blockquote extends Component {
 						/>
 
 						<RangeControl
-							label={ __( 'Padding', 'wp-presenter-pro' ) }
-							value={ padding }
-							onChange={ ( value ) => setAttributes( { padding: value } ) }
+							label={ __( 'Padding Top', 'wp-presenter-pro' ) }
+							value={ paddingTop }
+							onChange={ ( value ) => setAttributes( { paddingTop: value } ) }
+							min={ 0 }
+							max={ 200 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __( 'Padding Right', 'wp-presenter-pro' ) }
+							value={ paddingRight }
+							onChange={ ( value ) => setAttributes( { paddingRight: value } ) }
+							min={ 0 }
+							max={ 200 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __( 'Padding Bottom', 'wp-presenter-pro' ) }
+							value={ paddingBottom }
+							onChange={ ( value ) => setAttributes( { paddingBottom: value } ) }
+							min={ 0 }
+							max={ 200 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __( 'Padding Left', 'wp-presenter-pro' ) }
+							value={ paddingLeft }
+							onChange={ ( value ) => setAttributes( { paddingLeft: value } ) }
 							min={ 0 }
 							max={ 200 }
 							step={ 1 }
@@ -201,6 +228,31 @@ class WP_Presenter_Pro_Blockquote extends Component {
 								setAttributes( {quoteStyle: value} );
 							} }
 						/>
+						{ 'border' === quoteStyle &&
+							<Fragment>
+								<RangeControl
+									label={ __( 'Border Size', 'wp-presenter-pro' ) }
+									value={ borderSize }
+									onChange={ ( value ) => setAttributes( { borderSize: value } ) }
+									min={ 0 }
+									max={ 140 }
+									step={ 1 }
+								/>
+								<PanelColorSettings
+									title={ __( 'Border Color', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: borderColor,
+										onChange: ( value ) => {
+											setAttributes( { borderColor: value});
+										},
+										label: __( 'Border Color', 'wp-presenter-pro' ),
+									} ] }
+									disableAlpha={true}
+								>
+								</PanelColorSettings>
+							</Fragment>
+						}
 						{ 'quotes' === quoteStyle &&
 							<Fragment>
 								<SelectControl

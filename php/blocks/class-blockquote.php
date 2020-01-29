@@ -120,7 +120,7 @@ class BlockQuote extends Block {
 						'type'    => 'integer',
 						'default' => 0,
 					),
-					'authorColor'         => array(
+					'authorColor'             => array(
 						'type'    => 'string',
 						'default' => 'inherit',
 					),
@@ -128,17 +128,41 @@ class BlockQuote extends Block {
 						'type'    => 'string',
 						'default' => '',
 					),
-					'quoteFont'              => array(
+					'quoteFont'               => array(
 						'type'    => 'string',
 						'default' => 'source-sans-pro',
 					),
-					'quoteFontSize'              => array(
+					'quoteFontSize'           => array(
 						'type'    => 'integer',
 						'default' => 80,
 					),
 					'quoteColor'              => array(
 						'type'    => 'string',
 						'default' => inherit,
+					),
+					'borderColor'             => array(
+						'type'    => 'string',
+						'default' => inherit,
+					),
+					'borderSize'              => array(
+						'type'    => 'integer',
+						'default' => 0,
+					),
+					'paddingLeft'             => array(
+						'type'    => 'integer',
+						'default' => 0,
+					),
+					'paddingRight'            => array(
+						'type'    => 'integer',
+						'default' => 0,
+					),
+					'paddingTop'              => array(
+						'type'    => 'integer',
+						'default' => 0,
+					),
+					'paddingBottom'           => array(
+						'type'    => 'integer',
+						'default' => 0,
 					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
@@ -184,9 +208,23 @@ class BlockQuote extends Block {
 			} else {
 				$background_color = $background_hex;
 			}
+
+			// Padding.
+			$padding_left   = isset( $attributes['paddingLeft'] ) ? absint( $attributes['paddingLeft'] ) : 0;
+			$padding_right  = isset( $attributes['paddingRight'] ) ? absint( $attributes['paddingRight'] ) : 0;
+			$padding_top    = isset( $attributes['paddingTop'] ) ? absint( $attributes['paddingTop'] ) : 0;
+			$padding_bottom = isset( $attributes['paddingBottom'] ) ? absint( $attributes['paddingBottom'] ) : 0;
+			$padding        = sprintf(
+				'%dpx %dpx %dpx %dpx',
+				$padding_top,
+				$padding_right,
+				$padding_bottom,
+				$padding_left
+			);
 			?>
-			" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-image: <?php echo isset( $attributes['backgroundGradient'] ) && $gradient ? esc_html( $attributes['backgroundGradient'] ) : 'inherit'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
-			font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->title_font_size ) . 'px'; ?>">
+			" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-image: <?php echo isset( $attributes['backgroundGradient'] ) && $gradient ? esc_html( $attributes['backgroundGradient'] ) : 'inherit'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo esc_attr( $padding ); ?>;
+			font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px;' : absint( $this->title_font_size ) . 'px; '; ?>
+			<?php echo isset( $attributes['quoteStyle'] ) && 'border' === $attributes['quoteStyle'] ? esc_attr( sprintf( 'border-left: %dpx solid %s;', $attributes['borderSize'], $attributes['borderColor'] ) ) : ''; ?>">
 			<?php
 			if ( isset( $attributes['quoteStyle'] ) && 'quotes' === $attributes['quoteStyle'] ) {
 				$style = sprintf(
@@ -216,7 +254,7 @@ class BlockQuote extends Block {
 				</div>
 				<?php
 			}
-		echo '</div>';
-		return ob_get_clean();
+			echo '</div>';
+			return ob_get_clean();
 	}
 }
