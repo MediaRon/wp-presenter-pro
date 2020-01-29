@@ -66,6 +66,8 @@ Feel free to ask a question and it will be answered here.
 * Released 2020-01-28
 * Added style attributes to the HTML block attribute for immense flexibility.
 * Fixed transitions on horizontal and vertical slides.
+* Adjusted block styling in the back-end to accomodate larger items.
+* Adding font sizes and cleaning up the code block.
 
 = 3.1.0 =
 * Released 2020-01-24
