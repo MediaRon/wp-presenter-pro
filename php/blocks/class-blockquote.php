@@ -128,6 +128,18 @@ class BlockQuote extends Block {
 						'type'    => 'string',
 						'default' => '',
 					),
+					'quoteFont'              => array(
+						'type'    => 'string',
+						'default' => 'source-sans-pro',
+					),
+					'quoteFontSize'              => array(
+						'type'    => 'integer',
+						'default' => 80,
+					),
+					'quoteColor'              => array(
+						'type'    => 'string',
+						'default' => inherit,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -175,6 +187,24 @@ class BlockQuote extends Block {
 			?>
 			" style="color: <?php echo isset( $attributes['textColor'] ) ? esc_html( $attributes['textColor'] ) : '#000000'; ?>; background-image: <?php echo isset( $attributes['backgroundGradient'] ) && $gradient ? esc_html( $attributes['backgroundGradient'] ) : 'inherit'; ?>; background-color: <?php echo esc_html( $background_color ); ?>; padding: <?php echo isset( $attributes['padding'] ) ? absint( $attributes['padding'] ) . 'px' : 0; ?>;
 			font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px' : absint( $this->title_font_size ) . 'px'; ?>">
+			<?php
+			if ( isset( $attributes['quoteStyle'] ) && 'quotes' === $attributes['quoteStyle'] ) {
+				$style = sprintf(
+					'font-size: %dpx; font-family: %s; color: %s;',
+					isset( $attributes['quoteFontSize'] ) ? absint( $attributes['quoteFontSize'] ) : 'inherit',
+					isset( $attributes['quoteFont'] ) ? esc_attr( $attributes['quoteFont'] ) : 'inherit',
+					isset( $attributes['quoteColor'] ) ? esc_attr( $attributes['quoteColor'] ) : 'inherit'
+				);
+				?>
+				<div class="wp-presenter-top-left-quote" style="<?php echo esc_attr( $style ); ?>">
+					&ldquo;
+				</div>
+				<div class="wp-presenter-bottom-right-quote" style="<?php echo esc_attr( $style ); ?>">
+					&rdquo;
+				</div>
+				<?php
+			}
+			?>
 			<?php echo wp_kses_post( $attributes['content'] ); ?>
 			</blockquote>
 			<?php
