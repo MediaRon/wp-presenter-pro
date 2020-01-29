@@ -246,7 +246,6 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							style={slideStyles}
 					>
 						<RichText
-							style={slideStyles}
 							value={ content }
 							onChange={ ( content ) => setAttributes( { content } ) }
 							placeholder={ __( 'Enter your blockquote here.', 'wp-presenter-pro' ) }

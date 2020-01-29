@@ -80,7 +80,11 @@ blockquote.slide-blockquote-capitalized,
     margin: 10px; }
 
 .reveal blockquote.wp-presenter-pro-blockquote {
-  width: 100%; }
+  width: 100%;
+  margin: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 .wp-presenter-pro-blockquote {
   line-height: 1.2;
@@ -370,7 +374,11 @@ blockquote.slide-blockquote-capitalized,
     margin: 10px; }
 
 .reveal blockquote.wp-presenter-pro-blockquote {
-  width: 100%; }
+  width: 100%;
+  margin: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
 
 .wp-presenter-pro-blockquote {
   line-height: 1.2;
