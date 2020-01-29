@@ -18,6 +18,11 @@ blockquote.slide-blockquote-capitalized,
   font-style: normal;
   border: 0; }
 
+.wp-presenter-pro-blockquote-author {
+  text-align: left;
+  font-size: 25px;
+  margin-top: 30px; }
+
 .wp-presenter-pro-text-box {
   font-size: 32px;
   line-height: 1.1;
@@ -75,8 +80,44 @@ blockquote.slide-blockquote-capitalized,
     padding: 10px;
     margin: 10px; }
 
+.reveal pre code.hljs {
+  word-wrap: break-word;
+  max-height: 100vh; }
+
+.reveal blockquote.wp-presenter-pro-blockquote {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-style: normal; }
+
 .wp-presenter-pro-blockquote {
-  line-height: 1.2; }
+  position: relative;
+  line-height: 1.2;
+  text-align: left;
+  margin: 0;
+  width: 100%; }
+  .wp-presenter-pro-blockquote.left {
+    text-align: left; }
+  .wp-presenter-pro-blockquote.center {
+    text-align: center; }
+  .wp-presenter-pro-blockquote.right {
+    text-align: right; }
+  .wp-presenter-pro-blockquote .wp-presenter-top-left-quote {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    font-size: 60px;
+    line-height: 1;
+    font-style: normal; }
+  .wp-presenter-pro-blockquote .wp-presenter-bottom-right-quote {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 60px;
+    line-height: 0;
+    font-style: normal; }
 
 .wp-presenter-pro-button {
   text-align: center; }
