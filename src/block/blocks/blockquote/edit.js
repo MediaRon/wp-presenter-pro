@@ -90,14 +90,6 @@ class WP_Presenter_Pro_Blockquote extends Component {
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Blockquote', 'wp-presenter-pro' ) }>
 						<SelectControl
-							label={ __( 'Select a Blockquote Type', 'wp-presenter-pro' ) }
-							value={quoteStyle}
-							options={ blockquoteStyles }
-							onChange={ ( value ) => {
-								setAttributes( {quoteStyle: value} );
-							} }
-						/>
-						<SelectControl
 							label={ __( 'Select a Background Type', 'wp-presenter-pro' ) }
 							value={backgroundType}
 							options={ backgroundSelectOptions }
@@ -199,79 +191,90 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							checked={ titleCapitalization }
 							onChange={ ( value ) => setAttributes( { titleCapitalization: value } ) }
 						/>
-						<ToggleControl
-							label={ __( 'Show Author',  'post-type-archive-mapping' ) }
-							checked={ showAuthor }
-							onChange={ ( value ) => setAttributes( { showAuthor: value } ) }
-						/>
 					</PanelBody>
-					{'quotes' === quoteStyle &&
-						<PanelBody title={ __( 'Quotes', 'wp-presenter-pro' ) }>
-							<SelectControl
+					<PanelBody title={ __( 'Quotes', 'wp-presenter-pro' ) }>
+						<SelectControl
+							label={ __( 'Select a Blockquote Type', 'wp-presenter-pro' ) }
+							value={quoteStyle}
+							options={ blockquoteStyles }
+							onChange={ ( value ) => {
+								setAttributes( {quoteStyle: value} );
+							} }
+						/>
+						{ 'quotes' === quoteStyle &&
+							<Fragment>
+								<SelectControl
 									label={ __( 'Select a Font', 'wp-presenter-pro' ) }
 									value={quoteFont}
 									options={ revealFonts }
 									onChange={ ( value ) => {
 										setAttributes( {quoteFont: value} );
 									} }
-							/>
-							<RangeControl
-								label={ __( 'Font Size', 'wp-presenter-pro' ) }
-								value={ quoteFontSize }
-								onChange={ ( value ) => setAttributes( { quoteFontSize: value } ) }
-								min={ 12 }
-								max={ 140 }
-								step={ 1 }
-							/>
-							<PanelColorSettings
-								title={ __( 'Quote Color', 'wp-presenter-pro' ) }
-								initialOpen={ true }
-								colorSettings={ [ {
-									value: quoteColor,
-									onChange: ( value ) => {
-										setAttributes( { quoteColor: value});
-									},
-									label: __( 'Quote Color', 'wp-presenter-pro' ),
-								} ] }
-								disableAlpha={true}
-							>
-							</PanelColorSettings>
-						</PanelBody>
-					}
-					{ showAuthor && 
-						<PanelBody title={ __( 'Author Options', 'wp-presenter-pro' ) }>
-							<SelectControl
+								/>
+								<RangeControl
+									label={ __( 'Font Size', 'wp-presenter-pro' ) }
+									value={ quoteFontSize }
+									onChange={ ( value ) => setAttributes( { quoteFontSize: value } ) }
+									min={ 12 }
+									max={ 140 }
+									step={ 1 }
+								/>
+								<PanelColorSettings
+									title={ __( 'Quote Color', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: quoteColor,
+										onChange: ( value ) => {
+											setAttributes( { quoteColor: value});
+										},
+										label: __( 'Quote Color', 'wp-presenter-pro' ),
+									} ] }
+									disableAlpha={true}
+								>
+								</PanelColorSettings>
+							</Fragment>
+						}
+					</PanelBody>
+					<PanelBody title={ __( 'Author Options', 'wp-presenter-pro' ) }>
+						<ToggleControl
+							label={ __( 'Show Author',  'post-type-archive-mapping' ) }
+							checked={ showAuthor }
+							onChange={ ( value ) => setAttributes( { showAuthor: value } ) }
+						/>
+						{ showAuthor &&
+							<Fragment>
+								<SelectControl
 									label={ __( 'Select a Font', 'wp-presenter-pro' ) }
 									value={authorFont}
 									options={ revealFonts }
 									onChange={ ( value ) => {
 										setAttributes( {authorFont: value} );
 									} }
-							/>
-							<RangeControl
-								label={ __( 'Font Size', 'wp-presenter-pro' ) }
-								value={ authorFontSize }
-								onChange={ ( value ) => setAttributes( { authorFontSize: value } ) }
-								min={ 12 }
-								max={ 80 }
-								step={ 1 }
-							/>
-							<PanelColorSettings
-								title={ __( 'Text Color', 'wp-presenter-pro' ) }
-								initialOpen={ true }
-								colorSettings={ [ {
-									value: authorColor,
-									onChange: ( value ) => {
-										setAttributes( { authorColor: value});
-									},
-									label: __( 'Text Color', 'wp-presenter-pro' ),
-								} ] }
-								disableAlpha={true}
-							>
-							</PanelColorSettings>
-						</PanelBody>
-					}
-					
+								/>
+								<RangeControl
+									label={ __( 'Font Size', 'wp-presenter-pro' ) }
+									value={ authorFontSize }
+									onChange={ ( value ) => setAttributes( { authorFontSize: value } ) }
+									min={ 12 }
+									max={ 80 }
+									step={ 1 }
+								/>
+								<PanelColorSettings
+									title={ __( 'Text Color', 'wp-presenter-pro' ) }
+									initialOpen={ true }
+									colorSettings={ [ {
+										value: authorColor,
+										onChange: ( value ) => {
+											setAttributes( { authorColor: value});
+										},
+										label: __( 'Text Color', 'wp-presenter-pro' ),
+									} ] }
+									disableAlpha={true}
+								>
+								</PanelColorSettings>
+							</Fragment>
+						}
+					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
