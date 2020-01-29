@@ -47,7 +47,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author, backgroundType, backgroundGradient, blockquoteAlign } = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, fontSize, transitions, content, opacity, quoteStyle, showAuthor, author, backgroundType, backgroundGradient, blockquoteAlign, authorFont, authorFontSize, authorImage, authorWidth, authorRadius, authorColor } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
@@ -56,6 +56,12 @@ class WP_Presenter_Pro_Blockquote extends Component {
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`,
 			fontSize: `${fontSize}px`,
+		};
+
+		let authorStyles = {
+			color: authorColor,
+			fontFamily: `${authorFont}`,
+			fontSize: `${authorFontSize}px`,
 		};
 
 		if ( 'gradient' === backgroundType ) {
@@ -67,10 +73,24 @@ class WP_Presenter_Pro_Blockquote extends Component {
 			{ value: 'gradient', label: __( 'Gradient (Requires Gutenberg plugin)', 'wp-presenter-pro' ) },
 		];
 
+		const blockquoteStyles = [
+			{ value: 'none', label: __( 'None', 'wp-presenter-pro' ) },
+			{ value: 'quotes', label: __( 'Quotes', 'wp-presenter-pro' ) },
+			{ value: 'border', label: __( 'Border', 'wp-presenter-pro' ) },
+		];
+
 		return (
 			<Fragment>
 				<InspectorControls>
 					<PanelBody title={ __( 'WP Presenter Pro Blockquote', 'wp-presenter-pro' ) }>
+						<SelectControl
+							label={ __( 'Select a Quote Type', 'wp-presenter-pro' ) }
+							value={quoteStyle}
+							options={ blockquoteStyles }
+							onChange={ ( value ) => {
+								setAttributes( {quoteStyle: value} );
+							} }
+						/>
 						<SelectControl
 							label={ __( 'Select a Background Type', 'wp-presenter-pro' ) }
 							value={backgroundType}
@@ -179,6 +199,37 @@ class WP_Presenter_Pro_Blockquote extends Component {
 							onChange={ ( value ) => setAttributes( { showAuthor: value } ) }
 						/>
 					</PanelBody>
+					<PanelBody title={ __( 'Author Options', 'wp-presenter-pro' ) }>
+						<SelectControl
+								label={ __( 'Select a Font', 'wp-presenter-pro' ) }
+								value={authorFont}
+								options={ revealFonts }
+								onChange={ ( value ) => {
+									setAttributes( {authorFont: value} );
+								} }
+						/>
+						<RangeControl
+							label={ __( 'Font Size', 'wp-presenter-pro' ) }
+							value={ authorFontSize }
+							onChange={ ( value ) => setAttributes( { authorFontSize: value } ) }
+							min={ 12 }
+							max={ 80 }
+							step={ 1 }
+						/>
+						<PanelColorSettings
+							title={ __( 'Text Color', 'wp-presenter-pro' ) }
+							initialOpen={ true }
+							colorSettings={ [ {
+								value: authorColor,
+								onChange: ( value ) => {
+									setAttributes( { authorColor: value});
+								},
+								label: __( 'Text Color', 'wp-presenter-pro' ),
+							} ] }
+							disableAlpha={true}
+						>
+						</PanelColorSettings>
+					</PanelBody>
 				</InspectorControls>
 				<BlockControls>
 					<AlignmentToolbar
@@ -204,6 +255,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 					</blockquote>
 					{showAuthor &&
 						<RichText
+							style={authorStyles}
 							className={ classnames(
 								'wp-presenter-pro-blockquote-author',
 							) }
