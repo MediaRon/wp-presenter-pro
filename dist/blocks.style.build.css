@@ -79,6 +79,10 @@ blockquote.slide-blockquote-capitalized,
     padding: 10px;
     margin: 10px; }
 
+.reveal pre code.hljs {
+  word-wrap: break-word;
+  max-height: 100vh; }
+
 .reveal blockquote.wp-presenter-pro-blockquote {
   width: 100%;
   margin: 0;
