@@ -18,11 +18,22 @@ import edit from './edit';
 registerBlockType( 'wppp/slide-title', {
 	title: __( 'Slide Title', 'wp-presenter-pro' ), // Block title.
 	icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 4v3h5.5v12h3V7H19V4z"/><path fill="none" d="M0 0h24v24H0V0z"/></svg>,
+	description: __( 'Use a slide title for your main title for the slide.', 'wp-presenter-pro' ),
 	category: 'wp-presenter-pro',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
 		__( 'title', 'wp-presenter-pro' ),
 	],
 	edit: edit,
-	save() {return null }
+	save() {return null },
+	example: {
+		attributes: {
+			backgroundColor: '#000000',
+			opacity: 0.8,
+			padding: 30,
+			textColor: '#FFFFFF',
+			radius: 10,
+			title: __( 'I am a slide title', 'wp-presenter-pro' ),
+		},
+	},
 } );

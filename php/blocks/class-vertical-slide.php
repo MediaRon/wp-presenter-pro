@@ -96,6 +96,10 @@ class Vertical_Slide {
 						'type'    => 'string',
 						'default' => 'full',
 					),
+					'preview'                => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

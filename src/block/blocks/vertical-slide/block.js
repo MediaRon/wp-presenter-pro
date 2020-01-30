@@ -21,6 +21,7 @@ const validAlignments = [ 'full' ];
 registerBlockType( 'wppp/vertical-slide', {
 	title: __( 'WP Presenter Vertical Slide', 'wp-presenter-pro' ), // Block title.
 	icon: 'slides',
+	description: __( 'Add a vertical slide to your presentation, which will appear under regular slides.', 'wp-presenter-pro' ),
 	category: 'wp-presenter-pro-slides',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
@@ -37,5 +38,10 @@ registerBlockType( 'wppp/vertical-slide', {
 		return (
 		  <InnerBlocks.Content />
 		);
+	},
+	example: {
+		attributes: {
+			'preview' : true,
+		},
 	},
 } );

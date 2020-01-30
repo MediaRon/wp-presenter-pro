@@ -45,7 +45,7 @@ class WP_Presenter_Pro_Unordered_List extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity, fragments} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, titleCapitalization, font, transitions, content, opacity, fragments, preview} = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
@@ -54,6 +54,14 @@ class WP_Presenter_Pro_Unordered_List extends Component {
 			borderRadius: radius + 'px',
 			fontFamily: `${font}`
 		};
+
+		if ( preview ) {
+			return(
+				<Fragment>
+					<img src={wp_presenter_pro.list_item_preview} />
+				</Fragment>
+			);
+		}
 
 		return (
 			<Fragment>

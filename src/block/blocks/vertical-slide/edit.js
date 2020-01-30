@@ -37,7 +37,7 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, videoType, speakerNotes, backgroundGradient, loopVideo, muteVideo} = this.props.attributes;
+		const { backgroundColor, textColor, backgroundType, backgroundImageOptions, backgroundVideo, backgroundImg, transition, backgroundTransition, iframeUrl, videoType, speakerNotes, backgroundGradient, loopVideo, muteVideo, preview } = this.props.attributes;
 
 		// Get Theme Settings.
 		const transitions = [
@@ -83,6 +83,14 @@ class WP_Presenter_Pro_Vertical_Slide extends Component {
 		}
 		if ( backgroundImageOptions == 'repeat' && 'background' !== backgroundType ) {
 			slideStyles.backgroundRepeat = 'repeat';
+		}
+
+		if ( preview ) {
+			return(
+				<Fragment>
+					<img src={wp_presenter_pro.slide_preview} />
+				</Fragment>
+			);
 		}
 
 		return (

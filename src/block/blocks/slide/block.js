@@ -22,6 +22,7 @@ const validAlignments = [ 'full' ];
 registerBlockType( 'wppp/slide', {
 	title: __( 'WP Presenter Slide', 'wp-presenter-pro' ), // Block title.
 	icon: 'slides',
+	description: __( 'Slides are the main starting point for constructing your presentations.', 'wp-presenter-pro' ),
 	category: 'wp-presenter-pro-slides',
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
@@ -38,5 +39,10 @@ registerBlockType( 'wppp/slide', {
 		return (
 		  <InnerBlocks.Content />
 		);
+	},
+	example: {
+		attributes: {
+			'preview' : true,
+		},
 	},
 } );

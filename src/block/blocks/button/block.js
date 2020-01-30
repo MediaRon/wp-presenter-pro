@@ -19,10 +19,22 @@ registerBlockType( 'wppp/button', {
 	title: __( 'Button', 'wp-presenter-pro' ), // Block title.
 	icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 5H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H5V7h14v10z"/></svg>,
 	category: 'wp-presenter-pro',
+	description: __( 'Add a button to your presentation.', 'wp-presenter-pro' ),
 	keywords: [
 		__( 'slide', 'wp-presenter-pro' ),
 		__( 'button', 'wp-presenter-pro' ),
 	],
 	edit: edit,
-	save() {return null }
+	save() {return null },
+	example: {
+		attributes: {
+			backgroundType: 'gradient',
+			backgroundGradient: 'linear-gradient(-225deg, rgb(255, 5, 124) 0%, rgb(141, 11, 147) 50%, rgb(50, 21, 117) 100%)',
+			paddingLR: 30,
+			paddingTB: 20,
+			textColor: '#FFFFFF',
+			radius: 20,
+			content: __( 'I am a button', 'wp-presenter-pro' ),
+		},
+	},
 } );

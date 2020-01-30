@@ -188,7 +188,7 @@ class BlockQuote extends Block {
 		ob_start()
 		?>
 		<div class="wp-presenter-pro-blockquote-wrapper
-		<?php 
+		<?php
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 				echo esc_html( $attributes['transitions'] );
 				echo ' ';

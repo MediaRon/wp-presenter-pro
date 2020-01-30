@@ -72,6 +72,10 @@ class List_Item extends Block {
 						'type'    => 'boolean',
 						'default' => false,
 					),
+					'preview'         => array(
+						'type'    => 'boolean',
+						'default' => false,
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)

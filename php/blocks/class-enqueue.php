@@ -143,13 +143,15 @@ class Enqueue {
 			'wp-presenter-pro-js',
 			'wp_presenter_pro',
 			array(
-				'rest_url'       => get_rest_url(),
-				'rest_nonce'     => wp_create_nonce( 'wp_rest' ),
-				'image_sizes'    => $js_format_sizes,
-				'mathjax'        => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
-				'fonts'          => $pro_fonts,
-				'allowed_blocks' => $allowed_blocks,
-				'block_options'  => $options['blocks'],
+				'rest_url'          => get_rest_url(),
+				'rest_nonce'        => wp_create_nonce( 'wp_rest' ),
+				'image_sizes'       => $js_format_sizes,
+				'mathjax'           => WP_PRESENTER_PRO_URL . 'js/mathjax.js',
+				'fonts'             => $pro_fonts,
+				'allowed_blocks'    => $allowed_blocks,
+				'block_options'     => $options['blocks'],
+				'list_item_preview' => WP_PRESENTER_PRO_URL . 'images/list-item-preview.jpg',
+				'slide_preview'     => WP_PRESENTER_PRO_URL . 'images/slide-preview.jpg',
 			)
 		);
 		wp_set_script_translations( 'wp-presenter-pro-js', 'wp-presenter-pro' );
