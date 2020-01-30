@@ -83,6 +83,8 @@ class Enqueue {
 
 		// Allow others to add blocks.
 		$allowed_blocks = array(
+			'core/image',
+			'core/cover',
 			'wppp/content',
 			'wppp/content-image',
 			'wppp/spacer',

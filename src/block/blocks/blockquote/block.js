@@ -24,5 +24,14 @@ registerBlockType( 'wppp/blockquote', {
 		__( 'blockquote', 'wp-presenter-pro' ),
 	],
 	edit: edit,
-	save() {return null }
+	save() {return null },
+	example: {
+		attributes: {
+			fullwidth: false,
+			gutter: 5,
+			images: [
+				{ index: 0, url: 'https://s.w.org/images/core/5.3/Windbuchencom.jpg' },
+			],
+		},
+	},
 } );

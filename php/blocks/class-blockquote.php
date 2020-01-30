@@ -138,11 +138,11 @@ class BlockQuote extends Block {
 					),
 					'quoteColor'              => array(
 						'type'    => 'string',
-						'default' => inherit,
+						'default' => 'inherit',
 					),
 					'borderColor'             => array(
 						'type'    => 'string',
-						'default' => inherit,
+						'default' => 'inherit',
 					),
 					'borderSize'              => array(
 						'type'    => 'integer',
@@ -187,14 +187,17 @@ class BlockQuote extends Block {
 		}
 		ob_start()
 		?>
-		<div class="wp-presenter-pro-blockquote-wrapper">
-			<blockquote class="wp-presenter-pro-blockquote
-			<?php
-			if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
+		<div class="wp-presenter-pro-blockquote-wrapper
+		<?php 
+		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 				echo esc_html( $attributes['transitions'] );
 				echo ' ';
 				echo 'fragment';
-			}
+		}
+		?>
+		">
+			<blockquote class="wp-presenter-pro-blockquote
+			<?php
 			if ( isset( $attributes['blockquoteAlign'] ) ) {
 				echo esc_html( ' ' . $attributes['blockquoteAlign'] );
 			}
