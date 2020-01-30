@@ -85,6 +85,7 @@ class Enqueue {
 		$allowed_blocks = array(
 			'core/image',
 			'core/cover',
+			'core/quote',
 			'wppp/content',
 			'wppp/content-image',
 			'wppp/spacer',
