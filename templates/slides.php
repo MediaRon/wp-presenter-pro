@@ -29,7 +29,7 @@ do_action( 'wp_presenter_pro_slide_head' );
 $wppp_id     = get_queried_object_id();
 $maybe_theme = get_post_meta( $wppp_id, 'slides-theme', true );
 $theme       = $maybe_theme ? $maybe_theme : 'black';
-wp_enqueue_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
+wp_register_style( 'wp-presenter-display-theme', WP_PRESENTER_PRO_URL . '/assets/reveal/css/theme/' . $theme . '.css', array(), WP_PRESENTER_PRO_VERSION );
 
 $show_admin_bar_meta   = get_post_meta( $wppp_id, 'slides-show-admin-bar', true );
 $show_admin_bar_helper = '__return_false';
@@ -55,6 +55,9 @@ add_filter( 'show_admin_bar', $show_admin_bar_helper );
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<?php
 	do_action( 'wp_head' );
+	if ( apply_filters( 'wp_presenter_pro_display_theme', true ) ) {
+		wp_print_styles( array( 'wp-presenter-display-theme' ) );
+	}
 	?>
 	<style type="text/css">
 	/* 1. Style header/footer <div> so they are positioned as desired. */

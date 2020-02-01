@@ -54,11 +54,11 @@ class Slide {
 					),
 					'backgroundColor'        => array(
 						'type'    => 'string',
-						'default' => '#f3a75b',
+						'default' => 'inherit',
 					),
 					'textColor'              => array(
 						'type'    => 'string',
-						'default' => '#000000',
+						'default' => 'inherit',
 					),
 					'transition'             => array(
 						'type'    => 'string',

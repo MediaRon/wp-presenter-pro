@@ -10,6 +10,9 @@
   text-align: center;
   font-weight: 700; }
 
+.wp-presenter-pro-unordered-list {
+  text-align: left; }
+
 .slide-title-capitalized,
 .slide-blockquote-capitalized .block-editor-plain-text,
 blockquote.slide-blockquote-capitalized,
