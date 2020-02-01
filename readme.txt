@@ -3,7 +3,7 @@ Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
 Tested up to: 5.3.2
-Stable tag: 3.1.1
+Stable tag: 3.1.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -61,6 +61,14 @@ Built on <a href="https://github.com/hakimel/reveal.js">Reveal.js</a>
 Feel free to ask a question and it will be answered here.
 
 == Changelog ==
+
+= 3.1.2 =
+* Released 2020-02-01
+* Overhaul of the blockquote block to add gradients, inner/outer quotes, padding, and author attribute.
+* Fixing slide theme load order so the WordPress theme does not override defaults.
+* Block styling in the back-end more accurately represents what is shown in the presentation.
+* Slide title can now be aligned left, center, or right.
+* Code block can now accomodate more height and a font size/typeface.
 
 = 3.1.1 =
 * Released 2020-01-28
@@ -127,6 +135,9 @@ Feel free to ask a question and it will be answered here.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 3.1.2 =
+Overhaul of the blockquote block to add gradients, inner/outer quotes, padding, and author attribute. Fixing slide theme load order so the WordPress theme does not override defaults. Block styling in the back-end more accurately represents what is shown in the presentation. Slide title can now be aligned left, center, or right. Code block can now accomodate more height and a font size/typeface.
 
 = 3.1.1 =
 Added style attributes to the HTML block attribute for immense flexibility. Fixed transitions on horizontal and vertical slides.
