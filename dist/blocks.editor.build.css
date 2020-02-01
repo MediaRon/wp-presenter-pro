@@ -8,7 +8,14 @@
   font-size: 60px;
   line-height: 1.1;
   text-align: center;
-  font-weight: 700; }
+  font-weight: 700;
+  width: 100%; }
+  .wp-presenter-pro-slide-title.left {
+    text-align: left; }
+  .wp-presenter-pro-slide-title.center {
+    text-align: center; }
+  .wp-presenter-pro-slide-title.right {
+    text-align: right; }
 
 .wp-presenter-pro-unordered-list {
   text-align: left; }
@@ -34,10 +41,12 @@ blockquote.slide-blockquote-capitalized,
 .wp-presenter-pro-slide {
   display: block;
   text-align: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   min-height: 500px;
   overflow: hidden; }
+  .wp-presenter-pro-slide .wp-block-group__inner-container {
+    width: 100%; }
 
 .wp-presenter-pro-slide-transition {
   background-color: rgba(0, 0, 0, 0.3);
@@ -330,7 +339,14 @@ blockquote.slide-blockquote-capitalized,
   font-size: 60px;
   line-height: 1.1;
   text-align: center;
-  font-weight: 700; }
+  font-weight: 700;
+  width: 100%; }
+  .wp-presenter-pro-slide-title.left {
+    text-align: left; }
+  .wp-presenter-pro-slide-title.center {
+    text-align: center; }
+  .wp-presenter-pro-slide-title.right {
+    text-align: right; }
 
 .wp-presenter-pro-unordered-list {
   text-align: left; }
@@ -356,10 +372,12 @@ blockquote.slide-blockquote-capitalized,
 .wp-presenter-pro-slide {
   display: block;
   text-align: center;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   min-height: 500px;
   overflow: hidden; }
+  .wp-presenter-pro-slide .wp-block-group__inner-container {
+    width: 100%; }
 
 .wp-presenter-pro-slide-transition {
   background-color: rgba(0, 0, 0, 0.3);

@@ -76,6 +76,10 @@ class Slide_Title extends Block {
 						'type'    => 'number',
 						'default' => 1,
 					),
+					'slideTitleAlign'     => array(
+						'type'    => 'string',
+						'default' => 'center',
+					),
 				),
 				'render_callback' => array( $this, 'frontend' ),
 			)
@@ -95,6 +99,9 @@ class Slide_Title extends Block {
 		?>
 		<div class="wp-presenter-pro-slide-title
 		<?php
+		if ( isset( $attributes['slideTitleAlign'] ) ) {
+			echo esc_html( ' ' . $attributes['slideTitleAlign'] . ' ' );
+		}
 		if ( isset( $attributes['transitions'] ) && '' !== $attributes['transitions'] && 'none' !== $attributes['transitions'] ) {
 			echo esc_html( $attributes['transitions'] );
 			echo ' ';

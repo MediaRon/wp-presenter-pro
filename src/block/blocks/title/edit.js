@@ -32,7 +32,8 @@ const {
 const {
 	RichText,
 	InspectorControls,
-	PanelColorSettings
+	PanelColorSettings,
+	AlignmentToolbar,
 } = wp.blockEditor;
 
 
@@ -45,7 +46,7 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 
 	render() {
 		const { post, setAttributes } = this.props;
-		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, fontSize, transitions, opacity} = this.props.attributes;
+		const { backgroundColor, textColor, radius, padding, title, titleCapitalization, font, fontSize, transitions, opacity, slideTitleAlign } = this.props.attributes;
 
 		let slideStyles = {
 			backgroundColor: backgroundColor ? hexToRgba(backgroundColor, opacity) : '',
@@ -143,10 +144,17 @@ class WP_Presenter_Pro_Slide_Title extends Component {
 				<Fragment>
 					<div className={ classnames(
 							'wp-presenter-pro-slide-title',
-							titleCapitalization ? 'slide-title-capitalized' : ''
+							titleCapitalization ? 'slide-title-capitalized' : '',
+							slideTitleAlign,
 						) }
 						style={slideStyles}
 					>
+						<BlockControls>
+							<AlignmentToolbar
+								value={ slideTitleAlign }
+								onChange={ ( value ) => setAttributes( { slideTitleAlign: value }) }
+							/>
+						</BlockControls>
 						<RichText
 							placeholder={__('Enter a slide title here...', 'wp-presenter-pro')}
 							value={ title }
