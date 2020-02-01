@@ -84,7 +84,8 @@ class WP_Presenter_Pro_Blockquote extends Component {
 
 		const blockquoteStyles = [
 			{ value: 'none', label: __( 'None', 'wp-presenter-pro' ) },
-			{ value: 'quotes', label: __( 'Quotes', 'wp-presenter-pro' ) },
+			{ value: 'quotes', label: __( 'Outer Quotes', 'wp-presenter-pro' ) },
+			{ value: 'inner-quotes', label: __( 'Inner Quotes', 'wp-presenter-pro' ) },
 			{ value: 'border', label: __( 'Border', 'wp-presenter-pro' ) },
 		];
 
@@ -253,7 +254,7 @@ class WP_Presenter_Pro_Blockquote extends Component {
 								</PanelColorSettings>
 							</Fragment>
 						}
-						{ 'quotes' === quoteStyle &&
+						{ 'quotes' === quoteStyle || 'inner-quotes' === quoteStyle &&
 							<Fragment>
 								<SelectControl
 									label={ __( 'Select a Font', 'wp-presenter-pro' ) }
@@ -351,7 +352,6 @@ class WP_Presenter_Pro_Blockquote extends Component {
 									&rdquo;
 								</div>
 							</Fragment>
-						
 						}
 						<RichText
 							value={ content }

@@ -229,24 +229,31 @@ class BlockQuote extends Block {
 			font-family: <?php echo isset( $attributes['font'] ) ? esc_html( $attributes['font'] ) : esc_html( $this->font_family ); ?>; border-radius: <?php echo isset( $attributes['radius'] ) ? absint( $attributes['radius'] ) . 'px' : '0px'; ?>; font-size: <?php echo isset( $attributes['fontSize'] ) ? absint( $attributes['fontSize'] ) . 'px;' : absint( $this->title_font_size ) . 'px; '; ?>
 			<?php echo isset( $attributes['quoteStyle'] ) && 'border' === $attributes['quoteStyle'] ? esc_attr( sprintf( 'border-left: %dpx solid %s;', $attributes['borderSize'], $attributes['borderColor'] ) ) : ''; ?>">
 			<?php
-			if ( isset( $attributes['quoteStyle'] ) && 'quotes' === $attributes['quoteStyle'] ) {
-				$style = sprintf(
+			$quote_styles = false;
+			if ( isset( $attributes['quoteStyle'] ) && ( 'quotes' === $attributes['quoteStyle'] || 'inner-quotes' === $attributes['quoteStyle'] ) ) {
+				$quote_styles = sprintf(
 					'font-size: %dpx; font-family: %s; color: %s;',
 					isset( $attributes['quoteFontSize'] ) ? absint( $attributes['quoteFontSize'] ) : 'inherit',
 					isset( $attributes['quoteFont'] ) ? esc_attr( $attributes['quoteFont'] ) : 'inherit',
 					isset( $attributes['quoteColor'] ) ? esc_attr( $attributes['quoteColor'] ) : 'inherit'
 				);
+			}
+			if ( isset( $attributes['quoteStyle'] ) && 'quotes' === $attributes['quoteStyle'] ) {
 				?>
-				<div class="wp-presenter-top-left-quote" style="<?php echo esc_attr( $style ); ?>">
+				<div class="wp-presenter-top-left-quote" style="<?php echo esc_attr( $quote_styles ); ?>">
 					&ldquo;
 				</div>
-				<div class="wp-presenter-bottom-right-quote" style="<?php echo esc_attr( $style ); ?>">
+				<div class="wp-presenter-bottom-right-quote" style="<?php echo esc_attr( $quote_styles ); ?>">
 					&rdquo;
 				</div>
 				<?php
 			}
+			if ( isset( $attributes['quoteStyle'] ) && 'inner-quotes' === $attributes['quoteStyle'] ) {
+				echo sprintf( '<span style="%s">&ldquo;</span> ', esc_attr( $quote_styles ) ) . wp_kses_post( $attributes['content'] ) . sprintf( ' <span style="%s">&rdquo;</span>', esc_attr( $quote_styles ) );
+			} else {
+				echo wp_kses_post( $attributes['content'] );
+			}
 			?>
-			<?php echo wp_kses_post( $attributes['content'] ); ?>
 			</blockquote>
 			<?php
 			if ( isset( $attributes['showAuthor'] ) && $attributes['showAuthor'] && isset( $attributes['author'] ) ) {
