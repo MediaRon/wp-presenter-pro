@@ -2,7 +2,7 @@
 Contributors: ronalfy
 Requires at least: 5.3
 Tags: users, presentations, slides, present, blocks, block
-Tested up to: 5.3.2
+Tested up to: 5.4
 Stable tag: 3.1.2
 Requires PHP: 5.6
 License: GPLv2 or later
