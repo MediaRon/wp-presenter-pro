@@ -31,7 +31,7 @@
   "dependencies": {
     "fstream": "^1.0.12",
     "hex-to-rgba": "^2.0.1",
-    "npm": "^6.9.0",
+    "npm": "^6.14.6",
     "tar": "^4.4.9"
   }
 }
